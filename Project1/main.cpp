@@ -3,12 +3,30 @@
 #include<string>
 using namespace std;
 
-void PrettyPrint(string input) {
+class PrettyPrint {
+
+private: 
+	int numRows;
+	int numCols;
+	int minValue;
+	int maxValue;
+
+public: 
+	PrettyPrint(string theInputFile);
+	void prettyPrint(string input);	
+
+};
+
+PrettyPrint::PrettyPrint(string theInputFile) {
+	prettyPrint(theInputFile);
+}//constructor
+
+void PrettyPrint::prettyPrint(string input) {
 
 	ifstream readInputFile;
 	ofstream readOutputFile;
-	int rows, columns, minValue, maxValue, numsInFile, pixel_val;
-	int count = 0;
+	int numsInFile, pixel_value;
+
 	size_t positionOfExt = input.find(".txt");
 	string inputFileName = input.substr(0,positionOfExt);
 	string outputFile = inputFileName + "_PP.txt";
@@ -16,23 +34,16 @@ void PrettyPrint(string input) {
 	readInputFile.open(input);
 	readOutputFile.open(outputFile);
 
+	//read in header
+	readInputFile >> numRows >> numCols >> minValue >> maxValue;
+
 	while(readInputFile >> numsInFile) {
-		if(count == 0) {
-			rows = numsInFile;
-			count++;
-		} else if(count == 1) {
-			columns = numsInFile;
-			count++;
-		} else if(count == 2) {
-			minValue = numsInFile;
-			count++;
-		} else if(count == 3) {
-			maxValue = numsInFile;
-			count++;
-		} else 
-		   readOutputFile << numsInFile << " ";
+		
+		readOutputFile << numsInFile << " ";
 	}
-}
+	readOutputFile.close();
+	readOutputFile.close();
+}//prettyPrint method
 
 int main(int argc, char *argv[]) {
 
@@ -41,7 +52,9 @@ int main(int argc, char *argv[]) {
 		return 0;	
 	}
 
-    PrettyPrint(inputFile);
+	string inputFile = argv[1];
+
+    PrettyPrint ppObj(inputFile);
     return 0;
 }
 
