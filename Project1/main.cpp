@@ -8,7 +8,7 @@ void prettyPrint(string inputFile) {
 	ifstream readInputFile;
 	ofstream readOutputFile;
 	int numRows, numCols, minValue, maxValue,
-	    numsInFile, pixel_value;
+	    numInFile, pixel_value;
 
 	//set the name of output file 
 	size_t positionOfExt = inputFile.find(".txt");
@@ -21,10 +21,16 @@ void prettyPrint(string inputFile) {
 	//read in header
 	readInputFile >> numRows >> numCols >> minValue >> maxValue;
 
-	while(readInputFile >> numsInFile) {
-		
-		readOutputFile << numsInFile << " ";
-	}
+	//read in the input file
+	for(int i = 0; i < numRows; i++) {
+		for(int j = 0; j < numCols; j++) {
+			readInputFile >> numInFile;
+			if(numInFile == 0)
+				readOutputFile << " ";
+			else 
+				readOutputFile << numInFile << " ";
+		}
+	}		
 	//close the files
 	readOutputFile.close();
 	readOutputFile.close();
