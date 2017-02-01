@@ -24,11 +24,11 @@ void prettyPrint(string inputFile) {
 	//read in the input file
 	for(int i = 0; i < numRows; i++) {
 		for(int j = 0; j < numCols; j++) {
-			readInputFile >> numInFile;
-			if(numInFile == 0)
-				readOutputFile << " ";
+			readInputFile >> pixel_value;
+			if(pixel_value > 0) 
+				readOutputFile << pixel_value << "  ";
 			else 
-				readOutputFile << numInFile << " ";
+				readOutputFile << "  ";
 		}
 	}		
 	//close the files
