@@ -9,8 +9,8 @@ void PrettyPrint(string input) {
 	ofstream readOutputFile;
 	int rows, columns, minValue, maxValue, numsInFile, pixel_val;
 	int count = 0;
-	size_t posOfExt = input.find(".txt");
-	string inputFileName = input.substr(0,posOfExt);
+	size_t positionOfExt = input.find(".txt");
+	string inputFileName = input.substr(0,positionOfExt);
 	string outputFile = inputFileName + "_PP.txt";
 	
 	readInputFile.open(input);
@@ -41,7 +41,6 @@ int main(int argc, char *argv[]) {
 		return 0;	
 	}
 
-    string inputFile = argv[1];
     PrettyPrint(inputFile);
     return 0;
 }
