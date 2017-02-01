@@ -3,35 +3,19 @@
 #include<string>
 using namespace std;
 
-class PrettyPrint {
-
-private: 
-	int numRows;
-	int numCols;
-	int minValue;
-	int maxValue;
-
-public: 
-	PrettyPrint(string theInputFile);
-	void prettyPrint(string input);	
-
-};
-
-PrettyPrint::PrettyPrint(string theInputFile) {
-	prettyPrint(theInputFile);
-}//constructor
-
-void PrettyPrint::prettyPrint(string input) {
+void prettyPrint(string inputFile) {
 
 	ifstream readInputFile;
 	ofstream readOutputFile;
-	int numsInFile, pixel_value;
+	int numRows, numCols, minValue, maxValue,
+	    numsInFile, pixel_value;
 
-	size_t positionOfExt = input.find(".txt");
-	string inputFileName = input.substr(0,positionOfExt);
+	//set the name of output file 
+	size_t positionOfExt = inputFile.find(".txt");
+	string inputFileName = inputFile.substr(0, positionOfExt);
 	string outputFile = inputFileName + "_PP.txt";
 	
-	readInputFile.open(input);
+	readInputFile.open(inputFile);
 	readOutputFile.open(outputFile);
 
 	//read in header
@@ -41,20 +25,21 @@ void PrettyPrint::prettyPrint(string input) {
 		
 		readOutputFile << numsInFile << " ";
 	}
+	//close the files
 	readOutputFile.close();
 	readOutputFile.close();
 }//prettyPrint method
 
 int main(int argc, char *argv[]) {
 
+	//Error check to ensure an argument is provided
 	if(argc != 2) {
 		cout << "Needs an input file as an Argument, Terminating!!";
 		return 0;	
 	}
 
 	string inputFile = argv[1];
-
-    PrettyPrint ppObj(inputFile);
+    prettyPrint(inputFile);
     return 0;
 }
 
