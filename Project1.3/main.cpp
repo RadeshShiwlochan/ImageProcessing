@@ -12,6 +12,8 @@ class Thresholding {
 
 	public: 
 		Thresholding(string inputFile);	
+		void computeThreshold(int** , string);
+		void printImage(int**); 
 };
 
 Thresholding::Thresholding(string inputFile) {
@@ -26,13 +28,38 @@ Thresholding::Thresholding(string inputFile) {
 	for(int i = 0; i < numRows; i++)
 		thr_Array[i] = new int[numCols]();
 
+	//readFile.close();
+	computeThreshold(thr_Array, inputFile);
+	printImage(thr_Array);
+	// for(int i = 0; i < numRows; i++) {
+	// 	for(int j = 0; j < numCols; j++) {
+	// 		readFile >> numberFromFile; 
+	// 		cout << numberFromFile << " ";
+	// 		thr_Array[i][j] = numberFromFile;
+	// 	}	
+	// }	
+}
+
+void Thresholding::computeThreshold(int** theArray, string inputFile) {
+
+	ifstream readFile;
+	readFile.open(inputFile);
+	int pixel_val;
 	for(int i = 0; i < numRows; i++) {
 		for(int j = 0; j < numCols; j++) {
-			readFile >> numberFromFile; 
-			cout << numberFromFile << " ";
-			thr_Array[i][j] = numberFromFile;
+			readFile >> pixel_val; 
+			//cout << pixel_val << " ";
+			theArray[i][j] = pixel_val;
 		}	
 	}	
+}
+
+void Thresholding::printImage(int** arr) {
+	for(int i = 0; i < numRows; i++) {
+		for(int j = 0; j < numCols; j++)
+			cout << arr[i][j] << " ";
+	}
+	cout << endl;
 }
 
 int main(int argc, char* argv[]) {
