@@ -12,45 +12,30 @@ class Thresholding {
 
 	public: 
 		Thresholding(string inputFile);	
-		int* setFields(string inputFile);
-		void getNumsFromInFile(ifstream inputFileReader);
 };
 
-int* Thresholding::setFields (string inputFile) {
-	ifstream readInputFile;
-	int static headerArr[4];
-	readInputFile.open(inputFile);
-	readInputFile >> headerArr[0];
-	readInputFile >> headerArr[1];
-	readInputFile >> headerArr[2];
-	readInputFile >> headerArr[3];
+Thresholding::Thresholding(string inputFile) {
+	int numberFromFile;
+	ifstream readFile;
+	readFile.open(inputFile);
 
-	return headerArr;
-}
+	readFile >> numRows >> numCols >> minVal >> maxVal;
+	
+	int** thr_Array = new int*[numRows];
 
-void Thresholding::getNumsFromInFile(ifstream inputFileReader) {
-	int num;
-	int** thr_Array = new int[numRows][numCols]();
+	for(int i = 0; i < numRows; i++)
+		thr_Array[i] = new int[numCols]();
+
 	for(int i = 0; i < numRows; i++) {
 		for(int j = 0; j < numCols; j++) {
-			inputFileReader >> num; 
-			thr_Array[i][j] = num;
+			readFile >> numberFromFile; 
+			cout << numberFromFile << " ";
+			thr_Array[i][j] = numberFromFile;
 		}	
-	}
+	}	
 }
 
-Thresholding::Thresholding(string inputFile) {
-	//int arrFields[4];
-	int* arrFields = setFields(inputFile); 
-	numRows = * (arrFields + 0);
-	numCols = * (arrFields + 1);
-	minVal  = * (arrFields + 2);
-	maxVal  = * (arrFields + 3);
-
-	cout << numRows << " " << numCols << " " << minVal << " " << maxVal << endl;  
-}
-
-int main(int argc, char* argv[] ) {
+int main(int argc, char* argv[]) {
 
 	//check if 3 files were provided to program
 	if(argc != 2) {
@@ -60,5 +45,6 @@ int main(int argc, char* argv[] ) {
 
 	string inputFile = argv[1];
 	Thresholding thresholding(inputFile);
+	return 0;
 
 }
