@@ -1,3 +1,5 @@
+//Radesh Shiwlochan
+
 #include<iostream>
 #include<fstream>
 #include<string>
@@ -8,7 +10,7 @@ void prettyPrint(string inputFile) {
 	ifstream readInputFile;
 	ofstream readOutputFile;
 	int numRows, numCols, minValue, maxValue,
-	    numInFile, pixel_value;
+	    pixel_value;
 
 	//set the name of output file 
 	size_t positionOfExt = inputFile.find(".txt");
