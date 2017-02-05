@@ -1,5 +1,6 @@
 #include<iostream>
 #include<fstream>
+#include<sstream>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ class Thresholding {
 		int getInput();
 		void prettyPrint(string);
 		void upDateMinMax(int);
+		string getNewOutputFileName(int, string);
 };
 
 Thresholding::Thresholding(string inputFile) {
@@ -41,9 +43,10 @@ void Thresholding::computeThreshold(string inputFile, string outputFile) {
 	upDateMinMax(thr_value);
 	ifstream readFile;
 	ofstream printToFile;
+	string newOutputFileName = getNewOutputFileName(thr_value, outputFile); 
 
 	readFile.open(inputFile);
-	printToFile.open(outputFile);
+	printToFile.open(newOutputFileName);
 	int pixel_val = -1;
 
 	//skip the header
@@ -65,7 +68,7 @@ void Thresholding::computeThreshold(string inputFile, string outputFile) {
 		printToFile << endl;	
 	}
 	readFile.close();
-	printToFile.close();	
+	printToFile.close();
 }
 
 void Thresholding::printImage(int** arr) {
@@ -115,6 +118,16 @@ void Thresholding::prettyPrint(string outputFile) {
 	}		
 	readOutputFile.close();
 }//prettyPrint method
+
+string Thresholding::getNewOutputFileName(int thresholdVal, string outputFile) {
+	size_t positionOfExt = outputFile.find(".txt");
+	string outputFileName = outputFile.substr(0, positionOfExt);
+	ostringstream numToStr;
+	numToStr << thresholdVal;
+	string thrValStr = numToStr.str();
+	string newOutputFileName = outputFileName + "_thr_" + thrValStr + ".txt"; 
+	return newOutputFileName;
+}
 
 
 int main(int argc, char* argv[]) {
