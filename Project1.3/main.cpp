@@ -17,6 +17,7 @@ class Thresholding {
 		void printImage(int**); 
 		int getInput();
 		void prettyPrint(string);
+		void upDateMinMax(int);
 };
 
 Thresholding::Thresholding(string inputFile) {
@@ -37,6 +38,7 @@ Thresholding::Thresholding(string inputFile) {
 void Thresholding::computeThreshold(string inputFile, string outputFile) {
      
 	int thr_value = getInput();
+	upDateMinMax(thr_value);
 	ifstream readFile;
 	ofstream printToFile;
 
@@ -47,6 +49,9 @@ void Thresholding::computeThreshold(string inputFile, string outputFile) {
 	//skip the header
 	for(int i = 0; i < 4; i++)
 		readFile >> pixel_val;
+
+	printToFile << numRows << "   " << numCols << "   " << minVal << "   "
+	            << maxVal << endl;
 
 	for(int i = 0; i < numRows; i++) {
 		for(int j = 0; j < numCols; j++) {
@@ -76,6 +81,19 @@ int Thresholding::getInput() {
 	cout << "Please Enter a Threshold Value " << endl;
 	cin >> inputValue;
     return inputValue;
+}
+
+void Thresholding::upDateMinMax(int thresholdInput) {
+	if(thresholdInput > maxVal) {
+		minVal = 0;
+		maxVal = 0;
+	} else if(thresholdInput < minVal) {
+		minVal = 1;
+		maxVal = 1;
+	} else {
+		minVal = 0;
+		maxVal = 1;
+	}
 }
 
 void Thresholding::prettyPrint(string outputFile) {
