@@ -9,45 +9,42 @@ class Thresholding {
 		int numCols;
 		int minVal;
 		int maxVal;
+		int** thr_Array;
 
 	public: 
-		Thresholding(string[]);	
-		void computeThreshold(int** , string[]);
+		Thresholding(string);	
+		void computeThreshold(string);
 		void printImage(int**); 
 		bool errorCheckThresholdVal(int);
 		int getInput();
 };
 
-Thresholding::Thresholding(string inputFile[]) {
+Thresholding::Thresholding(string inputFile) {
 	int numberFromFile;
 	ifstream readFile;
-	readFile.open(inputFile[0]);
+	readFile.open(inputFile);
 
 	readFile >> numRows >> numCols >> minVal >> maxVal;
 	
-	int** thr_Array = new int*[numRows];
+	thr_Array = new int*[numRows];
 
 	for(int i = 0; i < numRows; i++)
 		thr_Array[i] = new int[numCols]();
 
 	//readFile.close();
-	computeThreshold(thr_Array, inputFile);
-	printImage(thr_Array);
+	//computeThreshold(thr_Array, inputFile);
+	//printImage(thr_Array);
 		
 }
 
-void Thresholding::computeThreshold(int** theArray, string inputFile[]) {
+void Thresholding::computeThreshold(string inputFile) {
      
-    //maybe initialize this to a different value; 
 	int thr_value = getInput();
-	// cout << "Please Enter a Threshold Value " << endl;
-	// cin >> thr_value;
-	// if(!errorCheckThresholdVal(thr_value)) return;
     
 	ifstream readFile;
 	ofstream printBinImage, prettyPrintImg;
-	readFile.open(inputFile[0]);
-	printBinImage.open(inputFile[1]), prettyPrintImg.open(inputFile[2]);
+	readFile.open(inputFile);
+	//printBinImage.open(inputFile[1]), prettyPrintImg.open(inputFile[2]);
 	int pixel_val = -1;
 
 	//skip the header
@@ -59,10 +56,10 @@ void Thresholding::computeThreshold(int** theArray, string inputFile[]) {
 			readFile >> pixel_val; 
 			//cout << pixel_val << " ";
 			if(pixel_val < thr_value)
-				theArray[i][j] = 0;
+				thr_Array[i][j] = 0;
 			else
-				theArray[i][j] = 1;
-			printBinImage << theArray[i][j] << " ";
+				thr_Array[i][j] = 1;
+			cout << thr_Array[i][j] << " ";
 		}
 		printBinImage << endl;	
 	}	
@@ -90,26 +87,26 @@ int Thresholding::getInput() {
 	cin >> inputValue;
 
 	//check for a better way to end a program
-	if(!errorCheckThresholdVal(inputValue)) 
-		return -1;
-	else
+	//if(!errorCheckThresholdVal(inputValue)) 
+	//	return -1;
+	//else
 		return inputValue;
 }
 
 int main(int argc, char* argv[]) {
 
 	//check if 3 files were provided to program
-	if(argc != 3) {
+	if(argc != 2) {
 		cout << "Program needs 3 arguments" <<endl;
 		return 0;
 	}
 
-	string filesInputted[3];
-	filesInputted[0] = argv[1];
-	filesInputted[1] = argv[2];
+	string inputFile = argv[1];
+	//string outputFile1 = argv[2];
 	//filesInputted[2] = argv[3];
 
-	Thresholding thresholding(filesInputted);
+	Thresholding thresholding(inputFile);
+	thresholding.computeThreshold(inputFile);
 	return 0;
 
 }
