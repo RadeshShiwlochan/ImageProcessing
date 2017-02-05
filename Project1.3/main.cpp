@@ -16,7 +16,7 @@ class Thresholding {
 		void computeThreshold(string, string);
 		void printImage(int**); 
 		int getInput();
-		void prettyPrint(string, string);
+		void prettyPrint(string);
 };
 
 Thresholding::Thresholding(string inputFile) {
@@ -34,7 +34,6 @@ Thresholding::Thresholding(string inputFile) {
 	readFile.close();	
 }
 
-//maybe do prettyPrint and print binary image here ? 
 void Thresholding::computeThreshold(string inputFile, string outputFile) {
      
 	int thr_value = getInput();
@@ -79,21 +78,16 @@ int Thresholding::getInput() {
     return inputValue;
 }
 
-void Thresholding::prettyPrint(string inputFile, string outputFile) {
+void Thresholding::prettyPrint(string outputFile) {
 
     int pixel_value;
-    ifstream readInputFile;
 	ofstream readOutputFile;
-	readInputFile.open(inputFile);
 	readOutputFile.open(outputFile);
-
-	for(int i = 0; i < 4; i++)
-		readInputFile >> pixel_value;
 
 	//read in the input file
 	for(int i = 0; i < numRows; i++) {
 		for(int j = 0; j < numCols; j++) {
-			readInputFile >> pixel_value;
+			pixel_value = thr_Array[i][j];
 			if(pixel_value > 0) 
 				readOutputFile << pixel_value << "  ";
 			else 
@@ -101,8 +95,6 @@ void Thresholding::prettyPrint(string inputFile, string outputFile) {
 		}
 		readOutputFile << endl;
 	}		
-	//close the files
-	readOutputFile.close();
 	readOutputFile.close();
 }//prettyPrint method
 
@@ -118,11 +110,10 @@ int main(int argc, char* argv[]) {
 	string inputFile = argv[1];
 	string outputFile1 = argv[2];
 	string outputFile2 = argv[3];
-	//filesInputted[2] = argv[3];
 
 	Thresholding thresholding(inputFile);
 	thresholding.computeThreshold(inputFile, outputFile1);
-	thresholding.prettyPrint(inputFile, outputFile2);
+	thresholding.prettyPrint(outputFile2);
 	return 0;
 
 }
