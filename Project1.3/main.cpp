@@ -13,10 +13,10 @@ class Thresholding {
 
 	public: 
 		Thresholding(string);	
-		void computeThreshold(string);
+		void computeThreshold(string, string);
 		void printImage(int**); 
-		bool errorCheckThresholdVal(int);
 		int getInput();
+		void prettyPrint(string, string);
 };
 
 Thresholding::Thresholding(string inputFile) {
@@ -31,20 +31,18 @@ Thresholding::Thresholding(string inputFile) {
 	for(int i = 0; i < numRows; i++)
 		thr_Array[i] = new int[numCols]();
 
-	//readFile.close();
-	//computeThreshold(thr_Array, inputFile);
-	//printImage(thr_Array);
-		
+	readFile.close();	
 }
 
-void Thresholding::computeThreshold(string inputFile) {
+//maybe do prettyPrint and print binary image here ? 
+void Thresholding::computeThreshold(string inputFile, string outputFile) {
      
 	int thr_value = getInput();
-    
 	ifstream readFile;
-	ofstream printBinImage, prettyPrintImg;
+	ofstream printToFile;
+
 	readFile.open(inputFile);
-	//printBinImage.open(inputFile[1]), prettyPrintImg.open(inputFile[2]);
+	printToFile.open(outputFile);
 	int pixel_val = -1;
 
 	//skip the header
@@ -54,23 +52,16 @@ void Thresholding::computeThreshold(string inputFile) {
 	for(int i = 0; i < numRows; i++) {
 		for(int j = 0; j < numCols; j++) {
 			readFile >> pixel_val; 
-			//cout << pixel_val << " ";
 			if(pixel_val < thr_value)
 				thr_Array[i][j] = 0;
 			else
 				thr_Array[i][j] = 1;
-			cout << thr_Array[i][j] << " ";
+			printToFile << thr_Array[i][j] << " ";
 		}
-		printBinImage << endl;	
-	}	
-}
-
-bool Thresholding::errorCheckThresholdVal(int inputThreshold) {
-	if(inputThreshold < 0) {
-		cout << "Threshold value given not suitable, Terminating!" << endl;
-		return true;
+		printToFile << endl;	
 	}
-	return false;
+	readFile.close();
+	printToFile.close();	
 }
 
 void Thresholding::printImage(int** arr) {
@@ -85,28 +76,53 @@ int Thresholding::getInput() {
 	int inputValue = 0;
 	cout << "Please Enter a Threshold Value " << endl;
 	cin >> inputValue;
-
-	//check for a better way to end a program
-	//if(!errorCheckThresholdVal(inputValue)) 
-	//	return -1;
-	//else
-		return inputValue;
+    return inputValue;
 }
+
+void Thresholding::prettyPrint(string inputFile, string outputFile) {
+
+    int pixel_value;
+    ifstream readInputFile;
+	ofstream readOutputFile;
+	readInputFile.open(inputFile);
+	readOutputFile.open(outputFile);
+
+	for(int i = 0; i < 4; i++)
+		readInputFile >> pixel_value;
+
+	//read in the input file
+	for(int i = 0; i < numRows; i++) {
+		for(int j = 0; j < numCols; j++) {
+			readInputFile >> pixel_value;
+			if(pixel_value > 0) 
+				readOutputFile << pixel_value << "  ";
+			else 
+				readOutputFile << "  ";
+		}
+		readOutputFile << endl;
+	}		
+	//close the files
+	readOutputFile.close();
+	readOutputFile.close();
+}//prettyPrint method
+
 
 int main(int argc, char* argv[]) {
 
 	//check if 3 files were provided to program
-	if(argc != 2) {
+	if(argc != 4) {
 		cout << "Program needs 3 arguments" <<endl;
 		return 0;
 	}
 
 	string inputFile = argv[1];
-	//string outputFile1 = argv[2];
+	string outputFile1 = argv[2];
+	string outputFile2 = argv[3];
 	//filesInputted[2] = argv[3];
 
 	Thresholding thresholding(inputFile);
-	thresholding.computeThreshold(inputFile);
+	thresholding.computeThreshold(inputFile, outputFile1);
+	thresholding.prettyPrint(inputFile, outputFile2);
 	return 0;
 
 }
