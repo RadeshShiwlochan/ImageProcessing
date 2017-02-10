@@ -14,6 +14,7 @@ class Thresholding {
 
 	public: 
 		Thresholding(string);	
+		~Thresholding();
 		void computeThreshold(string, string);
 		void printImage(int**); 
 		int getInput();
@@ -35,6 +36,13 @@ Thresholding::Thresholding(string inputFile) {
 		thr_Array[i] = new int[numCols]();
 
 	readFile.close();	
+}
+
+Thresholding::~Thresholding() {
+	for(int i = 0; i < numRows; i++) 	
+		delete [] thr_Array[i];
+	
+	delete [] thr_Array;
 }
 
 void Thresholding::computeThreshold(string inputFile, string outputFile) {
@@ -145,6 +153,7 @@ int main(int argc, char* argv[]) {
 	Thresholding thresholding(inputFile);
 	thresholding.computeThreshold(inputFile, outputFile1);
 	thresholding.prettyPrint(outputFile2);
+	
 	return 0;
 
 }
