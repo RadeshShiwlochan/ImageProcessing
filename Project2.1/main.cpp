@@ -17,10 +17,17 @@ private:
 public:
 	MedianFilter(string, string);
 	void readInputFile(string);
+	void initializeArr();
 
 };
 
 	MedianFilter::MedianFilter(string inputFile, string outputFile) {
+		ifstream getHeader;
+		getHeader.open(inputFile);
+		getHeader >> numRows >> numCols >> minVal >> maxVal;
+		mirrorFramedAry = new int*[numRows + 2];
+		tempAry = new int*[numRows + 2];
+		initializeArr();	
 		readInputFile(inputFile);
 	}
 
@@ -33,7 +40,21 @@ void MedianFilter::readInputFile(string inputFile) {
 	}
 } 
 
+void MedianFilter::initializeArr() {
+	int rowSize = numRows + 2;
+	int colSize = numCols + 2;
+	for(int i = 0; i < rowSize; i++) {
+			mirrorFramedAry[i] = new int[colSize]();
+			tempAry[i] = new int[colSize]();
+	}	
+}
+
 int main(int argc, char* argv[]) {
+
+	if(argc != 3) {
+		cout << "Program needs an input and output file";
+		return 0;
+	}
 	string inputFile = argv[1];
 	string outputFile = argv[2];
 	MedianFilter medianFilter(inputFile, outputFile);
