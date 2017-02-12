@@ -20,7 +20,7 @@ public:
 	void readInputFile(string);
 	void initializeArr();
 	void mirrorFramed();
-	void loadImage();
+	void loadImage(string);
 	void loadNeighbors();
 	void computeAVG();
 	void minAVG();
@@ -62,8 +62,19 @@ void CorPerFilter::mirrorFramed() {
 
 }
 
-void CorPerFilter::loadImage() {
+void CorPerFilter::loadImage(string inputFile) {
 
+	// fix number of rows here
+	 
+	ifstream readInputFile;
+	readInputFile.open(inputFile);
+	int numFromFile;
+	for(int i = 1; i < numRows+ 2; i++) {
+		for(int j = 1; j < numCols + 2; j++) {
+			readInputFile >> numFromFile;
+			mirrorFramedAry[i][j] = numFromFile;
+		}
+	}
 }
 
 void CorPerFilter::loadNeighbors() {
@@ -83,7 +94,14 @@ void CorPerFilter::findNewMinMax() {
 }
 
 void CorPerFilter::outputImage() {
-	
+
+	//fix number of rows here
+
+	for(int i = 0; i < numRows + 2; i++ ) {
+		for(int j = 0; j < numCols + 2; j++)
+			cout << mirrorFramedAry[i][j] << " ";
+		cout << endl;
+	}
 }
 
 int main(int argc, char* argv[]) {
