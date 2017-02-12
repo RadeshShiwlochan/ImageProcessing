@@ -55,6 +55,7 @@ int main(int argc, char* argv[]) {
 		cout << "Program needs an input and output file";
 		return 0;
 	}
+	
 	string inputFile = argv[1];
 	string outputFile = argv[2];
 	MedianFilter medianFilter(inputFile, outputFile);
