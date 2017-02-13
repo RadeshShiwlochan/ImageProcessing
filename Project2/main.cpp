@@ -26,7 +26,7 @@ public:
 	void minAVG();
 	void findNewMinMax();
 	void outputImage();
-
+	void printArr(string);
 
 };
 
@@ -34,10 +34,16 @@ public:
 		ifstream getHeader;
 		getHeader.open(inputFile);
 		getHeader >> numRows >> numCols >> minVal >> maxVal;
-		mirrorFramedAry = new int*[numRows + 2];
-		tempAry = new int*[numRows + 2];
-		initializeArr();	
-		readInputFile(inputFile);
+		int rowSize = numRows + 2;
+		int colSize = numCols + 2;
+		mirrorFramedAry = new int*[rowSize];
+		tempAry = new int*[colSize];
+		
+		//allocate and initalize arrays
+		for(int i = 0; i < rowSize; i++) {
+			mirrorFramedAry[i] = new int[colSize]();
+			tempAry[i] = new int[colSize]();
+		}		
 	}
 
 void CorPerFilter::readInputFile(string inputFile) {
@@ -59,18 +65,32 @@ void CorPerFilter::initializeArr() {
 }
 
 void CorPerFilter::mirrorFramed() {
-
+	//framing left to right
+	for(int i = 0; i <= numRows + 1; i++) {
+		mirrorFramedAry[i][0]           = mirrorFramedAry[i][1];
+		mirrorFramedAry[i][numCols + 1] = mirrorFramedAry[i][numCols];
+	}
+	//framing top to bottom
+	for(int j = 0; j <= numCols + 1; j++) {
+		mirrorFramedAry[0][j]           = mirrorFramedAry[1][j];
+		mirrorFramedAry[numRows + 1][j] = mirrorFramedAry[numRows][j];
+	}
 }
 
 void CorPerFilter::loadImage(string inputFile) {
 
 	// fix number of rows here
-	 
+ 
 	ifstream readInputFile;
 	readInputFile.open(inputFile);
 	int numFromFile;
-	for(int i = 1; i < numRows+ 2; i++) {
-		for(int j = 1; j < numCols + 2; j++) {
+
+	//skip the header
+	for(int i = 0; i < 4; i++)
+		readInputFile >> numFromFile;
+	
+	for(int i = 1; i < numRows+ 1; i++) {
+		for(int j = 1; j < numCols + 1; j++) {
 			readInputFile >> numFromFile;
 			mirrorFramedAry[i][j] = numFromFile;
 		}
@@ -97,11 +117,23 @@ void CorPerFilter::outputImage() {
 
 	//fix number of rows here
 
-	for(int i = 0; i < numRows + 2; i++ ) {
-		for(int j = 0; j < numCols + 2; j++)
+	for(int i = 0; i <= numRows + 2; i++ ) {
+		for(int j = 0; j <= numCols + 2; j++)
 			cout << mirrorFramedAry[i][j] << " ";
 		cout << endl;
 	}
+}
+
+void CorPerFilter::printArr(string outputFile) {
+	ofstream printToFile;
+	printToFile.open(outputFile);
+
+	for(int i = 0; i < numRows + 2; i++ ) {
+		for(int j = 0; j < numCols + 2; j++)
+			printToFile << mirrorFramedAry[i][j] << " ";
+		printToFile << endl;
+	}
+
 }
 
 int main(int argc, char* argv[]) {
@@ -112,5 +144,10 @@ int main(int argc, char* argv[]) {
 	}
 	string inputFile = argv[1];
 	string outputFile = argv[2];
-	CorPerFilter CorPerFilter(inputFile, outputFile);
+	CorPerFilter corPerFilter(inputFile, outputFile);
+	corPerFilter.loadImage(inputFile);
+	corPerFilter.mirrorFramed();
+	corPerFilter.printArr(outputFile);
+
+	return 0;
 }
