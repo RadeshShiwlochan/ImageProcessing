@@ -34,8 +34,8 @@ public:
 		ifstream getHeader;
 		getHeader.open(inputFile);
 		getHeader >> numRows >> numCols >> minVal >> maxVal;
-		int rowSize = numRows + 2;
-		int colSize = numCols + 2;
+		int rowSize = numRows + 4;
+		int colSize = numCols + 4;
 		mirrorFramedAry = new int*[rowSize];
 		tempAry = new int*[colSize];
 		
@@ -56,8 +56,8 @@ void CorPerFilter::readInputFile(string inputFile) {
 } 
 
 void CorPerFilter::initializeArr() {
-	int rowSize = numRows + 2;
-	int colSize = numCols + 2;
+	int rowSize = numRows + 4;
+	int colSize = numCols + 4;
 	for(int i = 0; i < rowSize; i++) {
 			mirrorFramedAry[i] = new int[colSize]();
 			tempAry[i] = new int[colSize]();
@@ -117,8 +117,8 @@ void CorPerFilter::outputImage() {
 
 	//fix number of rows here
 
-	for(int i = 0; i <= numRows + 2; i++ ) {
-		for(int j = 0; j <= numCols + 2; j++)
+	for(int i = 0; i <= numRows + 4; i++ ) {
+		for(int j = 0; j <= numCols + 4; j++)
 			cout << mirrorFramedAry[i][j] << " ";
 		cout << endl;
 	}
@@ -128,8 +128,8 @@ void CorPerFilter::printArr(string outputFile) {
 	ofstream printToFile;
 	printToFile.open(outputFile);
 
-	for(int i = 0; i < numRows + 2; i++ ) {
-		for(int j = 0; j < numCols + 2; j++)
+	for(int i = 0; i < numRows + 4; i++ ) {
+		for(int j = 0; j < numCols + 4; j++)
 			printToFile << mirrorFramedAry[i][j] << " ";
 		printToFile << endl;
 	}
