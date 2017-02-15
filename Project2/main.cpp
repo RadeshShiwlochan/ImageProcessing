@@ -29,7 +29,7 @@ public:
 	void printArr(string);
 	void cornPrvMethod();
 	void printNeighborArr();
-
+	void copyMirrArrToNeighborArr(int, int, int, int);
 };
 
 	CorPerFilter::CorPerFilter(string inputFile, string outputFile) {
@@ -106,13 +106,19 @@ void CorPerFilter::loadImage(string inputFile) {
 void CorPerFilter::loadNeighbors(int which, int rowIndex, int colIndex) {
 	if(which == 0) {
 		int startIndex = rowIndex - 2;
-		int index = 0;
-		for(int i = startIndex; i <= rowIndex; i++) {
-			for(int j = startIndex; j <= colIndex; j++) {
-				neighborAry[index++] = mirrorFramedAry[i][j];
-			}
-		}
-		printNeighborArr();
+		copyMirrArrToNeighborArr(startIndex, rowIndex, startIndex, colIndex);
+	} else if(which == 1) {
+		int startRwIndex = rowIndex - 2;
+		int endColIndex = colIndex + 2;
+		copyMirrArrToNeighborArr(startRwIndex, rowIndex, colIndex, endColIndex);
+	} else if(which == 2) {
+		int endRwIndex = rowIndex + 2;
+		int colStartIndex = colIndex - 2;
+		copyMirrArrToNeighborArr(rowIndex, endRwIndex, colStartIndex, colIndex);
+	} else if(which == 3) {
+		int endRwIndex = rowIndex + 2;
+		int endColIndex = colIndex + 2;
+		copyMirrArrToNeighborArr(rowIndex, endRwIndex, colIndex, endColIndex);
 	}
 
 }
@@ -157,11 +163,22 @@ void CorPerFilter::printNeighborArr() {
 	cout << endl;
 }
 
+void CorPerFilter::copyMirrArrToNeighborArr(int startRwIndex, int endRowIndex,
+	                                               int startColIndex, int endColIndex) {
+	int index = 0;
+	for(int i = startRwIndex; i <= endRowIndex; i++) {
+			for(int j = startColIndex; j <= endColIndex; j++) {
+				neighborAry[index++] = mirrorFramedAry[i][j];
+			}
+		}
+		printNeighborArr();
+}
+
 void CorPerFilter::cornPrvMethod() {
 	int which = 0;
-	for(int i = 3; i < numRows; i++) {
-		for(int j = 3; j < numCols; j++) {
-			while( which < 1) {
+	for(int i = 2; i < numRows; i++) {
+		for(int j = 2; j < numCols; j++) {
+			while( which < 4) {
 				loadNeighbors(which,i,j);
 				which++;
 			}
