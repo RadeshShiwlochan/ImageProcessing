@@ -192,11 +192,14 @@ void CorPerFilter::getRectShapedNeighbors(int startRwIndex, int endRowIndex,
 }
 
 void CorPerFilter::getTriShapedNghbrsG5(int rowIndex, int colIndex) {
-	int startIndex = rowIndex + 2;
+	int startRowIndex = rowIndex + 2;
+	int endRowIndex = rowIndex;
+	int startColIndex = colIndex - 2;
+	int endColIndex = colIndex + 2;
 	int colstartLim = 0;
 	int index = 0;
-	for(int i = startIndex; i >= 2; i--) {
-		for(int j = 0 + colstartLim; j <= (4 - colstartLim) && colstartLim <= 2; j++) {
+	for(int i = startRowIndex; i >= endRowIndex; i--) {
+		for(int j = startColIndex + colstartLim; j <= (endColIndex - colstartLim) && colstartLim <= 2; j++) {
 			neighborAry[index++] = mirrorFramedAry[i][j];
 		}	
 			colstartLim++;
