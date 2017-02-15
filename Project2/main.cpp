@@ -21,12 +21,14 @@ public:
 	void initializeArr();
 	void mirrorFramed();
 	void loadImage(string);
-	void loadNeighbors();
+	void loadNeighbors(int, int, int);
 	void computeAVG();
 	void minAVG();
 	void findNewMinMax();
 	void outputImage();
 	void printArr(string);
+	void cornPrvMethod();
+	void printNeighborArr();
 
 };
 
@@ -101,7 +103,17 @@ void CorPerFilter::loadImage(string inputFile) {
 	}
 }
 
-void CorPerFilter::loadNeighbors() {
+void CorPerFilter::loadNeighbors(int which, int rowIndex, int colIndex) {
+	if(which == 0) {
+		int startIndex = rowIndex - 2;
+		int index = 0;
+		for(int i = startIndex; i <= rowIndex; i++) {
+			for(int j = startIndex; j <= colIndex; j++) {
+				neighborAry[index++] = mirrorFramedAry[i][j];
+			}
+		}
+		printNeighborArr();
+	}
 
 }
 
@@ -137,7 +149,24 @@ void CorPerFilter::printArr(string outputFile) {
 			printToFile << mirrorFramedAry[i][j] << " ";
 		printToFile << endl;
 	}
+}
 
+void CorPerFilter::printNeighborArr() {
+	for(int i = 0; i < 9; i++)
+		cout << neighborAry[i] << "  ";
+	cout << endl;
+}
+
+void CorPerFilter::cornPrvMethod() {
+	int which = 0;
+	for(int i = 3; i < numRows; i++) {
+		for(int j = 3; j < numCols; j++) {
+			while( which < 1) {
+				loadNeighbors(which,i,j);
+				which++;
+			}
+		}
+	}
 }
 
 int main(int argc, char* argv[]) {
@@ -152,6 +181,7 @@ int main(int argc, char* argv[]) {
 	corPerFilter.loadImage(inputFile);
 	corPerFilter.mirrorFramed();
 	corPerFilter.printArr(outputFile);
+	corPerFilter.cornPrvMethod();
 
 	return 0;
 }
