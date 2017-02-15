@@ -22,14 +22,18 @@ public:
 	void mirrorFramed();
 	void loadImage(string);
 	void loadNeighbors(int, int, int);
-	int computeAVG();
+	int computeAVG(int);
 	void minAVG();
 	void findNewMinMax();
 	void outputImage();
 	void printArr(string);
 	void cornPrvMethod();
 	void printNeighborArr();
-	void copyMirrArrToNeighborArr(int, int, int, int);
+	void getRectShapedNeighbors(int, int, int, int);
+	void getTriShapedNghbrsG5(int, int);
+	void getTriShapedNghbrsG6(int, int);
+	void getTriShapedNghbrsG7(int, int);
+	void getTriShapedNghbrsG8(int, int);
 };
 
 	CorPerFilter::CorPerFilter(string inputFile, string outputFile) {
@@ -106,19 +110,28 @@ void CorPerFilter::loadImage(string inputFile) {
 void CorPerFilter::loadNeighbors(int which, int rowIndex, int colIndex) {
 	if(which == 0) {
 		int startIndex = rowIndex - 2;
-		copyMirrArrToNeighborArr(startIndex, rowIndex, startIndex, colIndex);
+		getRectShapedNeighbors(startIndex, rowIndex, startIndex, colIndex);
+		//maybe call compute Ave here 
 	} else if(which == 1) {
 		int startRwIndex = rowIndex - 2;
 		int endColIndex = colIndex + 2;
-		copyMirrArrToNeighborArr(startRwIndex, rowIndex, colIndex, endColIndex);
+		getRectShapedNeighbors(startRwIndex, rowIndex, colIndex, endColIndex);
 	} else if(which == 2) {
 		int endRwIndex = rowIndex + 2;
 		int colStartIndex = colIndex - 2;
-		copyMirrArrToNeighborArr(rowIndex, endRwIndex, colStartIndex, colIndex);
+		getRectShapedNeighbors(rowIndex, endRwIndex, colStartIndex, colIndex);
 	} else if(which == 3) {
 		int endRwIndex = rowIndex + 2;
 		int endColIndex = colIndex + 2;
-		copyMirrArrToNeighborArr(rowIndex, endRwIndex, colIndex, endColIndex);
+		getRectShapedNeighbors(rowIndex, endRwIndex, colIndex, endColIndex);
+	} else if(which == 4) {
+		getTriShapedNghbrsG5(rowIndex, colIndex);
+	} else if(which == 5) {
+		getTriShapedNghbrsG6(rowIndex, colIndex);
+	} else if(which == 6) {
+		getTriShapedNghbrsG7(rowIndex, colIndex);
+	} else if(which == 7) {
+		getTriShapedNghbrsG8(rowIndex, colIndex);
 	}
 
 }
@@ -167,7 +180,7 @@ void CorPerFilter::printNeighborArr() {
 	cout << endl;
 }
 
-void CorPerFilter::copyMirrArrToNeighborArr(int startRwIndex, int endRowIndex,
+void CorPerFilter::getRectShapedNeighbors(int startRwIndex, int endRowIndex,
 	                                               int startColIndex, int endColIndex) {
 	int index = 0;
 	for(int i = startRwIndex; i <= endRowIndex; i++) {
@@ -178,11 +191,72 @@ void CorPerFilter::copyMirrArrToNeighborArr(int startRwIndex, int endRowIndex,
 		printNeighborArr();
 }
 
+void CorPerFilter::getTriShapedNghbrsG5(int rowIndex, int colIndex) {
+	int startIndex = rowIndex + 2;
+	int colstartLim = 0;
+	int index = 0;
+	for(int i = startIndex; i >= 2; i--) {
+		for(int j = 0 + colstartLim; j <= (4 - colstartLim) && colstartLim <= 2; j++) {
+			neighborAry[index++] = mirrorFramedAry[i][j];
+		}	
+			colstartLim++;
+	}
+	printNeighborArr();
+}
+
+void CorPerFilter::getTriShapedNghbrsG6(int rowIndex, int colIndex) {
+	int startRowIndex = rowIndex - 2;
+	int endRowIndex = rowIndex + 2;
+	int startColIndex = colIndex - 2;
+	int endColIndex = colIndex;
+	int colstartLim = 0;
+	int index = 0;
+	for(int j = startColIndex; j <= endColIndex; j++) {
+		for(int i = startRowIndex + colstartLim; i <= (endRowIndex - colstartLim) && colstartLim <=2; i++) {
+			neighborAry[index++] = mirrorFramedAry[i][j];
+		}	
+			colstartLim++;
+	}
+	printNeighborArr();
+}
+
+void CorPerFilter::getTriShapedNghbrsG7(int rowIndex, int colIndex) {
+	int startRowIndex = rowIndex - 2;
+	int endRowIndex = rowIndex + 2;
+	int colStartIndex = colIndex + 2;
+	int colEndIndex = 2;
+	int colstartLim = 0;
+	int index = 0;
+	for(int j = colStartIndex; j >= colIndex; j--) {
+		for(int i = startRowIndex + colstartLim; i <= (endRowIndex - colstartLim) && colstartLim <=2; i++) {
+			neighborAry[index++] = mirrorFramedAry[i][j];
+		}	
+			colstartLim++;
+	}
+	printNeighborArr();
+}
+
+void CorPerFilter::getTriShapedNghbrsG8(int rowIndex, int colIndex) {
+	int startRowIndex = rowIndex - 2;
+	int endRowIndex = rowIndex;
+	int startColIndex = colIndex - 2;
+	int endColIndex = colIndex + 2;
+	int colstartLim = 0;
+	int index = 0;
+	for(int i = startRowIndex; i <= endRowIndex; i++) {
+		for(int j = startColIndex + colstartLim; j <= (endColIndex - colstartLim) && colstartLim <=2; j++) {
+			neighborAry[index++] = mirrorFramedAry[i][j];
+		}	
+			colstartLim++;
+	}
+	printNeighborArr();
+}
+
 void CorPerFilter::cornPrvMethod() {
 	int which = 0;
 	for(int i = 2; i < numRows; i++) {
 		for(int j = 2; j < numCols; j++) {
-			while( which < 4) {
+			while( which < 8) {
 				loadNeighbors(which,i,j);
 				which++;
 			}
