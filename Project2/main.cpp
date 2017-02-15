@@ -89,8 +89,8 @@ void CorPerFilter::loadImage(string inputFile) {
 	for(int i = 0; i < 4; i++)
 		readInputFile >> numFromFile;
 	
-	for(int i = 1; i < numRows+ 1; i++) {
-		for(int j = 1; j < numCols + 1; j++) {
+	for(int i = 2; i < numRows + 2; i++) {
+		for(int j = 2; j < numCols + 2; j++) {
 			readInputFile >> numFromFile;
 			mirrorFramedAry[i][j] = numFromFile;
 		}
