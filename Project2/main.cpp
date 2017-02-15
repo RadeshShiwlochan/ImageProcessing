@@ -66,14 +66,18 @@ void CorPerFilter::initializeArr() {
 
 void CorPerFilter::mirrorFramed() {
 	//framing left to right
-	for(int i = 0; i <= numRows + 1; i++) {
-		mirrorFramedAry[i][0]           = mirrorFramedAry[i][1];
-		mirrorFramedAry[i][numCols + 1] = mirrorFramedAry[i][numCols];
+	for(int i = 0; i <= numRows + 3; i++) {
+		mirrorFramedAry[i][0]           = mirrorFramedAry[i][2];
+		mirrorFramedAry[i][1]           = mirrorFramedAry[i][2];
+		mirrorFramedAry[i][numCols + 2] = mirrorFramedAry[i][numCols + 1];
+		mirrorFramedAry[i][numCols + 3] = mirrorFramedAry[i][numCols + 1];
 	}
 	//framing top to bottom
-	for(int j = 0; j <= numCols + 1; j++) {
-		mirrorFramedAry[0][j]           = mirrorFramedAry[1][j];
-		mirrorFramedAry[numRows + 1][j] = mirrorFramedAry[numRows][j];
+	for(int j = 0; j <= numCols + 3; j++) {
+		//mirrorFramedAry[0][j]           = mirrorFramedAry[2][j];
+		// mirrorFramedAry[1][j]           = mirrorFramedAry[2][j];
+		// mirrorFramedAry[numRows + 2][j] = mirrorFramedAry[numRows][j+1];
+		// mirrorFramedAry[numRows + 3][j] = mirrorFramedAry[numRows][j+1];
 	}
 }
 
