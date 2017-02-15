@@ -22,7 +22,7 @@ public:
 	void mirrorFramed();
 	void loadImage(string);
 	void loadNeighbors(int, int, int);
-	void computeAVG();
+	int computeAVG();
 	void minAVG();
 	void findNewMinMax();
 	void outputImage();
@@ -123,7 +123,11 @@ void CorPerFilter::loadNeighbors(int which, int rowIndex, int colIndex) {
 
 }
 
-void CorPerFilter::computeAVG() {
+int CorPerFilter::computeAVG(int which) {
+	int sum = 0;
+	for(int i = 0; i < 8; i++)
+		sum += neighborAry[i];
+	return sum/8;
 
 }
 
