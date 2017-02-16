@@ -13,22 +13,20 @@ private:
 	int** mirrorFramedAry;
 	int** tempAry;
 	int neighborAry[9];
-	double neighborAVG[9];
+	double neighborAVG[8];
 
 public:
-	CorPerFilter(string, string);
-	void readInputFile(string);
-	void initializeArr();
+	CorPerFilter(string);
 	void mirrorFramed();
 	void loadImage(string);
 	void loadNeighbors(int, int, int);
-	int computeAVG(int);
-	void minAVG();
+	double computeAVG();
+	double minAVG();
 	void findNewMinMax();
-	void outputImage();
-	void printArr(string);
+	void outputImage(string);
 	void cornPrvMethod();
 	void printNeighborArr();
+	void printNeighborAvgArr();
 	void getRectShapedNeighbors(int, int, int, int);
 	void getTriShapedNghbrsG5(int, int);
 	void getTriShapedNghbrsG6(int, int);
@@ -36,39 +34,22 @@ public:
 	void getTriShapedNghbrsG8(int, int);
 };
 
-	CorPerFilter::CorPerFilter(string inputFile, string outputFile) {
+	CorPerFilter::CorPerFilter(string inputFile) {
 		ifstream getHeader;
 		getHeader.open(inputFile);
 		getHeader >> numRows >> numCols >> minVal >> maxVal;
 		int rowSize = numRows + 4;
 		int colSize = numCols + 4;
 		mirrorFramedAry = new int*[rowSize];
-		tempAry = new int*[colSize];
+		tempAry = new int*[numRows];
 		
 		//allocate and initalize arrays
 		for(int i = 0; i < rowSize; i++) {
 			mirrorFramedAry[i] = new int[colSize]();
-			tempAry[i] = new int[colSize]();
-		}		
+		}
+		for(int i = 0; i < numCols; i++)
+			tempAry[i] = new int[numCols]();		
 	}
-
-void CorPerFilter::readInputFile(string inputFile) {
-	ifstream readInputFile;
-	readInputFile.open(inputFile);
-	int numReadIn = 0;
-	while(readInputFile >> numReadIn) {
-		cout << numReadIn << " ";
-	}
-} 
-
-void CorPerFilter::initializeArr() {
-	int rowSize = numRows + 4;
-	int colSize = numCols + 4;
-	for(int i = 0; i < rowSize; i++) {
-			mirrorFramedAry[i] = new int[colSize]();
-			tempAry[i] = new int[colSize]();
-	}	
-}
 
 void CorPerFilter::mirrorFramed() {
 	//framing left to right
@@ -90,7 +71,6 @@ void CorPerFilter::mirrorFramed() {
 void CorPerFilter::loadImage(string inputFile) {
 
 	// fix number of rows here
- 
 	ifstream readInputFile;
 	readInputFile.open(inputFile);
 	int numFromFile;
@@ -112,66 +92,87 @@ void CorPerFilter::loadNeighbors(int which, int rowIndex, int colIndex) {
 		int startIndex = rowIndex - 2;
 		getRectShapedNeighbors(startIndex, rowIndex, startIndex, colIndex);
 		//maybe call compute Ave here 
+		neighborAVG[which] = computeAVG();
 	} else if(which == 1) {
 		int startRwIndex = rowIndex - 2;
 		int endColIndex = colIndex + 2;
 		getRectShapedNeighbors(startRwIndex, rowIndex, colIndex, endColIndex);
+		neighborAVG[which] = computeAVG();
 	} else if(which == 2) {
 		int endRwIndex = rowIndex + 2;
 		int colStartIndex = colIndex - 2;
 		getRectShapedNeighbors(rowIndex, endRwIndex, colStartIndex, colIndex);
+		neighborAVG[which] = computeAVG();
 	} else if(which == 3) {
 		int endRwIndex = rowIndex + 2;
 		int endColIndex = colIndex + 2;
 		getRectShapedNeighbors(rowIndex, endRwIndex, colIndex, endColIndex);
+		neighborAVG[which] = computeAVG();
 	} else if(which == 4) {
 		getTriShapedNghbrsG5(rowIndex, colIndex);
+		neighborAVG[which] = computeAVG();
 	} else if(which == 5) {
 		getTriShapedNghbrsG6(rowIndex, colIndex);
+		neighborAVG[which] = computeAVG();
 	} else if(which == 6) {
 		getTriShapedNghbrsG7(rowIndex, colIndex);
+		neighborAVG[which] = computeAVG();
 	} else if(which == 7) {
 		getTriShapedNghbrsG8(rowIndex, colIndex);
+		neighborAVG[which] = computeAVG();
 	}
-
+	//printNeighborAvgArr();
+	
 }
 
-int CorPerFilter::computeAVG(int which) {
-	int sum = 0;
-	for(int i = 0; i < 8; i++)
+double CorPerFilter::computeAVG() {
+	double sum = 0.0;
+	for(int i = 0; i < 9; i++)
 		sum += neighborAry[i];
-	return sum/8;
+	return sum/9.0;
 
 }
 
-void CorPerFilter::minAVG() {
-
+double CorPerFilter::minAVG() {
+	double min = neighborAVG[1];
+	for(int i = 0; i < 8; i++) {
+		if (neighborAVG[i] < min)
+			min = neighborAVG[i];
+	}
+	return min;
 }
 
 void CorPerFilter::findNewMinMax() {
+	 newMax = -1;
+	 newMin = maxVal;
+	 for(int i = 0; i < numRows; i++) {
+	 	for(int j = 0; j < numCols; j++) {
+	 		if(newMax < tempAry[i][j])
+	 			newMax = tempAry[i][j];
 
+	 		if(newMin > tempAry[i][j])
+	 			newMin = tempAry[i][j];
+	 	}
+	 }
+	 cout << "New max and min are : " << endl;
+	cout << newMax << "  " << newMin << endl;
 }
 
-void CorPerFilter::outputImage() {
-
-	//fix number of rows here
-
-	for(int i = 0; i <= numRows + 4; i++ ) {
-		for(int j = 0; j <= numCols + 4; j++)
-			cout << mirrorFramedAry[i][j] << " ";
-		cout << endl;
-	}
-}
-
-void CorPerFilter::printArr(string outputFile) {
+void CorPerFilter::outputImage(string outputFile) {
 	ofstream printToFile;
 	printToFile.open(outputFile);
 
-	for(int i = 0; i < numRows + 4; i++ ) {
-		for(int j = 0; j < numCols + 4; j++)
-			printToFile << mirrorFramedAry[i][j] << " ";
+	printToFile << numRows << "  " << numCols << "  "
+	<< newMin << "  " << newMax << endl;
+
+	for(int i = 0; i < numRows; i++) {
+		for(int j = 0; j < numCols; j++) {
+			printToFile << tempAry[i][j] << " ";
+		}
 		printToFile << endl;
 	}
+	printToFile.close();
+	
 }
 
 void CorPerFilter::printNeighborArr() {
@@ -188,7 +189,6 @@ void CorPerFilter::getRectShapedNeighbors(int startRwIndex, int endRowIndex,
 				neighborAry[index++] = mirrorFramedAry[i][j];
 			}
 		}
-		printNeighborArr();
 }
 
 void CorPerFilter::getTriShapedNghbrsG5(int rowIndex, int colIndex) {
@@ -204,7 +204,6 @@ void CorPerFilter::getTriShapedNghbrsG5(int rowIndex, int colIndex) {
 		}	
 			colstartLim++;
 	}
-	printNeighborArr();
 }
 
 void CorPerFilter::getTriShapedNghbrsG6(int rowIndex, int colIndex) {
@@ -220,7 +219,6 @@ void CorPerFilter::getTriShapedNghbrsG6(int rowIndex, int colIndex) {
 		}	
 			colstartLim++;
 	}
-	printNeighborArr();
 }
 
 void CorPerFilter::getTriShapedNghbrsG7(int rowIndex, int colIndex) {
@@ -236,7 +234,6 @@ void CorPerFilter::getTriShapedNghbrsG7(int rowIndex, int colIndex) {
 		}	
 			colstartLim++;
 	}
-	printNeighborArr();
 }
 
 void CorPerFilter::getTriShapedNghbrsG8(int rowIndex, int colIndex) {
@@ -252,19 +249,43 @@ void CorPerFilter::getTriShapedNghbrsG8(int rowIndex, int colIndex) {
 		}	
 			colstartLim++;
 	}
-	printNeighborArr();
+}
+
+void CorPerFilter::printNeighborAvgArr() {
+	for(int i = 0; i < 8; i++)
+		cout << neighborAVG[i] << "  ";
+	cout << endl;
 }
 
 void CorPerFilter::cornPrvMethod() {
+	int val[100];
 	int which = 0;
-	for(int i = 2; i < numRows; i++) {
-		for(int j = 2; j < numCols; j++) {
-			while( which < 8) {
+	int counter = 0;
+	for(int i = 2; i < numRows + 2; i++) {
+		for(int j = 2; j < numCols + 2; j++) {
+			while(which < 8) {
 				loadNeighbors(which,i,j);
 				which++;
 			}
+			tempAry[(i - 2)][(j - 2)] = minAVG();
+			//val[counter] = minAVG();
+			which = 0;
+			//cout << endl;
+			//counter++;
 		}
 	}
+	// int index = 0;
+	// for(int i = 0; i < numRows; i++) {
+	// 	for(int j = 0; j < numCols; j++)
+	// 		tempAry[i][j] = val[index++];
+	// }
+	// cout << "thisis index" << index << endl;
+
+	for(int i = 0; i < numRows; i ++) {
+		for(int j = 0; j < numCols; j++)
+			cout << tempAry[i][j] << " ";
+		cout << endl;
+	}   
 }
 
 int main(int argc, char* argv[]) {
@@ -275,11 +296,12 @@ int main(int argc, char* argv[]) {
 	}
 	string inputFile = argv[1];
 	string outputFile = argv[2];
-	CorPerFilter corPerFilter(inputFile, outputFile);
+	CorPerFilter corPerFilter(inputFile);
 	corPerFilter.loadImage(inputFile);
 	corPerFilter.mirrorFramed();
-	corPerFilter.printArr(outputFile);
 	corPerFilter.cornPrvMethod();
-
+	corPerFilter.findNewMinMax();
+	corPerFilter.outputImage(outputFile);
+	
 	return 0;
 }
