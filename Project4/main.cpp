@@ -50,11 +50,12 @@ void DistTransform::loadImage(string inputFile) {
 	readFile.open(inputFile);
 
 	//skip the header
-	for(int i = 0; i < 4; ++i)
-		readFile >> numFromFile;
+	for(int i = 0; i < 4; ++i) {
+			readFile >> numFromFile;
+	}
 
-	for(int i = 1; i <= numRows + 1; ++i) {
-		for(int j = 1; j <= numCols + 1; ++j) {
+	for(int i = 1; i <= numRows ; ++i) {
+		for(int j = 1; j <= numCols; ++j) {
 			readFile >> numFromFile;
 			zeroFramedAry[i][j] = numFromFile;
 		}
