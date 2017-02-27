@@ -21,6 +21,8 @@ public:
 	void computeSkeleton();
 	void mapInt2Char();
 	void prettyPrintDistance();
+	int getMinNghbr(int, int);
+	bool isAllNghborsEq(int, int);
 	void printArr();
 };
 
@@ -32,8 +34,12 @@ DistTransform::DistTransform(string inputFile) {
 	int rowSize = numRows + 2;
 	int colSize = numCols + 2; 
 	zeroFramedAry = new int*[rowSize];
-	for(int i = 0; i < rowSize; ++i)
+	skeletonAry   = new int*[rowSize];
+
+	for(int i = 0; i < rowSize; ++i) {
 		zeroFramedAry[i] = new int[colSize]();
+		skeletonAry[i] = new int[colSize]();
+	}
 
 	readFile.close();
 }
@@ -67,17 +73,28 @@ void DistTransform::zeroFramed() {
 
 	//zero frame from left and right
 	for(int i = 0; i <= numRows + 1; i++) {
-			zeroFramedAry[i][0]           = zeroFramedAry[i][1];
-			zeroFramedAry[i][numCols + 1] = zeroFramedAry[i][numCols];
-		}
+		zeroFramedAry[i][0]           = zeroFramedAry[i][1];
+		zeroFramedAry[i][numCols + 1] = zeroFramedAry[i][numCols];
+	}
 		//framing top and bottom
-		for(int j = 0; j <= numCols + 1; j++) {
-			 zeroFramedAry[0][j]           = zeroFramedAry[1][j];
-			 zeroFramedAry[numRows + 1][j] = zeroFramedAry[numRows][j];
-		}
+	for(int j = 0; j <= numCols + 1; j++) {
+		zeroFramedAry[0][j]           = zeroFramedAry[1][j];
+		zeroFramedAry[numRows + 1][j] = zeroFramedAry[numRows][j];
+	}
 }
 
 void DistTransform::firstPassDistance() {
+	int pixelValue = -9999;
+	int min = 9999;
+	for(int i = 1; i <= numRows; ++i) {
+		for(int j = 1; j <= numCols; ++j) {
+			pixelValue = zeroFramedAry[i][j];
+			if(pixelValue > 0) {
+				min = getMinNghbr(i,j);
+				zeroFramedAry[i][j] = min + 1;
+			} 
+		}
+	}
 
 }
 
@@ -86,6 +103,19 @@ void DistTransform::secondPassDistance() {
 }
 
 void DistTransform::computeSkeleton() {
+	int pixelValue;
+	bool allNghbrsEq = false;
+	for(int i = 1; i <= numRows; ++i) {
+		for(int j = 1; j <= numCols; j++) {
+			pixelValue = zeroFramedAry[i][j];
+			allNghbrsEq = isAllNghborsEq(i,j);
+			if(pixelValue > 0 && allNghbrsEq )
+				skeletonAry[i][j] = pixelValue;
+			else
+				skeletonAry[i][j] = 0;
+			allNghbrsEq = false;
+		}
+	}
 
 }
 
@@ -95,6 +125,37 @@ void DistTransform::mapInt2Char() {
 
 void DistTransform::prettyPrintDistance() {
 
+}
+
+int DistTransform::getMinNghbr(int rowIndex, int colIndex) {
+	int min = 9999;
+	int nghArr[4];
+	nghArr[0] = zeroFramedAry[rowIndex - 1][colIndex - 1];
+	nghArr[1] = zeroFramedAry[rowIndex - 1][colIndex];
+	nghArr[2] = zeroFramedAry[rowIndex - 1][colIndex + 1];
+	nghArr[3] = zeroFramedAry[rowIndex][colIndex - 1];
+
+	for(int i = 0; i < 4; ++i) {
+		if(min > nghArr[i])
+			min = nghArr[i];
+	}
+
+	return min;
+}
+
+bool DistTransform::isAllNghborsEq(int rowIndex, int colIndex) {
+	int nghArr[5];
+	
+	nghArr[0] = zeroFramedAry[rowIndex - 1][colIndex - 1];
+	nghArr[1] = zeroFramedAry[rowIndex - 1][colIndex];
+	nghArr[2] = zeroFramedAry[rowIndex - 1][colIndex + 1];
+	nghArr[3] = zeroFramedAry[rowIndex][colIndex - 1];
+	nghArr[4] = zeroFramedAry[rowIndex][colIndex];
+	
+	if(nghArr[0] == nghArr[1] && nghArr[1] == nghArr[2] &&
+	   nghArr[2] == nghArr[3] && nghArr[3] == nghArr[4]    )
+		return true;
+	return false;
 }
 
 void DistTransform::printArr() {
@@ -114,6 +175,8 @@ int main(int argc, char* argv[]) {
 	DistTransform distTransform(inputFile);
 	distTransform.zeroFramed();
 	distTransform.loadImage(inputFile);
+	distTransform.printArr();
+	distTransform.firstPassDistance();
 	distTransform.printArr();
 	return 0;
 }
