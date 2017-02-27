@@ -21,7 +21,9 @@ public:
 	void computeSkeleton();
 	void mapInt2Char();
 	void prettyPrintDistance();
-	int getMinNghbr(int, int);
+	int getMinNghbrPass1(int, int);
+	int getMinNghbrPass2(int, int);
+	int minimum(int, int);
 	bool allNghbrsGreaterOrEq(int, int);
 	void printArr();
 };
@@ -93,7 +95,7 @@ void DistTransform::firstPassDistance() {
 		for(int j = 1; j <= numCols; ++j) {
 			pixelValue = zeroFramedAry[i][j];
 			if(pixelValue > 0) {
-				min = getMinNghbr(i,j);
+				min = getMinNghbrPass1(i,j);
 				zeroFramedAry[i][j] = min + 1;
 			} 
 		}
@@ -102,6 +104,17 @@ void DistTransform::firstPassDistance() {
 }
 
 void DistTransform::secondPassDistance() {
+	int pixelValue = -9999;
+	int min = 9999;
+	for(int i = numRows; i >= 1; --i) {
+		for(int j = numCols; j >= 1; --j) {
+			pixelValue = zeroFramedAry[i][j];
+			if(pixelValue > 0) {
+				min = getMinNghbrPass2(i,j);
+				zeroFramedAry[i][j] = minimum(pixelValue, (min + 1));
+			}
+		}
+	}
 
 }
 
@@ -130,7 +143,7 @@ void DistTransform::prettyPrintDistance() {
 
 }
 
-int DistTransform::getMinNghbr(int rowIndex, int colIndex) {
+int DistTransform::getMinNghbrPass1(int rowIndex, int colIndex) {
 	int min = 9999;
 	int nghArr[4];
 	nghArr[0] = zeroFramedAry[rowIndex - 1][colIndex - 1];
@@ -142,9 +155,25 @@ int DistTransform::getMinNghbr(int rowIndex, int colIndex) {
 		if(min > nghArr[i])
 			min = nghArr[i];
 	}
-
 	return min;
 }
+
+int DistTransform::getMinNghbrPass2(int rowIndex, int colIndex) {
+	int min = 9999;
+	int nghArr[5];
+	nghArr[0] = zeroFramedAry[rowIndex + 1][colIndex - 1];
+	nghArr[1] = zeroFramedAry[rowIndex + 1][colIndex];
+	nghArr[2] = zeroFramedAry[rowIndex + 1][colIndex + 1];
+	nghArr[3] = zeroFramedAry[rowIndex][colIndex + 1];
+	nghArr[4] = zeroFramedAry[rowIndex][colIndex];
+
+	for(int i = 0; i < 4; ++i) {
+		if(min > nghArr[i])
+			min = nghArr[i];
+	}
+	return min;
+}
+
 
 bool DistTransform::allNghbrsGreaterOrEq(int rowIndex, int colIndex) {
 	int nghArr[5];
@@ -159,6 +188,11 @@ bool DistTransform::allNghbrsGreaterOrEq(int rowIndex, int colIndex) {
 	   nghArr[4] >= nghArr[3]                              )
 		return true;
 	return false;
+}
+
+int DistTransform::minimum(int pixelValue, int minNghbrplus1) {
+	//check this again
+	return pixelValue <= minNghbrplus1 ? pixelValue : minNghbrplus1;
 }
 
 void DistTransform::printArr() {
@@ -180,6 +214,8 @@ int main(int argc, char* argv[]) {
 	distTransform.loadImage(inputFile);
 	distTransform.printArr();
 	distTransform.firstPassDistance();
+	distTransform.printArr();
+	distTransform.secondPassDistance();
 	distTransform.printArr();
 	return 0;
 }
