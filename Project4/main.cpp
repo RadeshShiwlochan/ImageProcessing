@@ -65,6 +65,16 @@ void DistTransform::loadImage(string inputFile) {
 
 void DistTransform::zeroFramed() {
 
+	//zero frame from left and right
+	for(int i = 0; i <= numRows + 1; i++) {
+			zeroFramedAry[i][0]           = zeroFramedAry[i][1];
+			zeroFramedAry[i][numCols + 1] = zeroFramedAry[i][numCols];
+		}
+		//framing top and bottom
+		for(int j = 0; j <= numCols + 1; j++) {
+			 zeroFramedAry[0][j]           = zeroFramedAry[1][j];
+			 zeroFramedAry[numRows + 1][j] = zeroFramedAry[numRows][j];
+		}
 }
 
 void DistTransform::firstPassDistance() {
@@ -95,12 +105,14 @@ void DistTransform::printArr() {
 		}
 		cout << endl;
 	}
+	cout << endl << endl;
 }
 
 
 int main(int argc, char* argv[]) {
 	string inputFile = argv[1];
 	DistTransform distTransform(inputFile);
+	distTransform.zeroFramed();
 	distTransform.loadImage(inputFile);
 	distTransform.printArr();
 	return 0;
