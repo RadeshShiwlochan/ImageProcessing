@@ -184,8 +184,8 @@ bool DistTransform::allNghbrsGreaterOrEq(int rowIndex, int colIndex) {
 	nghArr[3] = zeroFramedAry[rowIndex][colIndex - 1];
 	nghArr[4] = zeroFramedAry[rowIndex][colIndex];
 	
-	if(nghArr[4] >= nghArr[1] && nghArr[4] >= nghArr[2] &&
-	   nghArr[4] >= nghArr[3]                              )
+	if(nghArr[4] >= nghArr[0] && nghArr[4] >= nghArr[1] &&
+	   nghArr[4] >= nghArr[2] && nghArr[4] >= nghArr[3]   )
 		return true;
 	return false;
 }
