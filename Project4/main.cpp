@@ -22,7 +22,7 @@ public:
 	void mapInt2Char();
 	void prettyPrintDistance();
 	int getMinNghbr(int, int);
-	bool isAllNghborsEq(int, int);
+	bool allNghbrsGreaterOrEq(int, int);
 	void printArr();
 };
 
@@ -45,9 +45,12 @@ DistTransform::DistTransform(string inputFile) {
 }
 
 DistTransform::~DistTransform() {
-	for(int i = 0; i < numRows + 2; ++i)
+	for(int i = 0; i < numRows + 2; ++i) {
 		delete [] zeroFramedAry[i];
+		delete [] skeletonAry[i];
+	}
 	delete [] zeroFramedAry;
+	delete [] skeletonAry;
 }
 
 void DistTransform::loadImage(string inputFile) {
@@ -108,7 +111,7 @@ void DistTransform::computeSkeleton() {
 	for(int i = 1; i <= numRows; ++i) {
 		for(int j = 1; j <= numCols; j++) {
 			pixelValue = zeroFramedAry[i][j];
-			allNghbrsEq = isAllNghborsEq(i,j);
+			allNghbrsEq = allNghbrsGreaterOrEq(i,j);
 			if(pixelValue > 0 && allNghbrsEq )
 				skeletonAry[i][j] = pixelValue;
 			else
@@ -143,7 +146,7 @@ int DistTransform::getMinNghbr(int rowIndex, int colIndex) {
 	return min;
 }
 
-bool DistTransform::isAllNghborsEq(int rowIndex, int colIndex) {
+bool DistTransform::allNghbrsGreaterOrEq(int rowIndex, int colIndex) {
 	int nghArr[5];
 	
 	nghArr[0] = zeroFramedAry[rowIndex - 1][colIndex - 1];
@@ -152,8 +155,8 @@ bool DistTransform::isAllNghborsEq(int rowIndex, int colIndex) {
 	nghArr[3] = zeroFramedAry[rowIndex][colIndex - 1];
 	nghArr[4] = zeroFramedAry[rowIndex][colIndex];
 	
-	if(nghArr[0] == nghArr[1] && nghArr[1] == nghArr[2] &&
-	   nghArr[2] == nghArr[3] && nghArr[3] == nghArr[4]    )
+	if(nghArr[4] >= nghArr[1] && nghArr[4] >= nghArr[2] &&
+	   nghArr[4] >= nghArr[3]                              )
 		return true;
 	return false;
 }
