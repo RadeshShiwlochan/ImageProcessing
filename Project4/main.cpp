@@ -20,13 +20,17 @@ public:
 	void secondPassDistance();
 	void computeSkeleton();
 	void mapInt2Char();
-	void prettyPrintDistance(ofstream&);
+	void prettyPrintDistance(ofstream&, int);
 	int getMinNghbrPass1(int, int);
 	int getMinNghbrPass2(int, int);
 	int minimum(int, int);
 	bool allNghbrsGreaterOrEq(int, int);
 	void distTransfrmImg(string);
-	void printArr();
+	int getCurrentMin();
+	int getCurrentMax();
+	void printSkeletonImg(string);
+	int getMinInSkelArr();
+	int getMaxInSkelArr();
 };
 
 DistTransform::DistTransform(string inputFile) {
@@ -140,7 +144,8 @@ void DistTransform::mapInt2Char() {
 
 }
 
-void DistTransform::prettyPrintDistance(ofstream& printToFile) {
+void DistTransform::prettyPrintDistance(ofstream& printToFile, int passNum) {
+	printToFile << "This is Pass - " << passNum << endl;
 	for(int i = 1; i <= numRows + 1; ++i ) {
 		for(int j = 1; j <= numRows + 1; ++j) {
 			if(zeroFramedAry[i][j] == 0)
@@ -207,6 +212,12 @@ int DistTransform::minimum(int pixelValue, int minNghbrplus1) {
 void DistTransform::distTransfrmImg(string outputFile) {
 	ofstream printToFile;
 	printToFile.open(outputFile);
+	int currentMin = getCurrentMin();
+	int currentMax = getCurrentMax();
+
+	printToFile << numRows << "  " << numCols << "  "
+	<< currentMin << "  " << currentMax << endl << endl;
+
 	for(int i = 1; i <= numRows + 1; ++i) {
 		for(int j = 1; j <= numCols + 1; ++j) {
 			printToFile << zeroFramedAry[i][j] << "  ";
@@ -215,42 +226,94 @@ void DistTransform::distTransfrmImg(string outputFile) {
 	}
 }
 
-void DistTransform::printArr() {
-
-	for(int i = 0; i < numRows + 2; ++i) {
-		for(int j = 0; j < numCols + 2; ++j) {
-			cout << zeroFramedAry[i][j] << " ";
+int DistTransform::getCurrentMin() {
+	int min = 9999;
+	for(int i = 1; i <= numRows + 1; ++i) {
+		for(int j = 1; j <= numCols + 1; ++j) {
+			if(zeroFramedAry[i][j] < min)
+				min = zeroFramedAry[i][j];
 		}
-		cout << endl;
 	}
-	cout << endl << endl;
+	return min;
+}
+
+int DistTransform::getCurrentMax() {
+	int max = -9999;
+	for(int i = 1; i <= numRows + 1; ++i) {
+		for(int j = 1; j <= numCols + 1; ++j) {
+			if(zeroFramedAry[i][j] > max)
+				max = zeroFramedAry[i][j];
+		}
+	}
+	return max;
+}
+
+void DistTransform::printSkeletonImg(string outputFile) {
+	int minInSkelArr = getMinInSkelArr();
+	int maxInSkelArr = getMaxInSkelArr();
+	ofstream printToFile;
+	printToFile.open(outputFile);
+	printToFile << numRows << "  " << numCols << "  "
+	<< minInSkelArr << "  " << maxInSkelArr << endl << endl;
+	for(int i = 1; i <= numRows + 1; ++i) {
+		for(int j = 1; j <= numCols + 1; ++j) {
+			printToFile << skeletonAry[i][j] << "  ";
+		}
+		printToFile << endl;
+	}
+}
+
+int DistTransform::getMinInSkelArr() {
+	int min = 9999;
+	for(int i = 1; i <= numRows + 1; ++i) {
+		for(int j = 1; j <= numCols + 1; ++j) {
+			if(skeletonAry[i][j] < min)
+				min = skeletonAry[i][j];
+		}
+	}
+	return min;
+}
+
+int DistTransform::getMaxInSkelArr() {
+	int max = -9999;
+	for(int i = 1; i <= numRows + 1; ++i) {
+		for(int j = 1; j <= numCols + 1; ++j) {
+			if(skeletonAry[i][j] > max)
+				max = skeletonAry[i][j];
+		}
+	}
+	return max;
 }
 
 
 int main(int argc, char* argv[]) {
 
-	// if(argc != 5) {
-	// 	cout << "Program needs 4 files, Terminating!";
-	// 	return 0;
-	// }
+	if(argc != 5) {
+		cout << "Program needs 4 files, Terminating!";
+		return 0;
+	}
+
 	ofstream printToFile;
 
 	string inputFile = argv[1];
 	//this needs to be in argv[4];
-	string outputFile1 = argv[2];
-	string outputFile2 = argv[3];
-	printToFile.open(outputFile1);
+	string outputFile2 = argv[2];
+	string outputFile3 = argv[3];
+	string outputFile4 = argv[4];
+	printToFile.open(outputFile4);
 
 	DistTransform distTransform(inputFile);
 	distTransform.zeroFramed();
 	distTransform.loadImage(inputFile);
 	distTransform.firstPassDistance();
-	distTransform.printArr();
-	distTransform.prettyPrintDistance(printToFile);
+
+	distTransform.prettyPrintDistance(printToFile, 1);
 	distTransform.secondPassDistance();
-	distTransform.printArr();
-	distTransform.prettyPrintDistance(printToFile);
+
+	distTransform.prettyPrintDistance(printToFile, 2);
 	distTransform.distTransfrmImg(outputFile2);
+	distTransform.computeSkeleton();
+	distTransform.printSkeletonImg(outputFile3);
 	return 0;
 }
 
