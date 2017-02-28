@@ -25,6 +25,7 @@ public:
 	int getMinNghbrPass2(int, int);
 	int minimum(int, int);
 	bool allNghbrsGreaterOrEq(int, int);
+	void distTransfrmImg(string);
 	void printArr();
 };
 
@@ -203,6 +204,17 @@ int DistTransform::minimum(int pixelValue, int minNghbrplus1) {
 	return pixelValue <= minNghbrplus1 ? pixelValue : minNghbrplus1;
 }
 
+void DistTransform::distTransfrmImg(string outputFile) {
+	ofstream printToFile;
+	printToFile.open(outputFile);
+	for(int i = 1; i <= numRows + 1; ++i) {
+		for(int j = 1; j <= numCols + 1; ++j) {
+			printToFile << zeroFramedAry[i][j] << "  ";
+		}
+		printToFile << endl;
+	}
+}
+
 void DistTransform::printArr() {
 
 	for(int i = 0; i < numRows + 2; ++i) {
@@ -226,6 +238,7 @@ int main(int argc, char* argv[]) {
 	string inputFile = argv[1];
 	//this needs to be in argv[4];
 	string outputFile1 = argv[2];
+	string outputFile2 = argv[3];
 	printToFile.open(outputFile1);
 
 	DistTransform distTransform(inputFile);
@@ -237,6 +250,7 @@ int main(int argc, char* argv[]) {
 	distTransform.secondPassDistance();
 	distTransform.printArr();
 	distTransform.prettyPrintDistance(printToFile);
+	distTransform.distTransfrmImg(outputFile2);
 	return 0;
 }
 
