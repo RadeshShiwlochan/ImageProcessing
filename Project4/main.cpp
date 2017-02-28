@@ -21,6 +21,7 @@ public:
 	void computeSkeleton();
 	void mapInt2Char();
 	void prettyPrintDistance(ofstream&, int);
+	void prettyPrintDistanceForSkelArr(ofstream&);
 	int getMinNghbrPass1(int, int);
 	int getMinNghbrPass2(int, int);
 	int minimum(int, int);
@@ -152,6 +153,20 @@ void DistTransform::prettyPrintDistance(ofstream& printToFile, int passNum) {
 				printToFile << "  ";
 			else //call mapInt2Char here 
 				printToFile << zeroFramedAry[i][j] << "  ";
+		}
+		printToFile << endl;
+	}
+}
+
+void DistTransform::prettyPrintDistanceForSkelArr(ofstream& printToFile) {
+	
+	printToFile << "skeletonAry prettyDistance Print" << endl << endl;
+	for(int i = 1; i <= numRows + 1; ++i ) {
+		for(int j = 1; j <= numRows + 1; ++j) {
+			if(skeletonAry[i][j] == 0)
+				printToFile << "  ";
+			else //call mapInt2Char here 
+				printToFile << skeletonAry[i][j] << "  ";
 		}
 		printToFile << endl;
 	}
@@ -314,7 +329,12 @@ int main(int argc, char* argv[]) {
 	distTransform.distTransfrmImg(outputFile2);
 	distTransform.computeSkeleton();
 	distTransform.printSkeletonImg(outputFile3);
+	distTransform.prettyPrintDistanceForSkelArr(printToFile);
 	return 0;
+
+	//need to work on closing the files
+	//need to fix computeSkeleton
+	//work on mapIntToChar
 }
 
 
