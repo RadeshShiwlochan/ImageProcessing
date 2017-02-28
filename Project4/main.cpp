@@ -20,7 +20,7 @@ public:
 	void secondPassDistance();
 	void computeSkeleton();
 	void mapInt2Char();
-	void prettyPrintDistance();
+	void prettyPrintDistance(ofstream&);
 	int getMinNghbrPass1(int, int);
 	int getMinNghbrPass2(int, int);
 	int minimum(int, int);
@@ -76,12 +76,12 @@ void DistTransform::loadImage(string inputFile) {
 
 void DistTransform::zeroFramed() {
 
-	//zero frame from left and right
+	//zero framing left and right
 	for(int i = 0; i <= numRows + 1; i++) {
 		zeroFramedAry[i][0]           = zeroFramedAry[i][1];
 		zeroFramedAry[i][numCols + 1] = zeroFramedAry[i][numCols];
 	}
-		//framing top and bottom
+		//zero framing top and bottom
 	for(int j = 0; j <= numCols + 1; j++) {
 		zeroFramedAry[0][j]           = zeroFramedAry[1][j];
 		zeroFramedAry[numRows + 1][j] = zeroFramedAry[numRows][j];
@@ -139,8 +139,16 @@ void DistTransform::mapInt2Char() {
 
 }
 
-void DistTransform::prettyPrintDistance() {
-
+void DistTransform::prettyPrintDistance(ofstream& printToFile) {
+	for(int i = 1; i <= numRows + 1; ++i ) {
+		for(int j = 1; j <= numRows + 1; ++j) {
+			if(zeroFramedAry[i][j] == 0)
+				printToFile << "  ";
+			else //call mapInt2Char here 
+				printToFile << zeroFramedAry[i][j] << "  ";
+		}
+		printToFile << endl;
+	}
 }
 
 int DistTransform::getMinNghbrPass1(int rowIndex, int colIndex) {
@@ -208,15 +216,27 @@ void DistTransform::printArr() {
 
 
 int main(int argc, char* argv[]) {
+
+	// if(argc != 5) {
+	// 	cout << "Program needs 4 files, Terminating!";
+	// 	return 0;
+	// }
+	ofstream printToFile;
+
 	string inputFile = argv[1];
+	//this needs to be in argv[4];
+	string outputFile1 = argv[2];
+	printToFile.open(outputFile1);
+
 	DistTransform distTransform(inputFile);
 	distTransform.zeroFramed();
 	distTransform.loadImage(inputFile);
-	distTransform.printArr();
 	distTransform.firstPassDistance();
 	distTransform.printArr();
+	distTransform.prettyPrintDistance(printToFile);
 	distTransform.secondPassDistance();
 	distTransform.printArr();
+	distTransform.prettyPrintDistance(printToFile);
 	return 0;
 }
 
