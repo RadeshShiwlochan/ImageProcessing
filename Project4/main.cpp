@@ -109,7 +109,6 @@ void DistTransform::firstPassDistance() {
 			} 
 		}
 	}
-
 }
 
 void DistTransform::secondPassDistance() {
@@ -124,7 +123,6 @@ void DistTransform::secondPassDistance() {
 			}
 		}
 	}
-
 }
 
 void DistTransform::computeSkeleton() {
@@ -133,12 +131,14 @@ void DistTransform::computeSkeleton() {
 	for(int i = 1; i <= numRows; ++i) {
 		for(int j = 1; j <= numCols; j++) {
 			pixelValue = zeroFramedAry[i][j];
-			allNghbrsEq = allNghbrsGreaterOrEq(i,j);
-			if(pixelValue > 0 && allNghbrsEq )
-				skeletonAry[i][j] = pixelValue;
-			else
-				skeletonAry[i][j] = 0;
-			allNghbrsEq = false;
+			if(pixelValue > 0 ) {
+				allNghbrsEq = allNghbrsGreaterOrEq(i,j);
+				if(allNghbrsEq)
+					skeletonAry[i][j] = pixelValue;
+				else
+					skeletonAry[i][j] = 0;
+				allNghbrsEq = false;
+		 	}
 		}
 	}
 
@@ -170,7 +170,7 @@ void DistTransform::prettyPrintDistanceForSkelArr(ofstream& printToFile) {
 	
 	printToFile << "skeletonAry prettyDistance Print" << endl << endl;
 	for(int i = 1; i <= numRows + 1; ++i ) {
-		for(int j = 1; j <= numRows + 1; ++j) {
+		for(int j = 1; j <= numCols + 1; ++j) {
 			if(skeletonAry[i][j] == 0)
 				printToFile << "  ";
 			else //call mapInt2Char here 
@@ -204,30 +204,48 @@ int DistTransform::getMinNghbrPass2(int rowIndex, int colIndex) {
 	nghArr[3] = zeroFramedAry[rowIndex][colIndex + 1];
 	nghArr[4] = zeroFramedAry[rowIndex][colIndex];
 
-	cout << "This is in getMinNghbrPass2 " << endl;
-	cout << nghArr[0] << " " << nghArr[1] << " " << 
-	nghArr[2] << " " << nghArr[3] << " " << nghArr[4] << endl;
+	// cout << "This is in getMinNghbrPass2 " << endl;
+	// cout << nghArr[0] << " " << nghArr[1] << " " << 
+	// nghArr[2] << " " << nghArr[3] << " " << nghArr[4] << endl;
 	for(int i = 0; i < 4; ++i) {
 		if(min > nghArr[i])
 			min = nghArr[i];
 	}
-	cout << "This is the min " << min << endl;
+	//cout << "This is the min " << min << endl;
 	return min;
 }
 
 
 bool DistTransform::allNghbrsGreaterOrEq(int rowIndex, int colIndex) {
-	int nghArr[5];
+	int nghArr[9];
 	
 	nghArr[0] = zeroFramedAry[rowIndex - 1][colIndex - 1];
 	nghArr[1] = zeroFramedAry[rowIndex - 1][colIndex];
 	nghArr[2] = zeroFramedAry[rowIndex - 1][colIndex + 1];
 	nghArr[3] = zeroFramedAry[rowIndex][colIndex - 1];
-	nghArr[4] = zeroFramedAry[rowIndex][colIndex];
+	nghArr[4] = zeroFramedAry[rowIndex][colIndex + 1];
+	nghArr[5] = zeroFramedAry[rowIndex + 1][colIndex - 1];
+	nghArr[6] = zeroFramedAry[rowIndex + 1][colIndex];
+	nghArr[7] = zeroFramedAry[rowIndex + 1][colIndex + 1];
+	nghArr[8] = zeroFramedAry[rowIndex][colIndex];
+
+	cout << "these are the eight neighbors " << endl;
+	cout << nghArr[0] << " " << nghArr[1] << " " << nghArr[1]
+	<< " " << nghArr[2] << " " << nghArr[3] << " " << nghArr[4]
+	<< " " << nghArr[5] << " " << nghArr[6] << " " << nghArr[7] 
+	<<" "<< " --->" << nghArr[8] << endl; 
 	
-	if(nghArr[4] >= nghArr[0] && nghArr[4] >= nghArr[1] &&
-	   nghArr[4] >= nghArr[2] && nghArr[4] >= nghArr[3]   )
+	if(nghArr[8] >= nghArr[0] && nghArr[8] >= nghArr[1] &&
+	   nghArr[8] >= nghArr[2] && nghArr[8] >= nghArr[3] &&
+	   nghArr[8] >= nghArr[4] && nghArr[8] >= nghArr[5] &&
+	   nghArr[8] >= nghArr[6] && nghArr[8] >= nghArr[7]     ) {
+	   	
+	   	cout << "returning true" <<endl;
+	    cout << "************************* " <<endl;
 		return true;
+	}
+	
+	cout << "returning false" << endl;	
 	return false;
 }
 
@@ -323,7 +341,6 @@ void DistTransform::printArr() {
 		}
 		cout << endl;
 	}
-
 }
 
 
@@ -351,7 +368,6 @@ int main(int argc, char* argv[]) {
 	distTransform.secondPassDistance();
 
 	distTransform.prettyPrintDistance(printToFile, 2);
-	distTransform.printArr();
 	distTransform.distTransfrmImg(outputFile2);
 	distTransform.computeSkeleton();
 	distTransform.printSkeletonImg(outputFile3);
