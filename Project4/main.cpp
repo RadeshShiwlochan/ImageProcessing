@@ -1,5 +1,8 @@
 #include<iostream>
 #include<fstream>
+#include<stdlib.h>
+#include<string.h>
+#include<stdio.h>
 using namespace std;
 
 class DistTransform {
@@ -19,7 +22,7 @@ public:
 	void firstPassDistance();
 	void secondPassDistance();
 	void computeSkeleton();
-	void mapInt2Char();
+	void mapInt2Char(int, ofstream&);
 	void prettyPrintDistance(ofstream&, int);
 	void prettyPrintDistanceForSkelArr(ofstream&);
 	int getMinNghbrPass1(int, int);
@@ -32,6 +35,7 @@ public:
 	void printSkeletonImg(string);
 	int getMinInSkelArr();
 	int getMaxInSkelArr();
+	void printArr();
 };
 
 DistTransform::DistTransform(string inputFile) {
@@ -48,7 +52,6 @@ DistTransform::DistTransform(string inputFile) {
 		zeroFramedAry[i] = new int[colSize]();
 		skeletonAry[i] = new int[colSize]();
 	}
-
 	readFile.close();
 }
 
@@ -141,18 +144,23 @@ void DistTransform::computeSkeleton() {
 
 }
 
-void DistTransform::mapInt2Char() {
-
+void DistTransform::mapInt2Char(int pixelValue, ofstream& printToFile) {
+	char buffer[33];
+	printToFile << sprintf(buffer, "%d", pixelValue);
+	
 }
 
 void DistTransform::prettyPrintDistance(ofstream& printToFile, int passNum) {
 	printToFile << "This is Pass - " << passNum << endl;
 	for(int i = 1; i <= numRows + 1; ++i ) {
-		for(int j = 1; j <= numRows + 1; ++j) {
-			if(zeroFramedAry[i][j] == 0)
+		for(int j = 1; j <= numCols + 1; ++j) {
+			int pixelValue = zeroFramedAry[i][j];
+			if(pixelValue == 0)
 				printToFile << "  ";
-			else //call mapInt2Char here 
-				printToFile << zeroFramedAry[i][j] << "  ";
+			else {
+				//mapInt2Char(pixelValue, printToFile);
+				printToFile << pixelValue << "  ";
+			}	
 		}
 		printToFile << endl;
 	}
@@ -196,10 +204,14 @@ int DistTransform::getMinNghbrPass2(int rowIndex, int colIndex) {
 	nghArr[3] = zeroFramedAry[rowIndex][colIndex + 1];
 	nghArr[4] = zeroFramedAry[rowIndex][colIndex];
 
+	cout << "This is in getMinNghbrPass2 " << endl;
+	cout << nghArr[0] << " " << nghArr[1] << " " << 
+	nghArr[2] << " " << nghArr[3] << " " << nghArr[4] << endl;
 	for(int i = 0; i < 4; ++i) {
 		if(min > nghArr[i])
 			min = nghArr[i];
 	}
+	cout << "This is the min " << min << endl;
 	return min;
 }
 
@@ -220,8 +232,11 @@ bool DistTransform::allNghbrsGreaterOrEq(int rowIndex, int colIndex) {
 }
 
 int DistTransform::minimum(int pixelValue, int minNghbrplus1) {
-	//check this again
-	return pixelValue <= minNghbrplus1 ? pixelValue : minNghbrplus1;
+
+	if (pixelValue <= minNghbrplus1) 
+		return pixelValue;
+	else 
+		return minNghbrplus1;
 }
 
 void DistTransform::distTransfrmImg(string outputFile) {
@@ -276,6 +291,7 @@ void DistTransform::printSkeletonImg(string outputFile) {
 		}
 		printToFile << endl;
 	}
+	printToFile.close();
 }
 
 int DistTransform::getMinInSkelArr() {
@@ -300,6 +316,16 @@ int DistTransform::getMaxInSkelArr() {
 	return max;
 }
 
+void DistTransform::printArr() {
+	for(int i = 1; i <= numRows + 1; ++i) {
+		for(int j = 1; j <= numCols + 1; ++j) {
+			cout << zeroFramedAry[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+}
+
 
 int main(int argc, char* argv[]) {
 
@@ -311,7 +337,6 @@ int main(int argc, char* argv[]) {
 	ofstream printToFile;
 
 	string inputFile = argv[1];
-	//this needs to be in argv[4];
 	string outputFile2 = argv[2];
 	string outputFile3 = argv[3];
 	string outputFile4 = argv[4];
@@ -326,13 +351,14 @@ int main(int argc, char* argv[]) {
 	distTransform.secondPassDistance();
 
 	distTransform.prettyPrintDistance(printToFile, 2);
+	distTransform.printArr();
 	distTransform.distTransfrmImg(outputFile2);
 	distTransform.computeSkeleton();
 	distTransform.printSkeletonImg(outputFile3);
 	distTransform.prettyPrintDistanceForSkelArr(printToFile);
+	printToFile.close();
 	return 0;
 
-	//need to work on closing the files
 	//need to fix computeSkeleton
 	//work on mapIntToChar
 }
