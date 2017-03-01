@@ -159,7 +159,6 @@ void DistTransform::prettyPrintDistance(ofstream& printToFile, int passNum) {
 			if(pixelValue == 0)
 				printToFile << "  ";
 			else {
-				//mapInt2Char(pixelValue, printToFile);
 				printToFile << pixelValue << "  ";
 			}	
 		}
@@ -205,14 +204,10 @@ int DistTransform::getMinNghbrPass2(int rowIndex, int colIndex) {
 	nghArr[3] = zeroFramedAry[rowIndex][colIndex + 1];
 	nghArr[4] = zeroFramedAry[rowIndex][colIndex];
 
-	// cout << "This is in getMinNghbrPass2 " << endl;
-	// cout << nghArr[0] << " " << nghArr[1] << " " << 
-	// nghArr[2] << " " << nghArr[3] << " " << nghArr[4] << endl;
 	for(int i = 0; i < 4; ++i) {
 		if(min > nghArr[i])
 			min = nghArr[i];
 	}
-	//cout << "This is the min " << min << endl;
 	return min;
 }
 
@@ -230,23 +225,13 @@ bool DistTransform::allNghbrsGreaterOrEq(int rowIndex, int colIndex) {
 	nghArr[7] = zeroFramedAry[rowIndex + 1][colIndex + 1];
 	nghArr[8] = zeroFramedAry[rowIndex][colIndex];
 
-	cout << "these are the eight neighbors " << endl;
-	cout << nghArr[0] << " " << nghArr[1] << " " << nghArr[1]
-	<< " " << nghArr[2] << " " << nghArr[3] << " " << nghArr[4]
-	<< " " << nghArr[5] << " " << nghArr[6] << " " << nghArr[7] 
-	<<" "<< " --->" << nghArr[8] << endl; 
-	
 	if(nghArr[8] >= nghArr[0] && nghArr[8] >= nghArr[1] &&
 	   nghArr[8] >= nghArr[2] && nghArr[8] >= nghArr[3] &&
 	   nghArr[8] >= nghArr[4] && nghArr[8] >= nghArr[5] &&
 	   nghArr[8] >= nghArr[6] && nghArr[8] >= nghArr[7]     ) {
-	   	
-	   	cout << "returning true" <<endl;
-	    cout << "************************* " <<endl;
+	  
 		return true;
-	}
-	
-	cout << "returning false" << endl;	
+	}		
 	return false;
 }
 
