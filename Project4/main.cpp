@@ -35,6 +35,7 @@ public:
 	void printSkeletonImg(string);
 	int getMinInSkelArr();
 	int getMaxInSkelArr();
+	void prettyPrint(string, string);
 	void printArr();
 };
 
@@ -334,6 +335,32 @@ int DistTransform::getMaxInSkelArr() {
 	return max;
 }
 
+void DistTransform::prettyPrint(string inputFile, string outputFile) {
+	ifstream readFile;
+	ofstream printToFile;
+	readFile.open(inputFile);
+	printToFile.open(outputFile);
+	int pixelValue = -1;
+	readFile >> pixelValue >> pixelValue >> pixelValue 
+	>> pixelValue; 
+	printToFile << "This is the Input Image" << endl << endl;
+
+	printToFile << numRows << " " << numCols << " " 
+	<< minVal << " " << maxVal << endl << endl;
+	for(int i = 0; i < numRows; ++i ) {
+		for(int j = 0; j < numCols; ++j) {
+			readFile >> pixelValue;
+			if(pixelValue == 0)
+				printToFile << "  ";
+			else 
+				printToFile << pixelValue << "  ";
+		}
+		printToFile << endl;
+	}
+	readFile.close();
+	printToFile.close();
+}
+
 void DistTransform::printArr() {
 	for(int i = 1; i <= numRows + 1; ++i) {
 		for(int j = 1; j <= numCols + 1; ++j) {
@@ -346,22 +373,34 @@ void DistTransform::printArr() {
 
 int main(int argc, char* argv[]) {
 
-	if(argc != 5) {
-		cout << "Program needs 4 files, Terminating!";
+	if(argc != 6) {
+		cout << "Program needs 5 files: \n" 
+		<< " 1 input file \n" 
+		<< " 1 output file for result of zeroFramedAry after "
+		<< "pass 2 \n" 
+		<< " 1 output file for result of the skeletonAry \n" 
+		<< " 1 output file for pretty print pass 1, pass 2 " 
+		<< "and skeleton \n"
+		<<" 1 output File for pretty print input file\n" 
+		<< " Terminating ...." << endl;
 		return 0;
 	}
 
 	ofstream printToFile;
+	ofstream prettyPrintInput;
 
 	string inputFile = argv[1];
 	string outputFile2 = argv[2];
 	string outputFile3 = argv[3];
 	string outputFile4 = argv[4];
+	string outputFile5 = argv[5];
 	printToFile.open(outputFile4);
-
+	
 	DistTransform distTransform(inputFile);
+	distTransform.prettyPrint(inputFile, outputFile5);
 	distTransform.zeroFramed();
 	distTransform.loadImage(inputFile);
+	distTransform.prettyPrintDistance(prettyPrintInput, 0);
 	distTransform.firstPassDistance();
 
 	distTransform.prettyPrintDistance(printToFile, 1);
@@ -373,10 +412,8 @@ int main(int argc, char* argv[]) {
 	distTransform.printSkeletonImg(outputFile3);
 	distTransform.prettyPrintDistanceForSkelArr(printToFile);
 	printToFile.close();
+	
 	return 0;
-
-	//need to fix computeSkeleton
-	//work on mapIntToChar
 }
 
 
