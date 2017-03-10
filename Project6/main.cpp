@@ -79,9 +79,11 @@ int Image::getMaxVal() { return maxVal; }
 int Image::getMinVal() { return minVal; }
 
 class Point {
+
 private:
 	int row;
 	int col;
+
 public: 
 	Point(int, int);
 	int getPointRow();
@@ -102,8 +104,9 @@ int Point::getPointCol() { return col; }
 void Point::setPointRow(int rowVal) { row = rowVal; }
 
 void Point::setPointCol(int colVal) { col = colVal; }
- 
+
 class ChainCode {
+
 private: 
 	Point neighborCoord[8];
 	Point currentPoint;
@@ -118,5 +121,51 @@ public:
 	void loadNeighborCoord();
 	void findNextPoint();
 	void prettyPrint();
-
 };
+
+ChainCode::ChainCode() {
+
+	for(int i = 0; i < 8; ++i) {
+		neighborCoord[i].setPointRow = 0;
+		neighborCoord[i].setPointCol = 0;
+		nextDirTable[i].setPointRow  = 0;
+		nextDirTable[i].setPointCol  = 0;
+	}
+}
+
+void ChainCode::prettyPrint(string outputFile) {
+
+	ofstream printToFile;
+	printToFile.open(outputFile);
+	int pixel_value = -1;
+		printToFile << "Input Image Pretty Print" << endl;
+		printToFile << endl;
+		for(int i = 1; i <= numRows + 1; i++) {
+			for(int j = 1; j <= numCols + 1; j++) {
+				//pixel_value = firstAry[i][j];
+				if(pixel_value == 1) 
+					printToFile << pixel_value + " ";
+				else 
+				    printToFile << "  ";
+			}
+			printToFile << endl;
+		}
+}//prettyPrint method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
