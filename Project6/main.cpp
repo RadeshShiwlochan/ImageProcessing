@@ -19,6 +19,9 @@ public:
 	int getNumCols();
 	int getMinVal();
 	int getMaxVal();
+
+	//temporary functions
+	void printImage();
 };
 
 Image::Image(string inputFile) {
@@ -77,6 +80,14 @@ int Image::getNumCols() { return numCols; }
 int Image::getMaxVal() { return maxVal; }
 
 int Image::getMinVal() { return minVal; }
+
+void Image::printImage() {
+	for(int i = 0; i < numRows + 2; ++i) {
+		for(int j = 0; j < getNumCols + 2; ++j) 
+			cout << zeroFramedAry[i][j] << " "; 
+		cout << endl;
+	 }
+}
 
 class Point {
 
