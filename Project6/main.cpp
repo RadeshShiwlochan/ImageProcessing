@@ -163,8 +163,9 @@ void ChainCode::prettyPrint(string outputFile) {
 		}
 }//prettyPrint method
 
+int main(int argc, char* argv []) {
 
-
+}
 
 
 
