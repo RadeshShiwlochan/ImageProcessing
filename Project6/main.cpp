@@ -164,7 +164,15 @@ void ChainCode::prettyPrint(string outputFile) {
 }//prettyPrint method
 
 int main(int argc, char* argv []) {
-
+	if(argc != 4) {
+		cout << "Program needs 4 Files: \n" <<
+		<< "an input File \n" << "and 3 outputfiles \n";
+		<<"Terminating" << endl;
+		return 0;
+	} 
+		
+	string inputFile = argv[1];
+	string outputFile1 = argv[2];
 }
 
 
