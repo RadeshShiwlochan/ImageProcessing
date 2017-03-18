@@ -13,6 +13,7 @@ private:
 
 public: 
 	Image(string);
+	~Image();
 	void zeroFramed();
 	void loadImage(string);
 	int getNumRows();
@@ -39,8 +40,8 @@ Image::Image(string inputFile) {
 }
 
 Image::~Image() {
-	int colSize = numCols + 2;
-	for(int i = 0; i < colSize; ++i)
+	int rowSize = numRows + 2;
+	for(int i = 0; i < rowSize; ++i)
 		delete [] zeroFramedAry[i];
 	delete [] zeroFramedAry;
 }
@@ -60,6 +61,8 @@ void Image::zeroFramed() {
 void Image::loadImage(string inputFile) {
 	ifstream readFile;
 	int pixelValue = -1;
+	int rowSize = numRows + 2;
+	int colSize = numCols + 2;
 	readFile.open(inputFile);
 	for(int i = 0; i < 4; ++i)
 		readFile >> pixelValue;
@@ -83,8 +86,9 @@ int Image::getMinVal() { return minVal; }
 
 void Image::printImage() {
 	for(int i = 0; i < numRows + 2; ++i) {
-		for(int j = 0; j < getNumCols + 2; ++j) 
+		for(int j = 0; j < numCols + 2; ++j) {
 			cout << zeroFramedAry[i][j] << " "; 
+		}
 		cout << endl;
 	 }
 }
@@ -96,6 +100,7 @@ private:
 	int col;
 
 public: 
+	Point();
 	Point(int, int);
 	int getPointRow();
 	int getPointCol();
@@ -103,6 +108,11 @@ public:
 	void setPointCol(int);
 	void printPoint();	
 };
+
+Point::Point() {
+	row = 0;
+	col = 0;
+}
 
 Point::Point(int rowVal, int colVal) {
 	row = rowVal;
@@ -126,8 +136,8 @@ class ChainCode {
 
 private: 
 	Point neighborCoord[8];
-	Point currentPoint;
-	Point nextPoint;
+	Point currentP;
+	Point nextP;
 	Point lastQ;
 	Point nextDirTable[8];
 	Point nextDir;
@@ -137,48 +147,62 @@ public:
 	ChainCode();
 	void loadNeighborCoord();
 	void findNextPoint();
-	void prettyPrint();
+	void prettyPrint(string);
 };
 
 ChainCode::ChainCode() {
 
 	for(int i = 0; i < 8; ++i) {
-		neighborCoord[i].setPointRow = 0;
-		neighborCoord[i].setPointCol = 0;
-		nextDirTable[i].setPointRow  = 0;
-		nextDirTable[i].setPointCol  = 0;
+		neighborCoord[i].setPointRow(0);
+		neighborCoord[i].setPointCol(0);
+		nextDirTable[i].setPointRow (0);
+		nextDirTable[i].setPointCol(0);
 	}
+}
+
+void ChainCode::loadNeighborCoord() {
+
+}
+
+void ChainCode::findNextPoint() {
+
 }
 
 void ChainCode::prettyPrint(string outputFile) {
 
-	ofstream printToFile;
-	printToFile.open(outputFile);
-	int pixel_value = -1;
-		printToFile << "Input Image Pretty Print" << endl;
-		printToFile << endl;
-		for(int i = 1; i <= numRows + 1; i++) {
-			for(int j = 1; j <= numCols + 1; j++) {
-				//pixel_value = firstAry[i][j];
-				if(pixel_value == 1) 
-					printToFile << pixel_value + " ";
-				else 
-				    printToFile << "  ";
-			}
-			printToFile << endl;
-		}
+	// ofstream printToFile;
+	// printToFile.open(outputFile);
+	// int pixel_value = -1;
+	// 	printToFile << "Input Image Pretty Print" << endl;
+	// 	printToFile << endl;
+	// 	for(int i = 1; i <= numRows + 1; i++) {
+	// 		for(int j = 1; j <= numCols + 1; j++) {
+	// 			//pixel_value = firstAry[i][j];
+	// 			if(pixel_value == 1) 
+	// 				printToFile << pixel_value << " ";
+	// 			else 
+	// 			    printToFile << "  ";
+	// 		}
+	// 		printToFile << endl;
+	// 	}
 }//prettyPrint method
 
 int main(int argc, char* argv []) {
 	if(argc != 4) {
 		cout << "Program needs 4 Files: \n" <<
-		<< "an input File \n" << "and 3 outputfiles \n";
+	    "an input File \n" << "and 3 outputfiles \n" 
 		<<"Terminating" << endl;
 		return 0;
 	} 
 		
 	string inputFile = argv[1];
 	string outputFile1 = argv[2];
+	string outputFile2 = argv[3];
+
+	Image image(inputFile);
+	image.zeroFramed();
+	image.loadImage(inputFile);
+	image.printImage();
 }
 
 
