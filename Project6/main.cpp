@@ -100,7 +100,8 @@ public:
 	int getPointRow();
 	int getPointCol();
 	void setPointRow(int);
-	void setPointCol(int);	
+	void setPointCol(int);
+	void printPoint();	
 };
 
 Point::Point(int rowVal, int colVal) {
@@ -115,6 +116,11 @@ int Point::getPointCol() { return col; }
 void Point::setPointRow(int rowVal) { row = rowVal; }
 
 void Point::setPointCol(int colVal) { col = colVal; }
+
+void Point::printPoint() {
+	cout << "row " << row << " \n" 
+	<< " col " << col << endl;
+}
 
 class ChainCode {
 
