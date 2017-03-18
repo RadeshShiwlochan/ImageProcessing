@@ -112,6 +112,8 @@ class Point {
 		int getPointCol();
 		void setPointRow(int);
 		void setPointCol(int);
+		void setPointRowCol(int, int);
+		bool pointsNotEqual(Point, Point);
 		void printPoint();	
 	};
 
@@ -133,6 +135,17 @@ class Point {
 
 	void Point::setPointCol(int colVal) { col = colVal; }
 
+	void Point::setPointRowCol(int rowVal, int colVal) {
+		row = rowVal;
+		col = colVal;
+	}
+
+	bool Point::pointsNotEqual(Point pt1, Point pt2) {
+		if(pt1.row == pt2.row && pt1.col == pt2.col )
+			return true;
+		return false;
+	}
+
 	void Point::printPoint() {
 		cout << "row " << row << " \n" 
 		<< " col " << col << endl;
@@ -142,9 +155,11 @@ class ChainCode {
 
 	private: 
 		Point neighborCoord[8];
+		Point startP;
 		Point currentP;
 		Point nextP;
-		Point lastQ;
+		int nextQ;
+		int lastQ;
 		Point nextDirTable[8];
 		Point nextDir;
 		Point Pchain;
@@ -152,7 +167,7 @@ class ChainCode {
 	public: 
 		ChainCode();
 		void loadNeighborCoord();
-		void findNextPoint();
+		Point findNextPoint();
 		void prettyPrint(string);
 		void executeChainCode(Image&);
 	};
@@ -171,7 +186,7 @@ class ChainCode {
 
 	}
 
-	void ChainCode::findNextPoint() {
+	Point ChainCode::findNextPoint() {
 
 	}
 
@@ -199,10 +214,27 @@ class ChainCode {
 		 int colSize = image.getNumCols();
 		for(int i = 1; i < rowSize; ++i) {
 			for(int j = 1; j < colSize; ++j) {
-				if(image.getIndexVal(i,j) > 0) 
+				if(image.getIndexVal(i,j) > 0) {
 					cout << image.getIndexVal(i,j) << " ";
+					startP.setPointRowCol(i,j);
+					currentP.setPointRowCol(i,j);
+					lastQ = 4;
+				}
 			}
 			cout << endl;
+		}
+		while(startP.getPointRow() == currentP.getPointRow() &&
+			  startP.getPointCol() == currentP.getPointCol()    ) {
+			nextQ = (lastQ + 1) % 8;
+			Pchain = findNextPoint();
+			//output Pchain to outputFile1 and outputFile2;
+/*
+	lastQ needs to a type point. Need to change it in the if statemnt above.
+	might have an issue with assigning data members, might need overloading
+*/
+
+			//lastQ = nextDirTable[Pchain];
+			currentP = nextP; 
 		}
 	}
 
