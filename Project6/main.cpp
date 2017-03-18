@@ -61,8 +61,8 @@ void Image::zeroFramed() {
 void Image::loadImage(string inputFile) {
 	ifstream readFile;
 	int pixelValue = -1;
-	int rowSize = numRows + 2;
-	int colSize = numCols + 2;
+	int rowSize = numRows + 1;
+	int colSize = numCols + 1;
 	readFile.open(inputFile);
 	for(int i = 0; i < 4; ++i)
 		readFile >> pixelValue;
