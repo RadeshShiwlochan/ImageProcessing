@@ -158,16 +158,17 @@ class ChainCode {
 		Point startP;
 		Point currentP;
 		Point nextP;
+		int nextDirTable[8];
+		int nextDir;
+		int Pchain;
 		int nextQ;
 		int lastQ;
-		Point nextDirTable[8];
-		Point nextDir;
-		Point Pchain;
+
 
 	public: 
 		ChainCode();
-		void loadNeighborCoord();
-		Point findNextPoint();
+		void loadNeighborCoord(Point);
+		int findNextP();
 		void prettyPrint(string);
 		void executeChainCode(Image&);
 	};
@@ -175,18 +176,30 @@ class ChainCode {
 	ChainCode::ChainCode() {
 
 		for(int i = 0; i < 8; ++i) {
-			neighborCoord[i].setPointRow(0);
-			neighborCoord[i].setPointCol(0);
-			nextDirTable[i].setPointRow (0);
-			nextDirTable[i].setPointCol(0);
+			neighborCoord[i].setPointRowCol(0,0);
+			nextDirTable[i].setPointRowCol(0,0);
 		}
 	}
 
-	void ChainCode::loadNeighborCoord() {
-
+	void ChainCode::loadNeighborCoord(Point currentP) {
+		int row = currentP.getPointRow();
+		int col = currentP.getPointCol();
+		//fix these to match the direction
+		neighborCoord[0].setPointRowCol(row, col + 1);
+		neighborCoord[1].setPointRowCol(row - 1,col + 1);
+		neighborCoord[2].setPointRowCol(row - 1,col);
+		neighborCoord[3].setPointRowCol(row - 1,col - 1);
+		neighborCoord[4].setPointRowCol(row + 1,col - 1);
+		neighborCoord[5].setPointRowCol(row + 1,col - 1);
+		neighborCoord[6].setPointRowCol(row + 1,col);
+		neighborCoord[7].setPointRowCol(row + 1,col + 1);
 	}
 
-	Point ChainCode::findNextPoint() {
+	int ChainCode::findNextP() {
+		int chainDir = -1;
+		loadNeighborCoord(currentP);
+		
+		return chainDir;
 
 	}
 
@@ -226,12 +239,8 @@ class ChainCode {
 		while(startP.getPointRow() == currentP.getPointRow() &&
 			  startP.getPointCol() == currentP.getPointCol()    ) {
 			nextQ = (lastQ + 1) % 8;
-			Pchain = findNextPoint();
+			Pchain = findNextP();
 			//output Pchain to outputFile1 and outputFile2;
-/*
-	lastQ needs to a type point. Need to change it in the if statemnt above.
-	might have an issue with assigning data members, might need overloading
-*/
 
 			//lastQ = nextDirTable[Pchain];
 			currentP = nextP; 
