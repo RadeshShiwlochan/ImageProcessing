@@ -113,7 +113,6 @@ class Point {
 		void setPointRow(int);
 		void setPointCol(int);
 		void setPointRowCol(int, int);
-		bool pointsNotEqual(Point, Point);
 		void printPoint();	
 	};
 
@@ -140,15 +139,9 @@ class Point {
 		col = colVal;
 	}
 
-	bool Point::pointsNotEqual(Point pt1, Point pt2) {
-		if(pt1.row == pt2.row && pt1.col == pt2.col )
-			return true;
-		return false;
-	}
-
 	void Point::printPoint() {
 		cout << "row " << row << " \n" 
-		<< " col " << col << endl;
+		<< "col " << col << endl;
 	}
 
 class ChainCode {
@@ -168,23 +161,25 @@ class ChainCode {
 	public: 
 		ChainCode();
 		void loadNeighborCoord(Point);
-		int findNextP();
+		int findNextP(Image&);
 		void prettyPrint(string);
 		void executeChainCode(Image&);
-	};
+		bool pointsEqual(Point, Point);
+		bool pointsEqualVal(Point, Point, Image&);
+		void printNghbrs(Image&);
+};
 
 	ChainCode::ChainCode() {
 
 		for(int i = 0; i < 8; ++i) {
 			neighborCoord[i].setPointRowCol(0,0);
-			nextDirTable[i].setPointRowCol(0,0);
+			nextDirTable[i] = 0;
 		}
 	}
 
 	void ChainCode::loadNeighborCoord(Point currentP) {
 		int row = currentP.getPointRow();
 		int col = currentP.getPointCol();
-		//fix these to match the direction
 		neighborCoord[0].setPointRowCol(row, col + 1);
 		neighborCoord[1].setPointRowCol(row - 1,col + 1);
 		neighborCoord[2].setPointRowCol(row - 1,col);
@@ -195,12 +190,22 @@ class ChainCode {
 		neighborCoord[7].setPointRowCol(row + 1,col + 1);
 	}
 
-	int ChainCode::findNextP() {
-		int chainDir = -1;
+	int ChainCode::findNextP(Image& img) {
+		int chainDir = nextQ;
+		int counter = 0;
 		loadNeighborCoord(currentP);
-		
+		//delete this
+		printNghbrs(img);
+		while(counter < 1) {
+			if(pointsEqualVal(neighborCoord[chainDir], currentP, img)) {
+				nextP.setPointRowCol(neighborCoord[chainDir].getPointRow(),
+					                 neighborCoord[chainDir].getPointCol());
+				return chainDir;
+			}
+			counter++;
+			chainDir++;
+		}
 		return chainDir;
-
 	}
 
 	void ChainCode::prettyPrint(string outputFile) {
@@ -228,24 +233,52 @@ class ChainCode {
 		for(int i = 1; i < rowSize; ++i) {
 			for(int j = 1; j < colSize; ++j) {
 				if(image.getIndexVal(i,j) > 0) {
-					cout << image.getIndexVal(i,j) << " ";
+					//cout << image.getIndexVal(i,j) << " ";
+					cout << " this is row: " << i << " col: " << j << endl;
 					startP.setPointRowCol(i,j);
 					currentP.setPointRowCol(i,j);
 					lastQ = 4;
+					nextQ = (lastQ + 1) % 8;
+					Pchain = findNextP(image);
+					return;
 				}
+
 			}
 			cout << endl;
 		}
-		while(startP.getPointRow() == currentP.getPointRow() &&
-			  startP.getPointCol() == currentP.getPointCol()    ) {
+		//while(pointsEqual(startP,currentP)) {
 			nextQ = (lastQ + 1) % 8;
-			Pchain = findNextP();
+			Pchain = findNextP(image);
 			//output Pchain to outputFile1 and outputFile2;
-
-			//lastQ = nextDirTable[Pchain];
+			cout << "Pchain: ---> " << Pchain << endl;
+			lastQ = nextDirTable[Pchain];
 			currentP = nextP; 
-		}
+		//}
 	}
+
+	bool ChainCode::pointsEqual(Point pt1, Point pt2) {
+		if(pt1.getPointRow() == pt2.getPointRow() && pt1.getPointCol() == pt2.getPointCol())
+			return true;
+		return false;
+	}	
+
+	bool ChainCode::pointsEqualVal(Point pt1, Point pt2, Image& img) {
+		int ptOneVal = img.getIndexVal(pt1.getPointRow(), pt1.getPointCol());
+		int ptTwoVal = img.getIndexVal(pt2.getPointRow(), pt2.getPointCol());
+
+		if(ptOneVal == 1 && ptOneVal == ptTwoVal)
+			return true;
+		return false;
+	}
+
+	void ChainCode::printNghbrs(Image& img) {
+		for(int i = 0; i < 8; ++i) {
+			int row = neighborCoord[i].getPointRow();
+			int col = neighborCoord[i].getPointCol();
+			int val = img.getIndexVal(row, col);
+			cout << val << " ";
+		}
+	}	
 
 int main(int argc, char* argv []) {
 	if(argc != 4) {
