@@ -30,7 +30,7 @@ class Image {
 		ifstream readFile;
 		readFile.open(inputFile);
 		readFile >> numRows >> numCols >>
-		            minVal >> maxVal;
+		            minVal >> maxVal;          
 		int rowSize = numRows + 2;
 		int colSize = numCols + 2;
 		zeroFramedAry = new int*[rowSize];
@@ -162,12 +162,13 @@ class ChainCode {
 		ChainCode();
 		void loadNeighborCoord(Point);
 		int findNextP(Image&);
-		void prettyPrint(string);
-		void executeChainCode(Image&);
+		void executeChainCode(Image&, ofstream&, ofstream&);
 		bool pointsEqual(Point, Point);
 		bool pointsEqualVal(Point, Point, Image&);
-		void continueChainCode(Image&);
+		void continueChainCode(Image&, ofstream&, ofstream&);
 		void printNghbrs(Image&);
+		void printFuncForFileOne(ofstream&, int);
+		void printFuncForFileTwo(ofstream&, int, int);
 };
 
 	ChainCode::ChainCode() {
@@ -210,28 +211,9 @@ class ChainCode {
 		return chainDir;
 	}
 
-	void ChainCode::prettyPrint(string outputFile) {
-
-		// ofstream printToFile;
-		// printToFile.open(outputFile);
-		// int pixel_value = -1;
-		// 	printToFile << "Input Image Pretty Print" << endl;
-		// 	printToFile << endl;
-		// 	for(int i = 1; i <= numRows + 1; i++) {
-		// 		for(int j = 1; j <= numCols + 1; j++) {
-		// 			//pixel_value = firstAry[i][j];
-		// 			if(pixel_value == 1) 
-		// 				printToFile << pixel_value << " ";
-		// 			else 
-		// 			    printToFile << "  ";
-		// 		}
-		// 		printToFile << endl;
-		// 	}
-	}//prettyPrint method
-
-	void ChainCode::executeChainCode(Image& image) {
-		 int rowSize = image.getNumRows();
-		 int colSize = image.getNumCols();
+	void ChainCode::executeChainCode(Image& image, ofstream& printToFile1, ofstream& printToFile2) {
+		int rowSize = image.getNumRows();
+		int colSize = image.getNumCols();
 		for(int i = 1; i < rowSize; ++i) {
 			for(int j = 1; j < colSize; ++j) {
 				if(image.getIndexVal(i,j) > 0) {
@@ -239,15 +221,25 @@ class ChainCode {
 					startP.setPointRowCol(i,j);
 					currentP.setPointRowCol(i,j);
 					lastQ = 4;
-					continueChainCode(image);
+					printToFile1 << image.getNumRows() << " " << 
+				    image.getNumCols() << " " << image.getMinVal() << " "
+				    << image.getMaxVal() << " " << startP.getPointRow() 
+				    << " " << startP.getPointCol() << " " << image.getIndexVal(i,j)
+				    << endl;
+				    printToFile2 << image.getNumRows() << " " << 
+				    image.getNumCols() << " " << image.getMinVal() << " "
+				    << image.getMaxVal() << "\n" << startP.getPointRow() 
+				    << " " << startP.getPointCol() << " " << image.getIndexVal(i,j)
+				    << endl;
+					continueChainCode(image, printToFile1, printToFile2);
 					return;
 				}
 			}
 		}
 	}
 
-	void ChainCode::continueChainCode(Image& image) {
-		int counter = 0;
+	void ChainCode::continueChainCode(Image& image, ofstream& printToFile1, ofstream& printToFile2) {
+		int counter = 1;
 		do {
 			cout << "This is startP ";
 			startP.printPoint();
@@ -259,6 +251,8 @@ class ChainCode {
 		    Pchain = findNextP(image);
 			cout << endl;
 			cout << "Pchain: ---> " << Pchain << endl;
+			printFuncForFileOne(printToFile1, Pchain);
+			printFuncForFileTwo(printToFile2, Pchain, counter);
 			lastQ = nextDirTable[Pchain];
 			currentP = nextP;
 			cout << " this is currentP: ";
@@ -290,6 +284,17 @@ class ChainCode {
 			int val = img.getIndexVal(row, col);
 			cout << val << " ";
 		}
+	}
+
+	void ChainCode::printFuncForFileOne(ofstream& printToFile1, int pChain) {
+		printToFile1 << pChain << " ";
+	}
+
+	void ChainCode::printFuncForFileTwo(ofstream& printToFile2, int pChain, 
+		                                                       int counter) {
+		if(counter == 20) 
+			printToFile2 << endl;
+		printToFile2 << pChain << " ";	
 	}	
 
 int main(int argc, char* argv []) {
@@ -301,15 +306,18 @@ int main(int argc, char* argv []) {
 	} 
 		
 	string inputFile = argv[1];
-	string outputFile1 = argv[2];
-	string outputFile2 = argv[3];
-
+	ofstream printToFile1;
+	ofstream printToFile2;
+	printToFile1.open(argv[2]);
+	printToFile2.open(argv[3]);
 	Image image(inputFile);
 	image.zeroFramed();
 	image.loadImage(inputFile);
 	image.printImage();
 	ChainCode chainCode;
-	chainCode.executeChainCode(image);
+	chainCode.executeChainCode(image,printToFile1,printToFile2);
+	printToFile1.close();
+	printToFile2.close();
 }
 
 
