@@ -235,7 +235,6 @@ class ChainCode {
 		for(int i = 1; i < rowSize; ++i) {
 			for(int j = 1; j < colSize; ++j) {
 				if(image.getIndexVal(i,j) > 0) {
-					//cout << image.getIndexVal(i,j) << " ";
 					cout << " this is row: " << i << " col: " << j << endl;
 					startP.setPointRowCol(i,j);
 					currentP.setPointRowCol(i,j);
@@ -243,25 +242,30 @@ class ChainCode {
 					continueChainCode(image);
 					return;
 				}
-
 			}
-			cout << endl;
 		}
-		//while(pointsEqual(startP,currentP)) {
-			nextQ = (lastQ + 1) % 8;
-			Pchain = findNextP(image);
-			//output Pchain to outputFile1 and outputFile2;
-			
-		//}
 	}
 
 	void ChainCode::continueChainCode(Image& image) {
-		nextQ = (lastQ + 1) % 8;
-	    Pchain = findNextP(image);
-		cout << endl;
-		cout << "Pchain: ---> " << Pchain << endl;
-		lastQ = nextDirTable[Pchain];
-		currentP = nextP; 
+		int counter = 0;
+		do {
+			cout << "This is startP ";
+			startP.printPoint();
+			cout << endl;
+			cout << " this is currentP: ";
+			currentP.printPoint();
+			cout << endl;	
+			nextQ = (lastQ + 1) % 8;
+		    Pchain = findNextP(image);
+			cout << endl;
+			cout << "Pchain: ---> " << Pchain << endl;
+			lastQ = nextDirTable[Pchain];
+			currentP = nextP;
+			cout << " this is currentP: ";
+			currentP.printPoint();
+			counter++;
+		} while(startP.getPointRow() != currentP.getPointRow() ||
+			  startP.getPointCol() != currentP.getPointCol());	 
 	}
 
 	bool ChainCode::pointsEqual(Point pt1, Point pt2) {
