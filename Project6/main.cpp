@@ -21,8 +21,6 @@ class Image {
 		int getMinVal();
 		int getMaxVal();
 		int getIndexVal(int, int);
-
-		//temporary functions
 		void printImage();
 };
 
@@ -151,7 +149,7 @@ class ChainCode {
 		Point startP;
 		Point currentP;
 		Point nextP;
-		int nextDirTable[8] = {6,0,0,2,2,4,4,6};
+		int nextDirTable[8];
 		int nextDir;
 		int Pchain;
 		int nextQ;
@@ -173,9 +171,13 @@ class ChainCode {
 
 	ChainCode::ChainCode() {
 
+		int tempArr[8] =  {6,0,0,2,2,4,4,6};
 		for(int i = 0; i < 8; ++i) {
 			neighborCoord[i].setPointRowCol(0,0);
+			nextDirTable[i] = tempArr[i];
 		}
+		
+
 	}
 
 	void ChainCode::loadNeighborCoord(Point currentP) {
@@ -192,49 +194,29 @@ class ChainCode {
 	}
 
 	bool ChainCode::pointsEqualVal(Point pt1, Point pt2, Image& img) {
-		cout << "=========================================$" << endl;
-		cout << "This is in pointsEqualVal " << endl;
-		cout << "pt1";
-		pt1.printPoint();
-		cout << endl;
-		cout << "pt2";
-		pt2.printPoint();
-		cout << endl;
+		
 		int ptOneVal = img.getIndexVal(pt1.getPointRow(), pt1.getPointCol());
 		int ptTwoVal = img.getIndexVal(pt2.getPointRow(), pt2.getPointCol());
-		cout << "This is ptOneVal " << ptOneVal << " ptTwoVal " << ptTwoVal << endl;
-		cout << "End of pointsEqualVal" << endl;
-
+	
 		if(ptOneVal > 0 && ptOneVal == ptTwoVal)
 			return true;
 		return false;
 	}
 
 	int ChainCode::findNextP(Image& img) {
-		cout <<"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&" <<endl;
-		cout << "This is start of findNextP" <<endl;
+		
 		int chainDir = nextQ;
 		int counter = 0;
 		loadNeighborCoord(currentP);
-		//delete this
-		printNghbrs(img);
-		cout << " This is chainDir " << chainDir << endl;
 		while(counter < 8) {
-			cout << " This is chainDir " << chainDir << endl;
 			if(pointsEqualVal(neighborCoord[chainDir], currentP, img)) {
 				nextP.setPointRowCol(neighborCoord[chainDir].getPointRow(),
 					                 neighborCoord[chainDir].getPointCol());
-				cout << "this is the nextP :" <<endl;
-				nextP.printPoint();
-				cout << "/////////////////////////////////////////////////////////////////////////////" << endl;
-				cout << "end of findNextP" << endl;
 				return chainDir % 8;
 			}
 			counter++;
 			chainDir++;
 		}
-		cout << "///////////////////////////////////////////////////////////////////////////////////" << endl;
-		cout << "End of findNextP" << endl;
 		return chainDir % 8;
 	}
 
@@ -244,7 +226,6 @@ class ChainCode {
 		for(int i = 1; i < rowSize; ++i) {
 			for(int j = 1; j < colSize; ++j) {
 				if(image.getIndexVal(i,j) > 0) {
-					cout << " this is row: " << i << " col: " << j << endl;
 					startP.setPointRowCol(i,j);
 					currentP.setPointRowCol(i,j);
 					lastQ = 4;
@@ -267,28 +248,15 @@ class ChainCode {
 
 	void ChainCode::continueChainCode(Image& image, ofstream& printToFile1, ofstream& printToFile2) {
 		int counter = 1;
-		cout << "This is startP ";
-		startP.printPoint();
 		do {
-			
-			cout << endl;
-			cout << " this is currentP: ";
-			currentP.printPoint();
-			cout << endl;	
+				
 			nextQ = (lastQ + 1) % 8;
 		    Pchain = findNextP(image);
-			cout << endl;
-			cout << "Pchain: ---> " << Pchain << endl;
 			printFuncForFileOne(printToFile1, Pchain);
 			printFuncForFileTwo(printToFile2, Pchain, counter);
 			lastQ = nextDirTable[Pchain];
 			currentP = nextP;
-			cout << " this is currentP: ";
-			currentP.printPoint();
-			cout << " this is nextP: ";
-			nextP.printPoint();
 			counter++;
-			cout << "============================================>" << endl << endl;
 		} while(startP.getPointRow() != currentP.getPointRow() ||
 			  startP.getPointCol() != currentP.getPointCol());	 
 	}
@@ -337,7 +305,6 @@ int main(int argc, char* argv []) {
 	Image image(inputFile);
 	image.zeroFramed();
 	image.loadImage(inputFile);
-	image.printImage();
 	ChainCode chainCode;
 	chainCode.executeChainCode(image,printToFile1,printToFile2);
 	printToFile1.close();
