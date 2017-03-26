@@ -110,7 +110,7 @@ class Edge {
 		int** GradiantEdge;
 
 	public:
-		Edge();
+		Edge(int, int);
 		~Edge();
 		void convolute(int,int); //needs mask as an argument
 		void initalizeVertMask();
@@ -124,11 +124,24 @@ class Edge {
 
 };
 
-Edge::Edge() {
+Edge::Edge(int imgRows, int imgCols) {
 	initalizeVertMask();
 	initalizeHortMask();
 	initalizeRightMask();
 	initalizeLeftMask();
+	SobelVertical = new int*[imgRows];
+	SobelHorizontal = new int*[imgRows];
+	SobelRightDiag = new int*[imgRows];
+	SobelLeftDiag = new int*[imgRows];
+	GradiantEdge = new int*[imgRows];
+
+	for(int i = 0; i < imgRows; ++i) {
+		SobelVertical[i] = new int[imgCols]();
+		SobelHorizontal[i] = new int[imgCols]();
+		SobelRightDiag[i] = new int[imgCols]();
+		SobelLeftDiag[i] = new int[imgCols]();
+		GradiantEdge[i] = new int[imgCols]();
+	}
 	
 }
 
@@ -256,7 +269,9 @@ int main(int argc, char* argv[]) {
 	image.loadImage(inputFile);
 	image.mirrorFramed();
 	image.printImg(outputFile);
-	Edge edge;
+	int numOfRows = image.numOfRows;
+	int numOfCols = image.numOfCols;
+	Edge edge(numOfRows,numOfCols);
 	edge.printMask();
 
 }
