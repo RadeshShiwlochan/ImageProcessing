@@ -19,6 +19,8 @@ class Image {
 		void prettyPrint();	
 		//delete these
 		void printImg(string);
+		int getNumRows();
+		int getNumCols();
 
 };
 
@@ -96,9 +98,19 @@ void Image::printImg(string outputFile) {
 	printToFile.close();
 }
 
+int Image::getNumRows() {
+	return numRows;
+}
+
+int Image::getNumCols() {
+	return numCols;
+}
+
 class Edge {
 
 	private:
+		int ImgRows;
+		int ImgCols;
 		int maskVertical[3][3];
 		int maskHorizontal[3][3];
 		int maskRightDiag[3][3];
@@ -108,6 +120,7 @@ class Edge {
 		int** SobelRightDiag;
 		int** SobelLeftDiag;
 		int** GradiantEdge;
+
 
 	public:
 		Edge(int, int);
@@ -124,28 +137,43 @@ class Edge {
 
 };
 
-Edge::Edge(int imgRows, int imgCols) {
+Edge::Edge(int img_Rows, int img_Cols) {
+	ImgRows = img_Rows;
+	ImgCols = img_Cols;
 	initalizeVertMask();
 	initalizeHortMask();
 	initalizeRightMask();
 	initalizeLeftMask();
-	SobelVertical = new int*[imgRows];
-	SobelHorizontal = new int*[imgRows];
-	SobelRightDiag = new int*[imgRows];
-	SobelLeftDiag = new int*[imgRows];
-	GradiantEdge = new int*[imgRows];
+	SobelVertical = new int*[ImgRows];
+	SobelHorizontal = new int*[ImgRows];
+	SobelRightDiag = new int*[ImgRows];
+	SobelLeftDiag = new int*[ImgRows];
+	GradiantEdge = new int*[ImgRows];
 
-	for(int i = 0; i < imgRows; ++i) {
-		SobelVertical[i] = new int[imgCols]();
-		SobelHorizontal[i] = new int[imgCols]();
-		SobelRightDiag[i] = new int[imgCols]();
-		SobelLeftDiag[i] = new int[imgCols]();
-		GradiantEdge[i] = new int[imgCols]();
+	for(int i = 0; i < ImgRows; ++i) {
+		SobelVertical[i] = new int[ImgCols]();
+		SobelHorizontal[i] = new int[ImgCols]();
+		SobelRightDiag[i] = new int[ImgCols]();
+		SobelLeftDiag[i] = new int[ImgCols]();
+		GradiantEdge[i] = new int[ImgCols]();
 	}
 	
 }
 
 Edge::~Edge() {
+	cout << "Edge Destructor called " << endl;
+	for(int i = 0; i < ImgRows; ++i) {
+		delete [] SobelVertical[i];
+		delete [] SobelHorizontal[i];
+		delete [] SobelRightDiag[i];
+		delete [] SobelLeftDiag[i];
+		delete [] GradiantEdge[i];
+	}
+	    delete [] SobelVertical;
+		delete [] SobelHorizontal;
+		delete [] SobelRightDiag;
+		delete [] SobelLeftDiag;
+		delete [] GradiantEdge;
 
 }
 	
@@ -269,8 +297,8 @@ int main(int argc, char* argv[]) {
 	image.loadImage(inputFile);
 	image.mirrorFramed();
 	image.printImg(outputFile);
-	int numOfRows = image.numOfRows;
-	int numOfCols = image.numOfCols;
+	int numOfRows = image.getNumRows();
+	int numOfCols = image.getNumCols();
 	Edge edge(numOfRows,numOfCols);
 	edge.printMask();
 
