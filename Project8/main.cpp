@@ -17,13 +17,15 @@ class Image {
 		void loadImage(string);
 		void mirrorFramed();
 		void prettyPrint();	
+		//delete these
+		void printImg(string);
 
 };
 
 Image::Image(string inputFile) {
-	ifstream readInput;
-	readInput.open(inputFile);
-	readInput >> numRows >> numCols >>
+	ifstream readFile;
+	readFile.open(inputFile);
+	readFile >> numRows >> numCols >>
 	minVal >> maxVal;
 	int rowSize = numRows + 2;
 	int colSize = numCols + 2;
@@ -53,6 +55,10 @@ void Image::mirrorFramed() {
 	}
 }
 
+void Image::prettyPrint() {
+
+}
+
 void Image::loadImage(string inputFile) {
 	ifstream readFile;
 	readFile.open(inputFile);
@@ -71,6 +77,23 @@ void Image::loadImage(string inputFile) {
 		}
 	}
 	readFile.close();
+}
+
+void Image::printImg(string outputFile) {
+	ofstream printToFile;
+	printToFile.open(outputFile);
+	int rowSize = numRows + 2;
+	int colSize = numCols + 2;
+	for(int i = 0; i < rowSize; ++i) {
+		for(int j = 0; j < colSize; ++j) {
+			if(mirrorFramedAry[i][j] > 9)
+				printToFile << mirrorFramedAry[i][j] << " ";
+			else 
+				printToFile << mirrorFramedAry[i][j] << "  ";
+		}
+		printToFile << endl;
+	}
+	printToFile.close();
 }
 
 class Edge {
@@ -93,6 +116,10 @@ class Edge {
 
 int main(int argc, char* argv[]) {
 	string inputFile = argv[1];
+	string outputFile = argv[2];
 	Image image(inputFile);
+	image.loadImage(inputFile);
+	image.mirrorFramed();
+	image.printImg(outputFile);
 
 }
