@@ -134,8 +134,8 @@ class Edge {
 		void initalizeHortMask();
 		void initalizeRightMask();
 		void initalizeLeftMask();
-		void executeSobel(Image);
-		int convolute(int,int, int [][3], Image); //needs mask as an argument
+		void executeSobel(Image&);
+		int convolute(int,int, int [][3], Image&); 
 		//delete mask
 		void printMask();
 		void printTempArr(int[][3]);
@@ -243,7 +243,26 @@ Edge::~Edge() {
 		
 	}
 
-int Edge::convolute(int rowIndex, int colIndex, int maskArray[][3], Image imgObj) {
+void Edge::executeSobel(Image& imageObj) {
+	int rowLimit = imageObj.getNumRows() - 2;
+	int colLimit = imageObj.getNumCols() - 2;
+	
+	cout << "this is the rowLimit and colLimit " << rowLimit << " " << colLimit << endl;
+	SobelVertical[1][1] = convolute(1,1,maskVertical,imageObj);
+	cout << "This is val " << SobelVertical[1][1] << endl;
+
+	// for(int i = 1; i < rowLimit; i++) {
+	// 	for(int j = 1; j < colLimit; j++) {
+	// 		//SobelVertical[i][j]    = convolute(i,j,maskVertical,imageObj);
+	// 		// SobelHorizontal[i][j]  = convolute(i,j,maskHorizontal,imageObj);
+	// 		// SobelRightDiag[i][j]   = convolute(i,j,maskRightDiag,imageObj);
+	// 		// SobelLeftDiag[i][j]    = convolute(i,j,maskLeftDiag,imageObj);
+	// 		//GradientEdge[i][j]    = computeGradient(i,j);
+	// 	}
+	// }
+} 	
+
+int Edge::convolute(int rowIndex, int colIndex, int maskArray[][3], Image& imgObj) {
 
 	int tempArray[3][3];
 	tempArray[rowIndex - 1][colIndex - 1] = imgObj.getIndexVal(rowIndex - 1, colIndex - 1);
@@ -256,6 +275,8 @@ int Edge::convolute(int rowIndex, int colIndex, int maskArray[][3], Image imgObj
 	tempArray[rowIndex + 1][colIndex]     = imgObj.getIndexVal(rowIndex + 1, colIndex);
 	tempArray[rowIndex + 1][colIndex + 1] = imgObj.getIndexVal(rowIndex + 1, colIndex + 1);
 	printTempArr(tempArray);
+
+	return 1;
 
 }	
 
@@ -332,8 +353,8 @@ int main(int argc, char* argv[]) {
 	image.loadImage(inputFile);
 	image.mirrorFramed();
 	image.printImg(outputFile);
-	int numOfRows = image.getNumRows();
-	int numOfCols = image.getNumCols();
+	int numOfRows = image.getNumRows() + 2;
+	int numOfCols = image.getNumCols() + 2;
 	Edge edge(numOfRows,numOfCols);
 	//edge.printMask();
 	edge.executeSobel(image);
