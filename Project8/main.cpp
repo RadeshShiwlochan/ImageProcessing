@@ -251,8 +251,8 @@ void Edge::executeSobel(Image& imageObj) {
 	//SobelVertical[1][1] = convolute(1,1,maskVertical,imageObj);
 	cout << "This is val " << SobelVertical[1][1] << endl;
 
-	for(int i = 1; i < 3; i++) {
-		for(int j = 1; j < 3; j++) {
+	for(int i = 1; i < rowLimit; i++) {
+		for(int j = 1; j < colLimit; j++) {
 			SobelVertical[i][j]    = convolute(i,j,maskVertical,imageObj);
 			SobelHorizontal[i][j]  = convolute(i,j,maskHorizontal,imageObj);
 			SobelRightDiag[i][j]   = convolute(i,j,maskRightDiag,imageObj);
@@ -265,15 +265,16 @@ void Edge::executeSobel(Image& imageObj) {
 int Edge::convolute(int rowIndex, int colIndex, int maskArray[][3], Image& imgObj) {
 
 	int tempArray[3][3];
-	tempArray[rowIndex - 1][colIndex - 1] = imgObj.getIndexVal(rowIndex - 1, colIndex - 1);
-	tempArray[rowIndex - 1][colIndex]     = imgObj.getIndexVal(rowIndex - 1, colIndex);
-	tempArray[rowIndex - 1][colIndex + 1] = imgObj.getIndexVal(rowIndex - 1, colIndex + 1);
-	tempArray[rowIndex][colIndex - 1]     = imgObj.getIndexVal(rowIndex, colIndex - 1);
-	tempArray[rowIndex][colIndex]         = imgObj.getIndexVal(rowIndex, colIndex);
-	tempArray[rowIndex][colIndex + 1]     = imgObj.getIndexVal(rowIndex, colIndex + 1);
-	tempArray[rowIndex + 1][colIndex - 1] = imgObj.getIndexVal(rowIndex + 1, colIndex - 1);
-	tempArray[rowIndex + 1][colIndex]     = imgObj.getIndexVal(rowIndex + 1, colIndex);
-	tempArray[rowIndex + 1][colIndex + 1] = imgObj.getIndexVal(rowIndex + 1, colIndex + 1);
+	//possible that one of these arrays is going outof bounds
+	tempArray[0][0] = imgObj.getIndexVal(rowIndex - 1, colIndex - 1);
+	tempArray[0][1]     = imgObj.getIndexVal(rowIndex - 1, colIndex);
+	tempArray[0][2] = imgObj.getIndexVal(rowIndex - 1, colIndex + 1);
+	tempArray[1][0]     = imgObj.getIndexVal(rowIndex, colIndex - 1);
+	tempArray[1][1]         = imgObj.getIndexVal(rowIndex, colIndex);
+	tempArray[1][2]     = imgObj.getIndexVal(rowIndex, colIndex + 1);
+	tempArray[2][0] = imgObj.getIndexVal(rowIndex + 1, colIndex - 1);
+	tempArray[2][1]     = imgObj.getIndexVal(rowIndex + 1, colIndex);
+	tempArray[2][2] = imgObj.getIndexVal(rowIndex + 1, colIndex + 1);
 	printTempArr(tempArray);
 
 	return 1;
