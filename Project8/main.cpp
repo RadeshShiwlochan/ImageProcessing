@@ -244,22 +244,22 @@ Edge::~Edge() {
 	}
 
 void Edge::executeSobel(Image& imageObj) {
-	int rowLimit = imageObj.getNumRows() - 2;
-	int colLimit = imageObj.getNumCols() - 2;
+	int rowLimit = imageObj.getNumRows() + 1;
+	int colLimit = imageObj.getNumCols() + 1;
 	
 	cout << "this is the rowLimit and colLimit " << rowLimit << " " << colLimit << endl;
-	SobelVertical[1][1] = convolute(1,1,maskVertical,imageObj);
+	//SobelVertical[1][1] = convolute(1,1,maskVertical,imageObj);
 	cout << "This is val " << SobelVertical[1][1] << endl;
 
-	// for(int i = 1; i < rowLimit; i++) {
-	// 	for(int j = 1; j < colLimit; j++) {
-	// 		//SobelVertical[i][j]    = convolute(i,j,maskVertical,imageObj);
-	// 		// SobelHorizontal[i][j]  = convolute(i,j,maskHorizontal,imageObj);
-	// 		// SobelRightDiag[i][j]   = convolute(i,j,maskRightDiag,imageObj);
-	// 		// SobelLeftDiag[i][j]    = convolute(i,j,maskLeftDiag,imageObj);
-	// 		//GradientEdge[i][j]    = computeGradient(i,j);
-	// 	}
-	// }
+	for(int i = 1; i < 3; i++) {
+		for(int j = 1; j < 3; j++) {
+			SobelVertical[i][j]    = convolute(i,j,maskVertical,imageObj);
+			SobelHorizontal[i][j]  = convolute(i,j,maskHorizontal,imageObj);
+			SobelRightDiag[i][j]   = convolute(i,j,maskRightDiag,imageObj);
+			SobelLeftDiag[i][j]    = convolute(i,j,maskLeftDiag,imageObj);
+			//GradientEdge[i][j]    = computeGradient(i,j);
+		}
+	}
 } 	
 
 int Edge::convolute(int rowIndex, int colIndex, int maskArray[][3], Image& imgObj) {
