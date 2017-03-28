@@ -136,7 +136,8 @@ class Edge {
 		void initalizeLeftMask();
 		void executeSobel(Image&);
 		int convolute(int,int, int [][3], Image&); 
-		//delete mask
+		int loadNeighbors(int,int,Image&);
+		//deete mask
 		void printMask();
 		void printTempArr(int[][3]);
 		//
@@ -185,71 +186,67 @@ Edge::~Edge() {
 
 }
 	
-	void Edge::initalizeVertMask() {
+void Edge::initalizeVertMask() {
 
-		maskVertical[0][0] = 1;
-		maskVertical[0][1] = 2;
-		maskVertical[0][2] = 1;
-		maskVertical[1][0] = 0;
-		maskVertical[1][1] = 0;
-		maskVertical[1][2] = 0;
-		maskVertical[2][0] = -1;
-		maskVertical[2][1] = -2;
-		maskVertical[2][2] = -1;
+	maskVertical[0][0] = 1;
+	maskVertical[0][1] = 2;
+	maskVertical[0][2] = 1;
+	maskVertical[1][0] = 0;
+	maskVertical[1][1] = 0;
+	maskVertical[1][2] = 0;
+	maskVertical[2][0] = -1;
+	maskVertical[2][1] = -2;
+	maskVertical[2][2] = -1;
 
-	}
+}
 
-	void Edge::initalizeHortMask() {
+void Edge::initalizeHortMask() {
 
-		maskHorizontal[0][0] = 1;
-		maskHorizontal[0][1] = 0;
-		maskHorizontal[0][2] = -1;
-		maskHorizontal[1][0] = 2;
-		maskHorizontal[1][1] = 0;
-		maskHorizontal[1][2] = -2;
-		maskHorizontal[2][0] = 1;
-		maskHorizontal[2][1] = 0;
-		maskHorizontal[2][2] = -1;
-
-
+	maskHorizontal[0][0] = 1;
+	maskHorizontal[0][1] = 0;
+	maskHorizontal[0][2] = -1;
+	maskHorizontal[1][0] = 2;
+	maskHorizontal[1][1] = 0;
+	maskHorizontal[1][2] = -2;
+	maskHorizontal[2][0] = 1;
+	maskHorizontal[2][1] = 0;
+	maskHorizontal[2][2] = -1;
 		
-	}
+}
 
-	void Edge::initalizeRightMask() {
-		//right diagonal
-		maskRightDiag[0][0] = 0;
-		maskRightDiag[0][1] = 1;
-		maskRightDiag[0][2] = 2;
-		maskRightDiag[1][0] = -1;
-		maskRightDiag[1][1] = 0;
-		maskRightDiag[1][2] = 1;
-		maskRightDiag[2][0] = -2;
-		maskRightDiag[2][1] = -1;
-		maskRightDiag[2][2] = 0;
+void Edge::initalizeRightMask() {
+	//right diagonal
+	maskRightDiag[0][0] = 0;
+	maskRightDiag[0][1] = 1;
+	maskRightDiag[0][2] = 2;
+	maskRightDiag[1][0] = -1;
+	maskRightDiag[1][1] = 0;
+	maskRightDiag[1][2] = 1;
+	maskRightDiag[2][0] = -2;
+	maskRightDiag[2][1] = -1;
+	maskRightDiag[2][2] = 0;
 		
-	}
+}
 
-	void Edge::initalizeLeftMask() {
-		//left diagonal
-		maskLeftDiag[0][0] = 2;
-		maskLeftDiag[0][1] = 1;
-		maskLeftDiag[0][2] = 0;
-		maskLeftDiag[1][0] = 1;
-		maskLeftDiag[1][1] = 0;
-		maskLeftDiag[1][2] = -1;
-		maskLeftDiag[2][0] = 0;
-		maskLeftDiag[2][1] = -1;
-		maskLeftDiag[2][2] = -2;
+void Edge::initalizeLeftMask() {
+	//left diagonal
+	maskLeftDiag[0][0] = 2;
+	maskLeftDiag[0][1] = 1;
+	maskLeftDiag[0][2] = 0;
+	maskLeftDiag[1][0] = 1;
+	maskLeftDiag[1][1] = 0;
+	maskLeftDiag[1][2] = -1;
+	maskLeftDiag[2][0] = 0;
+	maskLeftDiag[2][1] = -1;
+	maskLeftDiag[2][2] = -2;
 		
-	}
+}
 
 void Edge::executeSobel(Image& imageObj) {
 	int rowLimit = imageObj.getNumRows() + 1;
 	int colLimit = imageObj.getNumCols() + 1;
 	
 	cout << "this is the rowLimit and colLimit " << rowLimit << " " << colLimit << endl;
-	//SobelVertical[1][1] = convolute(1,1,maskVertical,imageObj);
-	cout << "This is val " << SobelVertical[1][1] << endl;
 
 	for(int i = 1; i < rowLimit; i++) {
 		for(int j = 1; j < colLimit; j++) {
@@ -263,23 +260,28 @@ void Edge::executeSobel(Image& imageObj) {
 } 	
 
 int Edge::convolute(int rowIndex, int colIndex, int maskArray[][3], Image& imgObj) {
-
-	int tempArray[3][3];
-	//possible that one of these arrays is going outof bounds
-	tempArray[0][0] = imgObj.getIndexVal(rowIndex - 1, colIndex - 1);
-	tempArray[0][1]     = imgObj.getIndexVal(rowIndex - 1, colIndex);
-	tempArray[0][2] = imgObj.getIndexVal(rowIndex - 1, colIndex + 1);
-	tempArray[1][0]     = imgObj.getIndexVal(rowIndex, colIndex - 1);
-	tempArray[1][1]         = imgObj.getIndexVal(rowIndex, colIndex);
-	tempArray[1][2]     = imgObj.getIndexVal(rowIndex, colIndex + 1);
-	tempArray[2][0] = imgObj.getIndexVal(rowIndex + 1, colIndex - 1);
-	tempArray[2][1]     = imgObj.getIndexVal(rowIndex + 1, colIndex);
-	tempArray[2][2] = imgObj.getIndexVal(rowIndex + 1, colIndex + 1);
-	printTempArr(tempArray);
-
+	
+	//int* neighborArr = loadNeighbors(rowIndex,colIndex,imgObj);
+	int tempArray[9];
+	tempArray[0] = imgObj.getIndexVal(rowIndex - 1, colIndex - 1);
+	tempArray[1] = imgObj.getIndexVal(rowIndex - 1, colIndex);
+	tempArray[2] = imgObj.getIndexVal(rowIndex - 1, colIndex + 1);
+	tempArray[3] = imgObj.getIndexVal(rowIndex, colIndex - 1);
+	tempArray[4] = imgObj.getIndexVal(rowIndex, colIndex);
+	tempArray[5] = imgObj.getIndexVal(rowIndex, colIndex + 1);
+	tempArray[6] = imgObj.getIndexVal(rowIndex + 1, colIndex - 1);
+	tempArray[7] = imgObj.getIndexVal(rowIndex + 1, colIndex);
+	tempArray[8] = imgObj.getIndexVal(rowIndex + 1, colIndex + 1);
+	pointerToArr = tempArray;
+	printTempArr(neighborArr);
 	return 1;
-
 }	
+
+int loadNeighbors(int rowIndex, int colIndex, Image& imgObj) {
+	
+	
+	return 0;
+}
 
 void Edge::printMask() {
 
