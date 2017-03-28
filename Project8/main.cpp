@@ -21,6 +21,7 @@ class Image {
 		void printImg(string);
 		int getNumRows();
 		int getNumCols();
+		int getIndexVal(int,int);
 
 };
 
@@ -106,6 +107,10 @@ int Image::getNumCols() {
 	return numCols;
 }
 
+int Image::getIndexVal(int rowIndex, int colIndex) {
+	return mirrorFramedAry[rowIndex][colIndex];
+}
+
 class Edge {
 
 	private:
@@ -125,13 +130,15 @@ class Edge {
 	public:
 		Edge(int, int);
 		~Edge();
-		void convolute(int,int); //needs mask as an argument
 		void initalizeVertMask();
 		void initalizeHortMask();
 		void initalizeRightMask();
 		void initalizeLeftMask();
+		void executeSobel(Image);
+		int convolute(int,int, int [][3], Image); //needs mask as an argument
 		//delete mask
 		void printMask();
+		void printTempArr(int[][3]);
 		//
 		void computeGradient(int,int);	
 
@@ -161,6 +168,7 @@ Edge::Edge(int img_Rows, int img_Cols) {
 }
 
 Edge::~Edge() {
+	//delete this
 	cout << "Edge Destructor called " << endl;
 	for(int i = 0; i < ImgRows; ++i) {
 		delete [] SobelVertical[i];
@@ -235,6 +243,22 @@ Edge::~Edge() {
 		
 	}
 
+int Edge::convolute(int rowIndex, int colIndex, int maskArray[][3], Image imgObj) {
+
+	int tempArray[3][3];
+	tempArray[rowIndex - 1][colIndex - 1] = imgObj.getIndexVal(rowIndex - 1, colIndex - 1);
+	tempArray[rowIndex - 1][colIndex]     = imgObj.getIndexVal(rowIndex - 1, colIndex);
+	tempArray[rowIndex - 1][colIndex + 1] = imgObj.getIndexVal(rowIndex - 1, colIndex + 1);
+	tempArray[rowIndex][colIndex - 1]     = imgObj.getIndexVal(rowIndex, colIndex - 1);
+	tempArray[rowIndex][colIndex]         = imgObj.getIndexVal(rowIndex, colIndex);
+	tempArray[rowIndex][colIndex + 1]     = imgObj.getIndexVal(rowIndex, colIndex + 1);
+	tempArray[rowIndex + 1][colIndex - 1] = imgObj.getIndexVal(rowIndex + 1, colIndex - 1);
+	tempArray[rowIndex + 1][colIndex]     = imgObj.getIndexVal(rowIndex + 1, colIndex);
+	tempArray[rowIndex + 1][colIndex + 1] = imgObj.getIndexVal(rowIndex + 1, colIndex + 1);
+	printTempArr(tempArray);
+
+}	
+
 void Edge::printMask() {
 
 	cout << " maskVertical : " << endl;
@@ -290,6 +314,17 @@ void Edge::printMask() {
 	cout << endl;
 }
 
+void Edge::printTempArr(int arr[][3]) {
+	cout << endl;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 3; ++j) {
+			cout << arr[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << endl;
+}
+
 int main(int argc, char* argv[]) {
 	string inputFile = argv[1];
 	string outputFile = argv[2];
@@ -300,6 +335,7 @@ int main(int argc, char* argv[]) {
 	int numOfRows = image.getNumRows();
 	int numOfCols = image.getNumCols();
 	Edge edge(numOfRows,numOfCols);
-	edge.printMask();
+	//edge.printMask();
+	edge.executeSobel(image);
 
 }
