@@ -262,23 +262,28 @@ void Edge::executeSobel(Image& imageObj) {
 int Edge::convolute(int rowIndex, int colIndex, int maskArray[][3], Image& imgObj) {
 	
 	//int* neighborArr = loadNeighbors(rowIndex,colIndex,imgObj);
-	int tempArray[9];
-	tempArray[0] = imgObj.getIndexVal(rowIndex - 1, colIndex - 1);
-	tempArray[1] = imgObj.getIndexVal(rowIndex - 1, colIndex);
-	tempArray[2] = imgObj.getIndexVal(rowIndex - 1, colIndex + 1);
-	tempArray[3] = imgObj.getIndexVal(rowIndex, colIndex - 1);
-	tempArray[4] = imgObj.getIndexVal(rowIndex, colIndex);
-	tempArray[5] = imgObj.getIndexVal(rowIndex, colIndex + 1);
-	tempArray[6] = imgObj.getIndexVal(rowIndex + 1, colIndex - 1);
-	tempArray[7] = imgObj.getIndexVal(rowIndex + 1, colIndex);
-	tempArray[8] = imgObj.getIndexVal(rowIndex + 1, colIndex + 1);
-	pointerToArr = tempArray;
-	printTempArr(neighborArr);
-	return 1;
+	int tempArray[3][3];
+	int result = 0;
+	tempArray[0][0] = imgObj.getIndexVal(rowIndex - 1, colIndex - 1);
+	tempArray[0][1] = imgObj.getIndexVal(rowIndex - 1, colIndex);
+	tempArray[0][2] = imgObj.getIndexVal(rowIndex - 1, colIndex + 1);
+	tempArray[1][0] = imgObj.getIndexVal(rowIndex, colIndex - 1);
+	tempArray[1][1] = imgObj.getIndexVal(rowIndex, colIndex);
+	tempArray[1][2] = imgObj.getIndexVal(rowIndex, colIndex + 1);
+	tempArray[2][0] = imgObj.getIndexVal(rowIndex + 1, colIndex - 1);
+	tempArray[2][1] = imgObj.getIndexVal(rowIndex + 1, colIndex);
+	tempArray[2][2] = imgObj.getIndexVal(rowIndex + 1, colIndex + 1);
+
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 3; ++j) {
+			result += tempArray[i][j] * maskArray[i][j]; 
+		}
+	}
+	//printTempArr(neighborArr);
+	return result;
 }	
 
 int loadNeighbors(int rowIndex, int colIndex, Image& imgObj) {
-	
 	
 	return 0;
 }
