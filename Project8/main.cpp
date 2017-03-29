@@ -1,5 +1,9 @@
 #include<iostream>
 #include<fstream>
+#include<stdio.h>     
+#include<stdlib.h>
+#include<math.h>
+
 using namespace std;
 
 class Image {
@@ -124,7 +128,7 @@ class Edge {
 		int** SobelHorizontal;
 		int** SobelRightDiag;
 		int** SobelLeftDiag;
-		int** GradiantEdge;
+		int** GradientEdge;
 
 
 	public:
@@ -141,7 +145,7 @@ class Edge {
 		void printMask();
 		void printTempArr(int[][3]);
 		//
-		void computeGradient(int,int);	
+		int computeGradient(int,int,Image&);	
 
 };
 
@@ -156,14 +160,14 @@ Edge::Edge(int img_Rows, int img_Cols) {
 	SobelHorizontal = new int*[ImgRows];
 	SobelRightDiag = new int*[ImgRows];
 	SobelLeftDiag = new int*[ImgRows];
-	GradiantEdge = new int*[ImgRows];
+	GradientEdge = new int*[ImgRows];
 
 	for(int i = 0; i < ImgRows; ++i) {
 		SobelVertical[i] = new int[ImgCols]();
 		SobelHorizontal[i] = new int[ImgCols]();
 		SobelRightDiag[i] = new int[ImgCols]();
 		SobelLeftDiag[i] = new int[ImgCols]();
-		GradiantEdge[i] = new int[ImgCols]();
+		GradientEdge[i] = new int[ImgCols]();
 	}
 	
 }
@@ -176,13 +180,13 @@ Edge::~Edge() {
 		delete [] SobelHorizontal[i];
 		delete [] SobelRightDiag[i];
 		delete [] SobelLeftDiag[i];
-		delete [] GradiantEdge[i];
+		delete [] GradientEdge[i];
 	}
 	    delete [] SobelVertical;
 		delete [] SobelHorizontal;
 		delete [] SobelRightDiag;
 		delete [] SobelLeftDiag;
-		delete [] GradiantEdge;
+		delete [] GradientEdge;
 
 }
 	
@@ -250,11 +254,11 @@ void Edge::executeSobel(Image& imageObj) {
 
 	for(int i = 1; i < rowLimit; i++) {
 		for(int j = 1; j < colLimit; j++) {
-			SobelVertical[i][j]    = convolute(i,j,maskVertical,imageObj);
-			SobelHorizontal[i][j]  = convolute(i,j,maskHorizontal,imageObj);
-			SobelRightDiag[i][j]   = convolute(i,j,maskRightDiag,imageObj);
-			SobelLeftDiag[i][j]    = convolute(i,j,maskLeftDiag,imageObj);
-			//GradientEdge[i][j]    = computeGradient(i,j);
+			SobelVertical[i][j]    = abs(convolute(i,j,maskVertical,imageObj));
+			SobelHorizontal[i][j]  = abs(convolute(i,j,maskHorizontal,imageObj));
+			SobelRightDiag[i][j]   = abs(convolute(i,j,maskRightDiag,imageObj));
+			SobelLeftDiag[i][j]    = abs(convolute(i,j,maskLeftDiag,imageObj));
+			GradientEdge[i][j]    = computeGradient(i,j,imageObj);
 		}
 	}
 } 	
@@ -281,6 +285,23 @@ int Edge::convolute(int rowIndex, int colIndex, int maskArray[][3], Image& imgOb
 	}
 	//printTempArr(neighborArr);
 	return result;
+}
+
+int Edge::computeGradient(int rowValue, int colValue, Image& imgObj) {
+	int gradientNghbrArr[4];
+	int pixel = 0;
+	int gradient = 0;
+	int a = 0;
+	int b = 0;
+	gradientNghbrArr[0] = imgObj.getIndexVal(rowValue, colValue);
+	gradientNghbrArr[1] = imgObj.getIndexVal(rowValue, colValue + 1);
+	gradientNghbrArr[2] = imgObj.getIndexVal(rowValue + 1, colValue);
+	gradientNghbrArr[3] = imgObj.getIndexVal(rowValue + 1, colValue + 1);
+	pixel = gradientNghbrArr[0];
+	a = gradientNghbrArr[1];
+	b = gradientNghbrArr[2];
+	gradient = sqrt( pow((pixel - b),2) + pow((pixel - a),2));
+	return gradient;
 }	
 
 int loadNeighbors(int rowIndex, int colIndex, Image& imgObj) {
