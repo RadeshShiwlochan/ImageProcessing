@@ -141,6 +141,8 @@ class Edge {
 		void executeSobel(Image&);
 		int convolute(int,int, int [][3], Image&); 
 		int loadNeighbors(int,int,Image&);
+		void printImages(string[],int,int);
+		void printSobelArr(string, int**, int,int);
 		//deete mask
 		void printMask();
 		void printTempArr(int[][3]);
@@ -250,8 +252,6 @@ void Edge::executeSobel(Image& imageObj) {
 	int rowLimit = imageObj.getNumRows() + 1;
 	int colLimit = imageObj.getNumCols() + 1;
 	
-	cout << "this is the rowLimit and colLimit " << rowLimit << " " << colLimit << endl;
-
 	for(int i = 1; i < rowLimit; i++) {
 		for(int j = 1; j < colLimit; j++) {
 			SobelVertical[i][j]    = abs(convolute(i,j,maskVertical,imageObj));
@@ -309,6 +309,32 @@ int loadNeighbors(int rowIndex, int colIndex, Image& imgObj) {
 	return 0;
 }
 
+void Edge::printImages(string files[],int rows, int cols) {
+	
+	printSobelArr(files[0], SobelVertical, rows, cols);
+	printSobelArr(files[1], SobelHorizontal, rows, cols);
+	printSobelArr(files[2], SobelRightDiag, rows, cols);
+	printSobelArr(files[3], SobelLeftDiag, rows, cols);
+	printSobelArr(files[4], GradientEdge, rows, cols);
+}
+
+void Edge::printSobelArr(string file, int** arr, int rows, int cols) {
+	ofstream printToFile;
+	printToFile.open(file);
+
+	for(int i = 0; i < rows; ++i) {
+		for(int j = 0; j < cols; ++j) {
+			if(arr[i][j] > 9) {
+				printToFile << arr[i][j] << " ";	
+			} else {
+				printToFile << arr[i][j] << "  ";
+			}
+		}
+		printToFile << endl;
+	}
+
+}
+
 void Edge::printMask() {
 
 	cout << " maskVertical : " << endl;
@@ -357,7 +383,7 @@ void Edge::printMask() {
 			if(maskLeftDiag[i][j] > 9 || maskLeftDiag[i][j] < 0) 
 				cout << maskLeftDiag[i][j] << " ";
 			else 
-				cout << maskLeftDiag[i][j] << "  ";
+				cout << maskLeftDiag[i][j] << "   ";
 		}
 		cout << endl;
 	}
@@ -376,16 +402,30 @@ void Edge::printTempArr(int arr[][3]) {
 }
 
 int main(int argc, char* argv[]) {
+
+	if(argc != 7) {
+		cout << "Needs 6 input files, terminating!! \n";
+		return 0;
+	}
 	string inputFile = argv[1];
-	string outputFile = argv[2];
+	string outputFile1 = argv[2];
+	string outputFile2 = argv[3];
+	string outputFile3 = argv[4];
+	string outputFile4 = argv[5];
+	string outputFile5 = argv[6];
+	string files[5];
+	files[0] = argv[2];
+	files[1] = argv[3];
+	files[2] = argv[4];
+	files[3] = argv[5];
+	files[4] = argv[6];
 	Image image(inputFile);
 	image.loadImage(inputFile);
 	image.mirrorFramed();
-	image.printImg(outputFile);
 	int numOfRows = image.getNumRows() + 2;
 	int numOfCols = image.getNumCols() + 2;
 	Edge edge(numOfRows,numOfCols);
-	//edge.printMask();
 	edge.executeSobel(image);
+	edge.printImages(files, numOfRows, numOfCols);
 
 }
