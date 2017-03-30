@@ -5,7 +5,7 @@
 #include<string>
 using namespace std;
 
-void prettyPrint(string inputFile) {
+void prettyPrint(string inputFile, string outFile) {
 
 	ifstream readInputFile;
 	ofstream readOutputFile;
@@ -18,20 +18,26 @@ void prettyPrint(string inputFile) {
 	string outputFile = inputFileName + "_PP.txt";
 	
 	readInputFile.open(inputFile);
-	readOutputFile.open(outputFile);
+	readOutputFile.open(outFile);
 
 	//read in header
 	readInputFile >> numRows >> numCols >> minValue >> maxValue;
+
+	readOutputFile << numRows << "  " << numCols << "  " <<
+	minValue << "  " << maxValue << endl << endl;
 
 	//read in the input file
 	for(int i = 0; i < numRows; i++) {
 		for(int j = 0; j < numCols; j++) {
 			readInputFile >> pixel_value;
-			if(pixel_value > 0) 
+			if(pixel_value > 0 && pixel_value < 9) 
 				readOutputFile << pixel_value << "  ";
-			else 
+			else if(pixel_value > 9)
+				readOutputFile << pixel_value << " ";
+			else
 				readOutputFile << "  ";
 		}
+		readOutputFile << endl;
 	}		
 	//close the files
 	readOutputFile.close();
@@ -41,13 +47,14 @@ void prettyPrint(string inputFile) {
 int main(int argc, char *argv[]) {
 
 	//Error check to ensure an argument is provided
-	if(argc != 2) {
+	if(argc != 3) {
 		cout << "Needs an input file as an Argument, Terminating!!";
 		return 0;	
 	}
 
 	string inputFile = argv[1];
-    prettyPrint(inputFile);
+	string outputFile = argv[2];
+    prettyPrint(inputFile,outputFile);
     return 0;
 }
 
