@@ -1,3 +1,8 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+
 class Point {
 private:
 	int XCoord;
