@@ -3,19 +3,19 @@
 using namespace std;
 
 class PointsExtraction {
-private:
-	int numRows;
-	int numCols;
-	int minVal;
-	int maxVal;
-	int** zeroFramedAry;
+	private:
+		int numRows;
+		int numCols;
+		int minVal;
+		int maxVal;
+		int** zeroFramedAry;
 
-public:
-	PointsExtraction(string);
-	~PointsExtraction();
-	void zeroFramed();
-	void loadImage(string);
-	void outputImage(string);
+	public:
+		PointsExtraction(string);
+		~PointsExtraction();
+		void zeroFramed();
+		void loadImage(string);
+		void outputImage(string);
 
 };
 
@@ -44,7 +44,7 @@ void PointsExtraction::zeroFramed() {
 		zeroFramedAry[i][0]           = zeroFramedAry[i][1];
 		zeroFramedAry[i][numCols + 1] = zeroFramedAry[i][numCols];
 	}
-		//zero framing top and bottom
+	//zero framing top and bottom
 	for(int j = 0; j <= numCols + 1; j++) {
 		zeroFramedAry[0][j]           = zeroFramedAry[1][j];
 		zeroFramedAry[numRows + 1][j] = zeroFramedAry[numRows][j];
@@ -68,7 +68,18 @@ void PointsExtraction::loadImage(string inputFile) {
 }
 
 void PointsExtraction::outputImage(string outputFile) {
+	ofstream printToFile;
+	printToFile.open(outputFile);
+	printToFile << numRows << " " << numCols << " "
+	<< minVal << " " << maxVal << endl;
 
+	for(int i = 1; i < numRows + 2; ++i) {
+		for(int j = 1; j < numCols + 2; ++j) {
+			printToFile << zeroFramedAry[i][j] << " ";
+		}
+		printToFile << endl;
+	}
+	printToFile.close();
 }
 
 
@@ -82,6 +93,9 @@ int main(int argc, char* argv[]) {
 	string inputFile = argv[1];
 	string outputFile = argv[2];
 	PointsExtraction pointsExtraction(inputFile);
+	//pointsExtraction.zeroFramed();
+	pointsExtraction.loadImage(inputFile);
+	pointsExtraction.outputImage(outputFile);
 	return 0;
 }
 
