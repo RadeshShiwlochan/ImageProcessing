@@ -48,8 +48,9 @@ void PointsExtraction::loadImage(string inputFile) {
 		for(int j = 0; j < numCols; ++j) {
 			readFile >> numFromFile;
 			zeroFramedAry[i][j] = numFromFile;
-		}
-	}
+		}//inner for
+	}//outer for
+	readFile.close();
 }
 
 int PointsExtraction::getCountOfDataPts() {
