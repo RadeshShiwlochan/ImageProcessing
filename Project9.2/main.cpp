@@ -10,6 +10,7 @@ private:
 	double distance;
 
 public:
+	Point(int);
 	Point(int,int);
 	int getXCoord();
 	int getYCoord();
@@ -21,6 +22,10 @@ public:
 	void setPointCoord(int,int);	
 	void printPoint();
 };
+
+Point::Point(int x) {
+	xCoordinate = x;
+}
 
 Point::Point(int x, int y) {
 	xCoordinate = x;
@@ -66,6 +71,7 @@ private:
 	int yCoord;
 
 public:
+	xyCoord(int);
 	xyCoord(int,int);
 	void setXCoord(int);
 	void setYCoord(int);
@@ -74,6 +80,10 @@ public:
 	int getYCoord();	
 	void printCoord();
 };
+
+xyCoord::xyCoord(int x) {
+	xCoord = x;
+}
 
 xyCoord::xyCoord(int x, int y) {
 	xCoord = x;
@@ -97,7 +107,57 @@ void xyCoord::printCoord() {
 	cout << xCoord << endl << yCoord << endl;
 }
 
+class KIsoDataClust {
+private:
+	int K;
+	int numPts;
+	Point* pointSet;
+	xyCoord* centroid;
+	double* xxSecMM;
+	double* yySecMM;
+	double* xySecMM;
+	int numRows;
+	int numCols;
+	int** imageArr;
+
+public:
+	KIsoDataClust(string,int);
+	void loadPointSet();
+	void assignLabel();
+	void mapPointToImage();
+	void isoClustering();
+	void printPrintSet();
+	void prettyPrint();	
+};
+
+KIsoDataClust::KIsoDataClust(string inputFile, int kVal) {
+	ifstream readFile;
+	int numOfDataPts = -9999;
+	readFile.open(inputFile);
+	readFile >> numOfDataPts;
+	K = kVal;
+	numPts = numOfDataPts;
+	pointSet = new Point[numOfDataPts];
+	xxSecMM = new double[K];
+	yySecMM = new double[K];
+	xySecMM = new double[K];
+	centroid = new xyCoord[K];
+	numRows = numPts;
+	numCols = numPts;
+	imageArr = new int*[numRows];
+	for(int i = 0; i < numRows; ++i)
+		imageArr[i] = new int[numCols]();
+	readFile.close();
+
+}
+
 int main(int argc, char* argv[]) {
+	string inputFile  = argv[1];
+	string outputFile = argv[2];
+	int userPutForK = 0;
+	cout << "Please enter a value for K:\n";
+	cin >> userPutForK;
+	KIsoDataClust kIsoDataClust(inputFile, userPutForK);
 	return 0;
 }
 
