@@ -119,9 +119,11 @@ public:
 	void mapPointToImage();
 	void isoClustering();
 	void printPrintSet();
-	void prettyPrint();	
+	void prettyPrint(string);	
+	void exeIsoDataClustering(string,string);
 	//delete these
 	void printFunction(string);
+	void printImgArr(string);
 };
 
 KIsoDataClust::KIsoDataClust(string inputFile, int kVal) {
@@ -170,6 +172,56 @@ void KIsoDataClust::loadPointSet(string inputFile) {
 	}
 }
 
+void KIsoDataClust::assignLabel() {
+	int label = 1;
+	for(int i = 0; i < numPts; ++i) {
+		pointSet[i].setClusterID(label);
+		label++;
+		if(label > K)
+			label = 1;
+	}
+}
+
+void KIsoDataClust::prettyPrint(string outputFile) {
+		
+	ofstream printToFile;
+	printToFile.open(outputFile);
+	for(int row = 0; row < numRows; ++row) {
+		for(int col = 0; col < numCols; ++col) {
+			if(imageArr[row][col] > 0 && imageArr[row][col] < 10) 
+				printToFile << imageArr[row][col] << " ";
+			else if(imageArr[row][col] > 9)
+				printToFile << imageArr[row][col] << "  ";
+			else 
+				printToFile << " ";
+			}
+		printToFile << endl;
+	}
+	printToFile.close();
+}
+
+void KIsoDataClust::exeIsoDataClustering(string inputFile, string outputFile) {
+	loadPointSet(inputFile);
+	assignLabel();
+	//printFunction(outputFile);
+	mapPointToImage();
+	prettyPrint(outputFile);
+	//printImgArr(outputFile);
+}
+
+void KIsoDataClust::mapPointToImage() {
+	int rowVal = -9999;
+	int colVal = -9999;
+	int label  = -9999;
+	for(int i = 0; i < numPts; ++i) {
+		rowVal = pointSet[i].getXCoord();
+		colVal = pointSet[i].getYCoord();
+		label  = pointSet[i].getClusterID();
+		imageArr[rowVal][colVal] = label;
+	}
+}
+
+//delete this
 void KIsoDataClust::printFunction(string outputFile) {
 	ofstream printToFile;
 	printToFile.open(outputFile);
@@ -182,7 +234,23 @@ void KIsoDataClust::printFunction(string outputFile) {
 	for(int i = 0; i < numPts; ++i) {
 		if(pointSet[i].getXCoord() != 0 || 
 		   pointSet[i].getYCoord() != 0     )
-			cout << pointSet[i].getXCoord() << " " << pointSet[i].getYCoord() << endl; 
+		   cout << pointSet[i].getXCoord() << " " 
+				<< pointSet[i].getYCoord() <<  " "
+				   << pointSet[i].getClusterID() << endl; 
+	}
+	printToFile.close();
+}
+
+void KIsoDataClust::printImgArr(string outputFile) {
+	ofstream printToFile;
+	printToFile.open(outputFile);
+
+	for(int i = 0; i < numRows; ++i) {
+		for(int j = 0; j < numCols; ++j) {
+			if(imageArr[i][j] != 0)
+				printToFile << imageArr[i][j] << " ";
+		}
+		printToFile << endl;
 	}
 	printToFile.close();
 }
@@ -194,8 +262,7 @@ int main(int argc, char* argv[]) {
 	cout << "Please enter a value for K:\n";
 	cin >> userPutForK;
 	KIsoDataClust kIsoDataClust(inputFile, userPutForK);
-	kIsoDataClust.loadPointSet(inputFile);
-	kIsoDataClust.printFunction(outputFile);
+	kIsoDataClust.exeIsoDataClustering(inputFile, outputFile);
 	return 0;
 }
 
