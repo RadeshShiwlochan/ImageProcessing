@@ -13,9 +13,9 @@ class PointsExtraction {
 	public:
 		PointsExtraction(string);
 		~PointsExtraction();
-		void zeroFramed();
 		void loadImage(string);
-		void outputImage(string);
+		int getCountOfDataPts();
+		void exePtsExtraction(string);
 
 };
 
@@ -23,32 +23,17 @@ PointsExtraction::PointsExtraction(string inputFile) {
 	ifstream readFile;
 	readFile.open(inputFile);
 	readFile >> numRows >> numCols >> minVal >> maxVal;
-	int rowSize = numRows + 2; 
-	int colSize = numCols + 2;
-
-	zeroFramedAry = new int*[rowSize];
-	for(int i = 0; i < rowSize; ++i) 
-		zeroFramedAry[i] = new int[colSize]();
+	
+	zeroFramedAry = new int*[numRows];
+	for(int i = 0; i < numRows; ++i) 
+		zeroFramedAry[i] = new int[numCols]();
 	readFile.close();
 }
 
 PointsExtraction::~PointsExtraction() {
-	for(int i = 0; i < numRows + 2; ++i) 
+	for(int i = 0; i < numRows; ++i) 
 		delete [] zeroFramedAry[i];
 	delete [] zeroFramedAry;
-}
-
-void PointsExtraction::zeroFramed() {
-	//zero framing left and right
-	for(int i = 0; i <= numRows + 1; i++) {
-		zeroFramedAry[i][0]           = zeroFramedAry[i][1];
-		zeroFramedAry[i][numCols + 1] = zeroFramedAry[i][numCols];
-	}
-	//zero framing top and bottom
-	for(int j = 0; j <= numCols + 1; j++) {
-		zeroFramedAry[0][j]           = zeroFramedAry[1][j];
-		zeroFramedAry[numRows + 1][j] = zeroFramedAry[numRows][j];
-	}
 }
 
 void PointsExtraction::loadImage(string inputFile) {
@@ -59,29 +44,38 @@ void PointsExtraction::loadImage(string inputFile) {
 	for(int i = 0; i < 4; ++i)
 		readFile >> numFromFile;
 
-	for(int i = 1; i < numRows + 2; ++i) {
-		for(int j = 1; j < numRows + 2; ++j) {
+	for(int i = 0; i < numRows; ++i) {
+		for(int j = 0; j < numCols; ++j) {
 			readFile >> numFromFile;
 			zeroFramedAry[i][j] = numFromFile;
 		}
 	}
 }
 
-void PointsExtraction::outputImage(string outputFile) {
+int PointsExtraction::getCountOfDataPts() {
+	int count = 0;
+	for(int i = 0; i < numRows; ++i) {
+		for(int j = 0; j < numCols; ++j) {
+			if(zeroFramedAry[i][j] > 0)
+				count++;
+		}//inner for
+	}//outer for
+	return count;
+}
+
+void PointsExtraction::exePtsExtraction(string outputFile) {
 	ofstream printToFile;
 	printToFile.open(outputFile);
-	printToFile << numRows << " " << numCols << " "
-	<< minVal << " " << maxVal << endl;
-
-	for(int i = 1; i < numRows + 2; ++i) {
-		for(int j = 1; j < numCols + 2; ++j) {
-			printToFile << zeroFramedAry[i][j] << " ";
+	int numOfDataPts = getCountOfDataPts();
+	printToFile << numOfDataPts << endl;
+	for(int i = 0; i < numRows; ++i) {
+		for(int j = 0; j < numCols; ++j) {
+			if(zeroFramedAry[i][j] > 0)
+				printToFile << i << " " << j << endl;
 		}
-		printToFile << endl;
 	}
 	printToFile.close();
 }
-
 
 int main(int argc, char* argv[]) {
 	if(argc != 3) {
@@ -93,9 +87,8 @@ int main(int argc, char* argv[]) {
 	string inputFile = argv[1];
 	string outputFile = argv[2];
 	PointsExtraction pointsExtraction(inputFile);
-	//pointsExtraction.zeroFramed();
 	pointsExtraction.loadImage(inputFile);
-	pointsExtraction.outputImage(outputFile);
+	pointsExtraction.exePtsExtraction(outputFile);
 	return 0;
 }
 
