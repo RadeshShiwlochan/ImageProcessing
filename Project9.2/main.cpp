@@ -121,6 +121,9 @@ public:
 	void printPrintSet();
 	void prettyPrint(string);
 	void computeCentroid();	
+	int computeXXSecMM();
+	int computeYYSecMM();
+	int computeXYSecMM();
 	void exeIsoDataClustering(string,string);
 	//delete these
 	void printFunction(string);
@@ -242,6 +245,28 @@ void KIsoDataClust::computeCentroid() {
 		cout << "for centroid " << i << " " <<centroid[i].getXCoord() << " " << centroid[i].getYCoord() << endl;
 	}
 	delete [] tempArr;
+}
+
+int KIsoDataClust::computeXXSecMM() {
+	int xValues = 0;
+	for(int i = 0; i < numPts; ++i) 
+		xValues += pointSet[i].getXCoord();
+	return xValues/numPts;
+}
+
+int KIsoDataClust::computeYYSecMM() {
+	int yValues = 0;
+	for(int i = 0; i < numPts; ++i) 
+		yValues += pointSet[i].getYCoord();
+	return yValues/numPts;
+}
+
+int KIsoDataClust::computeXYSecMM() {
+	int xyValue = 0;
+
+	for(int i = 0; i < numPts; ++i) 
+		xyValue += pointSet[i].getXCoord() * pointSet[i].getYCoord();
+	return xyValue/numPts;
 }
 
 void KIsoDataClust::exeIsoDataClustering(string inputFile, string outputFile) {
