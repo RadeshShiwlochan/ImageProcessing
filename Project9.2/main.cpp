@@ -1,5 +1,6 @@
 #include<iostream>
 #include<fstream>
+#include<math.h>
 using namespace std;
 
 class Point {
@@ -117,14 +118,18 @@ public:
 	void loadPointSet(string);
 	void assignLabel();
 	void mapPointToImage();
-	void isoClustering();
 	void printPrintSet();
 	void prettyPrint(string);
 	void computeCentroid();	
-	int computeXXSecMM();
-	int computeYYSecMM();
-	int computeXYSecMM();
+	void computeXXSecMM();
+	void computeYYSecMM();
+	void computeXYSecMM();
+	double findBestFitAngle();
+	double computeT(Point);
+	double computeOrthDist(Point);
+	void isoClustering();
 	void exeIsoDataClustering(string,string);
+	int findMin(int*);
 	//delete these
 	void printFunction(string);
 	void printImgArr(string);
@@ -138,9 +143,9 @@ KIsoDataClust::KIsoDataClust(string inputFile, int kVal) {
 	K = kVal;
 	numPts = numOfDataPts;
 	pointSet = new Point[numOfDataPts];
-	xxSecMM = new double[K];
-	yySecMM = new double[K];
-	xySecMM = new double[K];
+	xxSecMM = new double[K + 1];
+	yySecMM = new double[K + 1];
+	xySecMM = new double[K + 1];
 	centroid = new xyCoord[K + 1];
 	numRows = numPts;
 	numCols = numPts;
@@ -247,26 +252,81 @@ void KIsoDataClust::computeCentroid() {
 	delete [] tempArr;
 }
 
-int KIsoDataClust::computeXXSecMM() {
-	int xValues = 0;
-	for(int i = 0; i < numPts; ++i) 
-		xValues += pointSet[i].getXCoord();
-	return xValues/numPts;
+void KIsoDataClust::computeXXSecMM() {
+	int label = 1;
+	int numOfPts = numPts/K;
+	int* xCoordArr = new int[K + 1];
+	while(label <= K) {
+		for(int i = 0; i < numPts; ++i) {
+			if(pointSet[i].getClusterID() == label)
+				xCoordArr[label] += pointSet[i].getXCoord();
+		}//for
+		xxSecMM[label] = xCoordArr[label]/numOfPts;
+		label++;  
+    }//while
+    delete [] xCoordArr;
 }
 
-int KIsoDataClust::computeYYSecMM() {
-	int yValues = 0;
-	for(int i = 0; i < numPts; ++i) 
-		yValues += pointSet[i].getYCoord();
-	return yValues/numPts;
+void KIsoDataClust::computeYYSecMM() {
+	int label = 1;
+	int numOfPts = numPts/K;
+	int* yCoordArr = new int[K + 1];
+	while(label <= K) {
+		for(int i = 0; i < numPts; ++i) {
+			if(pointSet[i].getClusterID() == label)
+				yCoordArr[label] += pointSet[i].getYCoord();
+		}//for
+		yySecMM[label] = yCoordArr[label]/numOfPts;
+		label++;
+    }//while
 }
 
-int KIsoDataClust::computeXYSecMM() {
-	int xyValue = 0;
+void KIsoDataClust::computeXYSecMM() {
+	int label = 1;
+	int numOfPts = numPts/K;
+	int* xyCoordArr = new int[K + 1];
+	while(label <= K) {
+		for(int i = 0; i < numPts; ++i) {
+			if(pointSet[i].getClusterID() == label) 
+				xyCoordArr[label] += pointSet[i].getXCoord() * pointSet[i].getYCoord();
+		}//for
+		xySecMM[label] = xyCoordArr[label]/numOfPts;
+		label++;
+	}
+}
 
-	for(int i = 0; i < numPts; ++i) 
-		xyValue += pointSet[i].getXCoord() * pointSet[i].getYCoord();
-	return xyValue/numPts;
+double KIsoDataClust::findBestFitAngle() {
+	//fix this 
+	return 60.0;
+}
+
+double KIsoDataClust::computeT(Point pt) {
+	double angle = findBestFitAngle();
+	double PI = 3.141592653;
+	double angleInRadians = angle * (PI/180);
+	double T = 0.0;
+	int xVal = pt.getXCoord();
+	int yVal = pt.getYCoord();
+	//maybe absolute value here
+	return angleInRadians - atan(yVal/xVal) - (PI/2); 
+}
+
+double KIsoDataClust::computeOrthDist(Point pt) {
+	double T = computeT(pt);
+	return 2.0;
+}
+
+void KIsoDataClust::isoClustering() {
+	bool changeLabel = false;
+	int* tempArr = new int[K];
+	for(int i = 0; i < numPts; ++i) {
+		//tempArr has to be used for finding the orth distance from Pt to every best fit line
+		tempArr[i] = (int)computeOrthDist(pointSet[i]);
+	}//have to move this
+	int min = findMin(tempArr);
+	if(min != pointSet[i].getClusterID())
+		pointSet[i].setClusterID(min);
+
 }
 
 void KIsoDataClust::exeIsoDataClustering(string inputFile, string outputFile) {
@@ -279,6 +339,14 @@ void KIsoDataClust::exeIsoDataClustering(string inputFile, string outputFile) {
 	//printImgArr(outputFile);
 }
 
+int KIsoDataClust::findMin(int* arr) {
+	int min = arr[0];
+	for(int i = 0; i < K; ++i) {
+		if(arr[i] < min)
+			min = arr[i];
+	}//for
+	return min;
+}
 
 
 //delete this
