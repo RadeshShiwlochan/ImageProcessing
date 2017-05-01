@@ -108,6 +108,8 @@ private:
 	double* xxSecMM;
 	double* yySecMM;
 	double* xySecMM;
+	double* bestFitAngles;
+	int* orthDistances;
 	int numRows;
 	int numCols;
 	int** imageArr;
@@ -119,20 +121,18 @@ public:
 	void assignLabel();
 	void mapPointToImage();
 	void printPrintSet();
-	void prettyPrint(string);
+	void prettyPrint(ofstream&);
 	void computeCentroid();	
 	void computeXXSecMM();
 	void computeYYSecMM();
 	void computeXYSecMM();
-	double findBestFitAngle();
-	double computeT(Point);
-	double computeOrthDist(Point);
+	void findBestFitAngle();
+	double computeT(Point, double);
+	void computeOrthDist(Point);
 	void isoClustering();
-	void exeIsoDataClustering(string,string);
-	int findMin(int*);
-	//delete these
+	void exeIsoDataClustering(string,string,string);
+	int findMin();
 	void printFunction(string);
-	void printImgArr(string);
 };
 
 KIsoDataClust::KIsoDataClust(string inputFile, int kVal) {
@@ -147,6 +147,8 @@ KIsoDataClust::KIsoDataClust(string inputFile, int kVal) {
 	yySecMM = new double[K + 1];
 	xySecMM = new double[K + 1];
 	centroid = new xyCoord[K + 1];
+	bestFitAngles = new double[K + 1];
+	orthDistances = new int[K + 1];
 	numRows = numPts;
 	numCols = numPts;
 	imageArr = new int*[numRows];
@@ -164,6 +166,8 @@ KIsoDataClust::~KIsoDataClust() {
 	delete [] xySecMM;
 	delete [] centroid;
 	delete [] pointSet;
+	delete [] bestFitAngles;
+	delete [] orthDistances;
 }
 
 void KIsoDataClust::loadPointSet(string inputFile) {
@@ -203,22 +207,19 @@ void KIsoDataClust::mapPointToImage() {
 	}
 }
 
-void KIsoDataClust::prettyPrint(string outputFile) {
+void KIsoDataClust::prettyPrint(ofstream& printer) {
 		
-	ofstream printToFile;
-	printToFile.open(outputFile);
 	for(int row = 0; row < numRows; ++row) {
 		for(int col = 0; col < numCols; ++col) {
 			if(imageArr[row][col] > 0 && imageArr[row][col] < 10) 
-				printToFile << imageArr[row][col] << " ";
+				printer << imageArr[row][col] << " ";
 			else if(imageArr[row][col] > 9)
-				printToFile << imageArr[row][col] << "  ";
+				printer << imageArr[row][col] << "  ";
 			else 
-				printToFile << " ";
+				printer<< " ";
 			}
-		printToFile << endl;
+		printer << endl;
 	}
-	printToFile.close();
 }
 
 void KIsoDataClust::computeCentroid() {
@@ -243,11 +244,9 @@ void KIsoDataClust::computeCentroid() {
 	    tempArr[indexVal].setPointCoord(xTotal,yTotal);
 	}
 
-	cout << "This is value of numOfPtsInGrp " << numOfPtsInGrp << endl;
 	for(int i = 1; i < K + 1; ++i) {
 		centroid[i].setXYCoord((tempArr[i].getXCoord()/numOfPtsInGrp), 
 			(tempArr[i].getYCoord()/numOfPtsInGrp) );
-		cout << "for centroid " << i << " " <<centroid[i].getXCoord() << " " << centroid[i].getYCoord() << endl;
 	}
 	delete [] tempArr;
 }
@@ -279,6 +278,7 @@ void KIsoDataClust::computeYYSecMM() {
 		yySecMM[label] = yCoordArr[label]/numOfPts;
 		label++;
     }//while
+    delete [] yCoordArr;
 }
 
 void KIsoDataClust::computeXYSecMM() {
@@ -293,134 +293,113 @@ void KIsoDataClust::computeXYSecMM() {
 		xySecMM[label] = xyCoordArr[label]/numOfPts;
 		label++;
 	}
+	delete [] xyCoordArr;
 }
 
-double KIsoDataClust::findBestFitAngle() {
-	//fix this 
-	return 60.0;
+void KIsoDataClust::findBestFitAngle() {
+	double xSecondMM  = 0.0;
+	double ySecondMM  = 0.0;
+	double xySecondMM = 0.0;
+	for(int i = 1; i <= K; ++i) {
+		xSecondMM = xxSecMM[i];
+		ySecondMM = yySecMM[i];
+		xySecondMM = xySecMM[i];
+		bestFitAngles[i] = atan( (( pow(ySecondMM,2) - pow(xSecondMM, 2))/xySecondMM) + 
+			(sqrt(pow(xSecondMM, 4) - (2 * pow(xSecondMM, 2) * 
+						pow(ySecondMM, 2) + pow(ySecondMM, 4)) + 4)) / 2);
+	}
 }
 
-double KIsoDataClust::computeT(Point pt) {
-	double angle = findBestFitAngle();
+double KIsoDataClust::computeT(Point pt, double angle) {
 	double PI = 3.141592653;
 	double angleInRadians = angle * (PI/180);
 	double T = 0.0;
 	int xVal = pt.getXCoord();
 	int yVal = pt.getYCoord();
-	//maybe absolute value here
-	return angleInRadians - atan(yVal/xVal) - (PI/2); 
+	return angleInRadians - atan(((yVal/xVal) * (PI/180)) * (PI/180)) - (PI/2); 
 }
 
-double KIsoDataClust::computeOrthDist(Point pt) {
-	double T = computeT(pt);
-	return 2.0;
+void KIsoDataClust::computeOrthDist(Point pt) {
+	int counter = 1;
+	int x = pt.getXCoord();
+	int y = pt.getYCoord();
+	double PI = 3.141592653;
+	double angle = 0.0;
+	double T = 0.0;
+	while(counter <= K) {
+		angle = bestFitAngles[pt.getClusterID()];
+		T 	  = computeT(pt,angle);
+		orthDistances[counter] = T;
+		counter++;
+    }
 }
 
-void KIsoDataClust::isoClustering() {
-	bool changeLabel = false;
-	int* tempArr = new int[K];
-	for(int i = 0; i < numPts; ++i) {
-		//tempArr has to be used for finding the orth distance from Pt to every best fit line
-		tempArr[i] = (int)computeOrthDist(pointSet[i]);
-	}//have to move this
-	int min = findMin(tempArr);
-	if(min != pointSet[i].getClusterID())
-		pointSet[i].setClusterID(min);
-
-}
-
-void KIsoDataClust::exeIsoDataClustering(string inputFile, string outputFile) {
+void KIsoDataClust::exeIsoDataClustering(string inputFile, string outputFile, 
+																string outputFile2) {
+	ofstream printer;
+	printer.open(outputFile);
+	bool changeLabel = true;
+	int min = 9999;
 	loadPointSet(inputFile);
 	assignLabel();
-	printFunction(outputFile);
-	mapPointToImage();
-	computeCentroid();
-	//prettyPrint(outputFile);
-	//printImgArr(outputFile);
+	while(changeLabel) {
+		changeLabel = false;
+		mapPointToImage();
+		prettyPrint(printer);
+		computeCentroid();
+		computeXXSecMM();
+		computeYYSecMM();
+		computeXYSecMM();
+		
+		for(int i = 0; i < numPts; ++i) {
+			computeOrthDist(pointSet[i]);
+			min = findMin(); 
+			if(min != pointSet[i].getClusterID()) {
+				pointSet[i].setClusterID(min);
+				changeLabel = true;
+			}//if
+		}//for 
+	}//while
+	printFunction(outputFile2);
+	printer.close();
 }
 
-int KIsoDataClust::findMin(int* arr) {
-	int min = arr[0];
-	for(int i = 0; i < K; ++i) {
-		if(arr[i] < min)
-			min = arr[i];
+int KIsoDataClust::findMin() {
+	int min = orthDistances[1];
+	int index = 1;
+	for(int i = 1; i <= K; ++i) {
+		if(orthDistances[i] < min) {
+			min = orthDistances[i];
+			index = i;
+		}//if
 	}//for
-	return min;
+	return index;
 }
 
-
-//delete this
 void KIsoDataClust::printFunction(string outputFile) {
 	ofstream printToFile;
 	printToFile.open(outputFile);
+	
 	for(int i = 0; i < numPts; ++i) {
 		if(pointSet[i].getXCoord() != 0 || 
 		   pointSet[i].getYCoord() != 0     )
-			printToFile << " + " << endl; 
-	}
-
-	for(int i = 0; i < numPts; ++i) {
-		if(pointSet[i].getXCoord() != 0 || 
-		   pointSet[i].getYCoord() != 0     )
-		   cout << pointSet[i].getXCoord() << " " 
+		   printToFile << pointSet[i].getXCoord() << " " 
 				<< pointSet[i].getYCoord() <<  " "
 				   << pointSet[i].getClusterID() << endl; 
 	}
 	printToFile.close();
 }
 
-//delete this 
-void KIsoDataClust::printImgArr(string outputFile) {
-	ofstream printToFile;
-	printToFile.open(outputFile);
-
-	for(int i = 0; i < numRows; ++i) {
-		for(int j = 0; j < numCols; ++j) {
-			if(imageArr[i][j] != 0)
-				printToFile << imageArr[i][j] << " ";
-		}
-		printToFile << endl;
-	}
-	printToFile.close();
-}
 
 int main(int argc, char* argv[]) {
-	string inputFile  = argv[1];
-	string outputFile = argv[2];
+	string inputFile   = argv[1];
+	string outputFile  = argv[2];
+	string outputFile2 = argv[3];
 	int userPutForK = 0;
 	cout << "Please enter a value for K:\n";
 	cin >> userPutForK;
 	KIsoDataClust kIsoDataClust(inputFile, userPutForK);
-	kIsoDataClust.exeIsoDataClustering(inputFile, outputFile);
+	kIsoDataClust.exeIsoDataClustering(inputFile, outputFile,outputFile2);
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
