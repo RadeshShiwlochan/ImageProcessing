@@ -163,7 +163,35 @@ void ConnectEightCC::loadNeighbors(int row, int col, int passNum) {
 	} //else 
 }//loadNeighbors
 
+void ConnectEightCC::prettyPrint(ofstream& outfile, int passNum) {
+	outfile << "-------------------------------------------------------------" << endl;
+	outfile << "Pass " << passNum << ":\n\n" << numRows << " " << numCols << " " << minVal 
+	<< " " << maxVal;
+	if(maxVal == 0)
+		outfile.close();
+	else {
+		outfile << endl;
+		for(int i = 0; i < numRows; ++i) {
+			for(int j = 0; j < numCols; ++j) {
+				if(zeroFramedAry[i + 1][j + 1] == 0)
+					outfile << string("  ");
+				else
+					outfile << zeroFramedAry[i + 1][j + 1] << " ";
+			}//for
+			outfile << endl;
+		}
+	}
 
+	outfile << endl << "EqAry:\n";
+	for(int i = 0; i <= newLabel; ++i) {
+		outfile << setw(3) << left << i;
+	}
+	outfile << endl;
+	for(int i = 0; i <= newLabel; ++i) {
+		outfile << setw(3) << left << EqAry[i];
+	}
+	outfile << endl << endl;
+}
 
 
 
