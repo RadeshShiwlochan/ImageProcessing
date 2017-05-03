@@ -37,7 +37,7 @@ public:
 	void loadNeighbors(int, int, int);
 	void connectEightCC_Pass1(ofstream&);
 	void connectEightCC_Pass2(ofstream&);
-	void connectEightCC_Pass3(ofstream&);
+	void connectEightCC_Pass3(ofstream&, ofstream&, ofstream&);
 	void updateEqAry();
 	void manageEqAry(ofstream&);
 	void prettyPrint(ofstream&, int);
@@ -99,7 +99,7 @@ void ConnectEightCC::loadImage(ifstream& infile) {
 }
 
 void ConnectEightCC::loadNeighbors(int row, int col, int passNum) {
-	vector <int> nonzero = {};
+	vector <int> nonzero;
 	if(row == 0 || col == 0) {
 		cerr << "Invalid index for 3 X 3 neighbors. Terminating!!\n";
 		exit(1);
@@ -233,7 +233,98 @@ void ConnectEightCC::connectEightCC_Pass2(ofstream& outfile) {
 	prettyPrint(outfile, 2);
 }
 
+void ConnectEightCC::manageEqAry(ofstream& outfile) {
+	int numLabelUsed = 1; 
+	for(int i = 1; i < (numRows * numCols) / 2; ++i) {
+		if(i == EqAry[i])
+			EqAry[i] = numLabelUsed++;
+		else
+			EqAry[i] = EqAry[EqAry[i]];
+	}
+	outfile << endl << "EqAry:\n";
+	for(int i = 0; i <= newLabel; i++) {
+		outfile << setw(3) << left << i;
+	}
+	outfile << endl;
+	for(int i = 0; i <= newLabel; ++i) {
+		outfile << setw(3) << left << EqAry[i];
+	}
+	outfile << endl << endl;
+}
 
+void ConnectEightCC::connectEightCC_Pass3(ofstream& outfile, ofstream& imageout, ofstream& propertyout) {
+	properties = new Property[newLabel + 1];
+	for(int i = 0; i <= newLabel; ++i) {
+		properties[i].label = i;
+		properties[i].numPixels = 0;
+		properties[i].minRow = numRows + 1; 
+		properties[i].minCol = numCols + 1;
+		properties[i].maxRow = 0;
+		properties[i].maxCol = 0;
+	}
+	int data;
+	for(int i = 1; i < numRows + 2; ++i) {
+		for(int j = 1; j < numCols + 2; ++j) {
+			if(zeroFramedAry[i][j] != 0) {
+				zeroFramedAry[i][j] = EqAry[zeroFramedAry[i][j]];
+				data = zeroFramedAry[i][j];
+				properties[data].numPixels++;
+				if(i < properties[data].minRow)
+					properties[data].minRow = i - 1;
+				else if(i > properties[data].maxRow)
+					properties[data].maxRow = i - 1;
+				if(j < properties[data].minCol)
+					properties[data].minCol = j - 1;
+				else if(j > properties[data].maxCol)
+					properties[data].maxCol = j - 1;
+			}
+		}
+	}
+	maxVal = EqAry[maxVal];
+	prettyPrint(outfile, 3);
+
+	for(int i = 1; i <= EqAry[newLabel]; ++i) {
+		propertyout << properties[i].label << " " << properties[i].numPixels << " " << 
+		properties[i].minRow << " " << properties[i].minCol << " " << properties[i].maxRow <<
+		" " << properties[i].maxCol;
+		if(i < EqAry[newLabel])
+			propertyout << "\n";
+	}
+	imageout << numRows << " " << numCols << " " << minVal << " " << EqAry[newLabel] << endl;
+	for(int i = 1; i <= numRows; ++i) {
+		for(int j = 1; j <= numCols; j++) {
+			imageout << zeroFramedAry[i][j] << " ";
+		}
+		if(i != numRows)
+			imageout << endl;
+	}
+}
+
+int main(int argc, char* argv []) {
+	ifstream infile;
+	infile.open(argv[1]);
+	ofstream outfile1;
+	outfile1.open(argv[2]);
+	ofstream outfile2;
+	outfile2.open(argv[3]);
+	ofstream outfile3;
+	outfile3.open(argv[4]);
+
+	ConnectEightCC* cc = new ConnectEightCC(infile);
+	cc -> loadImage(infile);
+	cc -> connectEightCC_Pass1(outfile1);
+	cc -> connectEightCC_Pass2(outfile1);
+	cc -> manageEqAry(outfile1);
+	cc -> connectEightCC_Pass3(outfile1, outfile2, outfile3);
+
+	infile.close();
+	outfile1.close();
+	outfile2.close();
+	outfile3.close();
+	delete  cc;
+	return 0;
+
+}
 
 
 
