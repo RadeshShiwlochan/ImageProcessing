@@ -21,12 +21,13 @@ public:
 	void zeroFramed();
 	void loadImage(string,string);
 	void copyAry();
-	void doExpansion();
+	void doExpansion(int,int,int);
+	void executeExpanAlg(string, string);
 	void northExpansion();
 	void southExpansion();
 	void westExpansion();
 	void eastExpansion();
-	void prettyPrint(ofstream&, int**);	
+	void prettyPrint(ofstream&, int**, string);	
 	//temporary functionss
 	void printImage(string, string);
 
@@ -108,7 +109,8 @@ void Expansion::loadImage(string inputFile1, string inputFile2) {
 	for(int i = 1; i < numRows + 2; ++i) {
 		for(int j = 1; j < numCols + 2; ++j) {
 			readFile2 >> data;
-			firstAry[i][j] = data;
+			firstAry[i][j]  = data;
+			secondAry[i][j] = data;
 		}
 	}
 	
@@ -123,21 +125,89 @@ void Expansion::copyAry() {
 	}
 }
 
-void Expansion::doExpansion(string outputFile1, string outputFile2) {
+void Expansion::doExpansion(int row, int col, int label) {
+	if(objectAry[row][col] > 0) {
+		secondAry[row][col] = label;
+		changeFlag = true;
+	}
+}
+
+void Expansion::executeExpanAlg(string outputFile1, string outputFile2) {
 	ofstream printer1;
 	ofstream printer2;
-	outputFile1.open(outputFile1);
-	outputFile2.open(outputFile2);
+	printer1.open(outputFile1);
+	printer2.open(outputFile2);
 	cycleCount = 0;
-	prettyPrint(printer1, objectAry);
+	//while(changeFlag) {
+	string lin = "objectArr before";
+	prettyPrint(printer1, objectAry, lin);
 	if(cycleCount == 0 || cycleCount == 3 || cycleCount == 5) {
-		prettyPrint(printer1, firstAry);
+		//prettyPrint(printer1, firstAry);
+		if(cycleCount == 5)
+			cycleCount = 0;
 	}
 	changeFlag = false;
 	cycleCount++;
+	string str = "firstAry before:";
+	prettyPrint(printer1, firstAry, str);
+	northExpansion();
+	southExpansion();
+	westExpansion();
+	eastExpansion();
+	string str1 = "firstAry after";
+	prettyPrint(printer1, firstAry, str1);
 }
 
-void Expansion::prettyPrint(ofstream& printer, int** arr) {
+void Expansion::northExpansion() {
+
+	for(int i = 1; i < numRows + 2; ++i) {
+		for(int j = 1; j < numCols + 2; ++j) {
+			if(firstAry[i][j] > 0 && firstAry[i - 1][j] == 0)
+				doExpansion(i - 1, j, firstAry[i][j]);
+		}
+	}
+	copyAry();
+
+}
+
+void Expansion::southExpansion() {
+
+	for(int i = 1; i < numRows + 2; ++i) {
+		for(int j = 1; j < numCols + 2; ++j) {
+			if(firstAry[i][j] > 0 && firstAry[i + 1][j] == 0)
+				doExpansion(i + 1, j, firstAry[i][j]);
+		}
+	}
+	copyAry();
+
+}
+
+void Expansion::westExpansion() {
+
+	for(int i = 1; i < numRows + 2; ++i) {
+		for(int j = 1; j < numCols + 2; ++j) {
+			if(firstAry[i][j] > 0 && firstAry[i][j - 1] == 0)
+				doExpansion(i, j - 1, firstAry[i][j]);
+		}
+	}
+	copyAry();
+
+}
+
+void Expansion::eastExpansion() {
+
+	for(int i = 1; i < numRows + 2; ++i) {
+		for(int j = 1; j < numCols + 2; ++j) {
+			if(firstAry[i][j] > 0 && firstAry[i][j + 1] == 0)
+				doExpansion(i, j + 1, firstAry[i][j]);
+		}
+	}
+	copyAry();
+
+}
+
+void Expansion::prettyPrint(ofstream& printer, int** arr, string line) {
+	printer << line << endl << endl;
 	for(int row = 0; row < numRows + 2; ++row) {
 		for(int col = 0; col < numCols + 2; ++col) {
 			if(arr[row][col] > 0 && arr[row][col] < 10) 
@@ -194,6 +264,6 @@ int main(int argc, char* argv[]) {
 	Expansion expansion(argv[1], argv[2]);
 	expansion.zeroFramed();
 	expansion.loadImage(inputFile1, inputFile2);
-	expansion.doExpansion(outputFile1, outputFile2);
+	expansion.executeExpanAlg(outputFile1, outputFile2);
 
 }
