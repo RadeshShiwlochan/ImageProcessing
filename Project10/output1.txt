@@ -1,4 +1,4 @@
-This is objectAry:
+This is objectAry: cycleCount 0
 
                                                               
                                                           1 1 
@@ -42,7 +42,7 @@ This is objectAry:
 1 1 1                         1               1 1 1           
 
 
-This is firstAry:
+This is firstAry: cycleCount 0
 
                                                               
                                                               
@@ -86,7 +86,7 @@ This is firstAry:
                                                               
 
 
-This is firstAry:
+This is firstAry: cycleCount 3
 
                                                               
                                                               
@@ -130,7 +130,7 @@ This is firstAry:
                                                               
 
 
-This is firstAry:
+This is firstAry: cycleCount 5
 
                                                               
                                                               
@@ -174,7 +174,7 @@ This is firstAry:
                                                               
 
 
-firstAry, final output:
+firstAry, final output: cycleCount 2
 
                                                               
                                                               

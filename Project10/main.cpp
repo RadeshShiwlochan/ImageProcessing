@@ -111,9 +111,7 @@ void Expansion::loadImage(string inputFile1, string inputFile2) {
 			readFile2 >> data;
 			firstAry[i][j]  = data;
 			secondAry[i][j] = data;
-			cout << data << " ";
 		}
-		cout << endl;
 	}
 	
 	readFile2.close();
@@ -212,7 +210,7 @@ void Expansion::eastExpansion() {
 
 void Expansion::prettyPrint(ofstream& printer, int** arr, string line) {
 
-	printer << line << endl << endl;
+	printer << line << " cycleCount " << cycleCount <<  endl << endl;
 	for(int row = 1; row < numRows + 1; ++row) {
 		for(int col = 1; col < numCols + 1; ++col) {
 			if(arr[row][col] > 0 ) 
