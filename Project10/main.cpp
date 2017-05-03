@@ -29,9 +29,6 @@ public:
 	void eastExpansion();
 	void prettyPrint(ofstream&, int**, string);
 	void printFinalImg(ofstream&);	
-	//temporary functionss
-	void printImage(string, string);
-
 };
 
 Expansion::Expansion(string input1, string input2) {
@@ -72,7 +69,7 @@ Expansion::~Expansion() {
 
 void Expansion::zeroFramed() {
 
-	for(int i = 0; i < numRows + 1; i++) {
+	for(int i = 0; i < numRows + 2; i++) {
 		objectAry[i][0]           = 0;
 		objectAry[i][numCols + 1] = 0;
 		firstAry[i][0]            = 0;
@@ -81,7 +78,7 @@ void Expansion::zeroFramed() {
 		secondAry[i][numCols + 1] = 0;
 	}
 
-	for(int j = 0; j < numCols + 1; j++) {
+	for(int j = 0; j < numCols + 2; j++) {
 		 objectAry[0][j]           = 0;
 		 objectAry[numRows + 1][j] = 0;
 		 firstAry[0][j]            = 0;
@@ -114,7 +111,9 @@ void Expansion::loadImage(string inputFile1, string inputFile2) {
 			readFile2 >> data;
 			firstAry[i][j]  = data;
 			secondAry[i][j] = data;
+			cout << data << " ";
 		}
+		cout << endl;
 	}
 	
 	readFile2.close();
@@ -144,10 +143,10 @@ void Expansion::executeExpanAlg(string outputFile1, string outputFile2) {
 	printer1.open(outputFile1);
 	printer2.open(outputFile2);
 	cycleCount = 0;
+	string line = "This is objectAry:";
+	prettyPrint(printer1, objectAry, line);
 	while(changeFlag) {
-		string line = "This is objectAry:";
 		string line2 = "This is firstAry:";
-		prettyPrint(printer1, objectAry, line);
 		if(cycleCount == 0 || cycleCount == 3 || cycleCount == 5) {
 			prettyPrint(printer1, firstAry, line2);
 			if(cycleCount == 5)
@@ -155,14 +154,10 @@ void Expansion::executeExpanAlg(string outputFile1, string outputFile2) {
 		}
 		changeFlag = false;
 		cycleCount++;
-		string str = "firstAry before:";
-		prettyPrint(printer1, firstAry, str);
 		northExpansion();
 		southExpansion();
 		westExpansion();
 		eastExpansion();
-		string str1 = "firstAry after";
-		prettyPrint(printer1, firstAry, str1);
 	}
 	string finalOutputLine = "firstAry, final output:";
 	prettyPrint(printer1, firstAry, finalOutputLine);
@@ -218,21 +213,20 @@ void Expansion::eastExpansion() {
 void Expansion::prettyPrint(ofstream& printer, int** arr, string line) {
 
 	printer << line << endl << endl;
-	for(int row = 0; row < numRows + 2; ++row) {
-		for(int col = 0; col < numCols + 2; ++col) {
-			if(arr[row][col] > 0 && arr[row][col] < 10) 
+	for(int row = 1; row < numRows + 1; ++row) {
+		for(int col = 1; col < numCols + 1; ++col) {
+			if(arr[row][col] > 0 ) 
 				printer << arr[row][col] << " ";
-			else if(arr[row][col] > 9)
-				printer << arr[row][col] << "  ";
 			else 
-				printer<< " ";
-			}
+				printer<< "  ";
+		}
 		printer << endl;
 	}
 	printer << endl << endl;
 }
 
 void Expansion::printFinalImg(ofstream& printer2) {
+
 	printer2 << numRows << " " << numCols << " " << minVal <<
 	         " " << maxVal << endl;
 	for(int i = 1; i < numRows + 2; ++i) {
@@ -245,12 +239,12 @@ void Expansion::printFinalImg(ofstream& printer2) {
 
 int main(int argc, char* argv[]) {
 
-	// if(argc != 5) {
-	// 	cout << "Program needs 4 files:\n" <<
-	// 	"Two input files and two outputfiles" << 
-	// 	<<" , Terminating!" << endl;
-	// 	return 0;
-	// }
+	if(argc != 5) {
+		cout << "Program needs 4 files:\n" <<
+		"Two input files and two outputfiles" << 
+		" , Terminating!" << endl;
+		return 0;
+	}
 	string inputFile1  = argv[1];
 	string inputFile2  = argv[2];
 	string outputFile1 = argv[3];
