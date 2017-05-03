@@ -193,6 +193,45 @@ void ConnectEightCC::prettyPrint(ofstream& outfile, int passNum) {
 	outfile << endl << endl;
 }
 
+void ConnectEightCC::connectEightCC_Pass1(ofstream& outfile) {
+	for(int i = 1; i <= numRows; ++i) {
+		for(int j = 1; j <= numCols; ++j) {
+			if(zeroFramedAry[i][j] != 0) {
+				loadNeighbors(i,j,1);
+				if(neighborMin == 0 && neighborMax == 0) {
+					newLabel++;
+					zeroFramedAry[i][j] = newLabel;
+				}
+				else if(neighborMin == neighborMax) {
+					zeroFramedAry[i][j] = neighborMin;
+				} else {
+					zeroFramedAry[i][j] = neighborMin;
+					EqAry[zeroFramedAry[i][j]] = neighborMin;
+					zeroFramedAry[i][j] = neighborMin;
+				}
+			}
+		}
+	}
+	maxVal = newLabel;
+	prettyPrint(outfile, 1);
+}
+
+void ConnectEightCC::connectEightCC_Pass2(ofstream& outfile) {
+	for(int i = numRows  + 1; i > 0; --i) {
+		for(int j = numCols + 1; j > 0; j--) {
+			if(zeroFramedAry[i][j] != 0) {
+				loadNeighbors(i, j, 2);
+				if(neighborMin != neighborMax) {
+					EqAry[zeroFramedAry[i][j]] = neighborMin;
+					if(zeroFramedAry[i][j] == maxVal)
+						maxVal = neighborMin;
+					zeroFramedAry[i][j] = neighborMin;
+				}
+			}
+		}
+	}
+	prettyPrint(outfile, 2);
+}
 
 
 
