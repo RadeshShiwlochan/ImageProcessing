@@ -57,14 +57,14 @@ Expansion::Expansion(string input1, string input2) {
 
 Expansion::~Expansion() {
 
-	// for(int i = 0; i < numRows + 2; ++i) {
-	// 	delete [] objectAry[i];
-	// 	delete [] firstAry[i];
-	// 	delete [] secondAry[i];
-	// }
-	// delete [] objectAry;
-	// delete [] firstAry;
-	// delete [] secondAry;
+	for(int i = 0; i < numRows + 2; ++i) {
+		delete [] objectAry[i];
+		delete [] firstAry[i];
+		delete [] secondAry[i];
+	}
+	delete [] objectAry;
+	delete [] firstAry;
+	delete [] secondAry;
 }
 
 void Expansion::zeroFramed() {
@@ -104,6 +104,7 @@ void Expansion::loadImage(string inputFile1, string inputFile2) {
 	    }
 	}
 	readFile1.close();
+	
 	int data = -9999;
 	readFile2 >> numRows >> numCols >> minVal >> maxVal;
 	for(int i = 1; i < numRows + 2; ++i) {
