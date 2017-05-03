@@ -56,14 +56,14 @@ Expansion::Expansion(string input1, string input2) {
 
 Expansion::~Expansion() {
 
-	for(int i = 0; i < numRows + 2; ++i) {
-		delete [] objectAry[i];
-		delete [] firstAry[i];
-		delete [] secondAry[i];
-	}
-	delete [] objectAry;
-	delete [] firstAry;
-	delete [] secondAry;
+	// for(int i = 0; i < numRows + 2; ++i) {
+	// 	delete [] objectAry[i];
+	// 	delete [] firstAry[i];
+	// 	delete [] secondAry[i];
+	// }
+	// delete [] objectAry;
+	// delete [] firstAry;
+	// delete [] secondAry;
 }
 
 void Expansion::zeroFramed() {
@@ -90,8 +90,8 @@ void Expansion::loadImage(string inputFile1, string inputFile2) {
 
 	ifstream readFile1;
 	ifstream readFile2;
-	readFile1.open(input1);
-	readFile2.open(input2);
+	readFile1.open(inputFile1);
+	readFile2.open(inputFile2);
 	int numFromFile = -9999;
 	//skip the header
 	readFile1 >> numRows >> numCols >> minVal >> maxVal;
@@ -101,14 +101,18 @@ void Expansion::loadImage(string inputFile1, string inputFile2) {
 			objectAry[i][j] = numFromFile;
 	    }
 	}
+	readFile1.close();
+	int data = -9999;
 	readFile2 >> numRows >> numCols >> minVal >> maxVal;
 	for(int i = 1; i < numRows + 2; ++i) {
 		for(int j = 1; j < numCols + 2; ++j) {
-			readFile2 >> numFromFile;
-			firstAry[i][j] = numFromFile;
+			cout << data << " ";
+			readFile2 >> data;
+			firstAry[i][j] = data;
 		}
+		cout << endl;
 	}
-	readFile1.close();
+	
 	readFile2.close();
 }
 
@@ -126,31 +130,41 @@ void Expansion::printImage(string output1, string output2) {
 	ofstream printToFile2;
 	printToFile1.open(output1);
 	printToFile2.open(output2);
-	for(int i = 0 i < numRows + 2; ++i) {
+	for(int i = 0;i < numRows + 2; ++i) {
 		for(int j = 0; j < numCols + 2; ++j) {
 			printToFile1 << objectAry[i][j] << " ";
-			printToFile2 << firstAry[i][j] << " ";
 		}
 		printToFile1 << endl;
+	}
+
+printToFile1.close();
+
+
+	for(int i = 0;i < numRows + 2; ++i) {
+		for(int j = 0; j < numCols + 2; ++j) {
+			printToFile2 << firstAry[i][j] << " ";
+		}
 		printToFile2 << endl;
 	}
-	printToFile1.close();
+	
 	printToFile2.close();
 
 }
 
 int main(int argc, char* argv[]) {
 
-	if(argc != 5) {
-		cout << "Program needs 4 files:\n" <<
-		"Two input files and two outputfiles" << 
-		<<" , Terminating!" << endl;
-		return 0;
-	}
+	// if(argc != 5) {
+	// 	cout << "Program needs 4 files:\n" <<
+	// 	"Two input files and two outputfiles" << 
+	// 	<<" , Terminating!" << endl;
+	// 	return 0;
+	// }
 	string inputFile1  = argv[1];
 	string inputFile2  = argv[2];
 	string outputFile1 = argv[3];
 	string outputFile2 = argv[4];
 	Expansion expansion(argv[1], argv[2]);
+	expansion.loadImage(inputFile1, inputFile2);
+	expansion.printImage(outputFile1, outputFile2);
 
 }
