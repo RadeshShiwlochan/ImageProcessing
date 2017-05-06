@@ -137,6 +137,15 @@ ChainCode::ChainCode(ifstream& cc, ifstream& pp, ofstream& chaincode, ofstream& 
 	debugFile << "ChainCode object initialization and instantiation complete \n";
 }
 
+ChainCode::~ChainCode() {
+	if(image != nullptr) 
+		delete image;
+	if(propertyfile != nullptr)
+		delete [] propertyfile;
+	if(neighborCoord != nullptr)
+		delete [] neighborCoord;
+}
+
 
 
 
