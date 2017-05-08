@@ -25,6 +25,12 @@ class Image {
 };
 
 	Image::Image(string inputFile) {
+		/**
+			inputFile is a textfile with input. Input has a header with amount of rows, 
+			columns, minimum value and maximum value
+			zeroFramedAry will be initialized to amount of rows + 2 and cols + 2 for 
+			zeroFraming 
+		*/
 		ifstream readFile;
 		readFile.open(inputFile);
 		readFile >> numRows >> numCols >>
@@ -63,6 +69,7 @@ class Image {
 		int rowSize = numRows + 1;
 		int colSize = numCols + 1;
 		readFile.open(inputFile);
+		//skips the header
 		for(int i = 0; i < 4; ++i)
 			readFile >> pixelValue;
 
@@ -133,12 +140,13 @@ class Point {
 	void Point::setPointCol(int colVal) { col = colVal; }
 
 	void Point::setPointRowCol(int rowVal, int colVal) {
+		cout << "\nsetting row " << rowVal << " col " << colVal << endl;
 		row = rowVal;
 		col = colVal;
 	}
 
 	void Point::printPoint() {
-		cout << "row " << row << " \n" 
+		cout << "row " << row << " " 
 		<< "col " << col << endl;
 	}
 
@@ -160,6 +168,12 @@ class ChainCode {
 		ChainCode();
 		void loadNeighborCoord(Point);
 		int findNextP(Image&);
+		int getNeighCoordVal(int val, Image& img) {
+			int row = neighborCoord[val].getPointRow();
+			int col = neighborCoord[val].getPointCol();
+			cout << "Here is row " << row << " and col " << col << endl;
+			return img.getIndexVal(row, col);
+		}
 		void executeChainCode(Image&, ofstream&, ofstream&);
 		bool pointsEqual(Point, Point);
 		bool pointsEqualVal(Point, Point, Image&);
@@ -167,6 +181,13 @@ class ChainCode {
 		void printNghbrs(Image&);
 		void printFuncForFileOne(ofstream&, int);
 		void printFuncForFileTwo(ofstream&, int, int);
+		void printNArr(Image& img) {
+			for(int i = 0; i < 8; i++) {
+				int rw = neighborCoord[i].getPointRow();
+				int cl = neighborCoord[i].getPointCol();
+				cout << "index : " << i << " | " <<img.getIndexVal(rw, cl) << " | ";
+			}
+		}
 };
 
 	ChainCode::ChainCode() {
@@ -176,21 +197,22 @@ class ChainCode {
 			neighborCoord[i].setPointRowCol(0,0);
 			nextDirTable[i] = tempArr[i];
 		}
-		
-
 	}
 
 	void ChainCode::loadNeighborCoord(Point currentP) {
 		int row = currentP.getPointRow();
 		int col = currentP.getPointCol();
+		cout << "This is in loadNeighborCoord, row " << row << " col " << col << endl; 
 		neighborCoord[0].setPointRowCol(row, col + 1);
 		neighborCoord[1].setPointRowCol(row - 1,col + 1);
 		neighborCoord[2].setPointRowCol(row - 1,col);
 		neighborCoord[3].setPointRowCol(row - 1,col - 1);
-		neighborCoord[4].setPointRowCol(row + 1,col - 1);
+		//changing 4
+		neighborCoord[4].setPointRowCol(row,col - 1);
 		neighborCoord[5].setPointRowCol(row + 1,col - 1);
 		neighborCoord[6].setPointRowCol(row + 1,col);
 		neighborCoord[7].setPointRowCol(row + 1,col + 1);
+		cout << "\nEnd of loadNeighborCoord" << endl;
 	}
 
 	bool ChainCode::pointsEqualVal(Point pt1, Point pt2, Image& img) {
@@ -208,10 +230,23 @@ class ChainCode {
 		int chainDir = nextQ;
 		int counter = 0;
 		loadNeighborCoord(currentP);
+
 		while(counter < 8) {
-			if(pointsEqualVal(neighborCoord[chainDir], currentP, img)) {
-				nextP.setPointRowCol(neighborCoord[chainDir].getPointRow(),
-					                 neighborCoord[chainDir].getPointCol());
+			if(getNeighCoordVal(chainDir % 8, img) > 0) {
+				cout << endl << "========================================" << endl;
+				cout << "This is in neighborCoord at chairDir\n";
+				neighborCoord[chainDir].printPoint();
+				cout << "\nneighborCoord arr \n";
+				printNArr(img);
+				nextP.setPointRowCol(neighborCoord[chainDir % 8 ].getPointRow(),
+					                 neighborCoord[chainDir % 8].getPointCol());
+				
+				
+
+				cout << "this is counter " << counter << endl;
+				cout << " This is chairDir " << chainDir % 8 << endl;
+				cout << "This is nextP ";
+				nextP.printPoint();
 				return chainDir % 8;
 			}
 			counter++;
@@ -221,8 +256,10 @@ class ChainCode {
 	}
 
 	void ChainCode::executeChainCode(Image& image, ofstream& printToFile1, ofstream& printToFile2) {
-		int rowSize = image.getNumRows();
-		int colSize = image.getNumCols();
+		
+		int rowSize = image.getNumRows() + 2;
+		int colSize = image.getNumCols() + 2;
+		
 		for(int i = 1; i < rowSize; ++i) {
 			for(int j = 1; j < colSize; ++j) {
 				if(image.getIndexVal(i,j) > 0) {
@@ -248,14 +285,20 @@ class ChainCode {
 
 	void ChainCode::continueChainCode(Image& image, ofstream& printToFile1, ofstream& printToFile2) {
 		int counter = 1;
-		do {
-				
+		do {	
+
 			nextQ = (lastQ + 1) % 8;
+			cout << "\n This is nextQ " << nextQ << endl;
 		    Pchain = findNextP(image);
 			printFuncForFileOne(printToFile1, Pchain);
 			printFuncForFileTwo(printToFile2, Pchain, counter);
+			cout << " this is Pchain " << Pchain << endl; 
 			lastQ = nextDirTable[Pchain];
+			cout << "This is lastQ " << lastQ << endl;
 			currentP = nextP;
+			cout << " This is currentP ";
+			currentP.printPoint();
+			cout << endl << "==========================" << endl;
 			counter++;
 		} while(startP.getPointRow() != currentP.getPointRow() ||
 			  startP.getPointCol() != currentP.getPointCol());	 
