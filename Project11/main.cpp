@@ -12,7 +12,7 @@ private:
 	int** imageAry;
 
 public:
-	Image(string);
+	Image(int, int, int, int);
 	~Image();
 	int getNumRows();
 	int getNumCols();
@@ -24,12 +24,13 @@ public:
 	void prettyPrint(ofstream&);	
 };
 
-Image::Image(string inputFile) {
-	ifstream readFile;
-	readFile.open(inputFile);
-	readFile >> numRows >> numCols >> minVal >> maxVal;
+Image::Image(int rows, int cols, int minValue, int maxValue) {
+	numRows = rows;
+	numCols = cols;
+	minVal = minValue;
+	maxVal = maxValue;
 	imageAry = new int*[numRows];
-	for(int i = 0; i < numCols; ++i)
+	for(int i = 0; i < numRows; ++i)
 		imageAry[i] = new int[numCols]();
 }
 
@@ -82,7 +83,7 @@ private:
 	int corner;
 
 public:
-	BoundaryPt(int, int, int, double, int);
+	//BoundaryPt(int, int, int, double, int);
 	int getX();
 	int getY();
 	int getMaxVotes();
@@ -91,14 +92,14 @@ public:
 	void printBoundaryPt();
 };
 
-BoundaryPt::BoundaryPt(int xVal, int yVal, int maxVotesVal, 
-	double maxDistanceVal, int cornerVal)                  {
-	x = xVal;
-	y = yVal;
-	maxVotes = maxVotesVal;
-	maxDistance = maxDistanceVal;
-	corner = cornerVal;
-}
+// BoundaryPt::BoundaryPt(int xVal, int yVal, int maxVotesVal, 
+// 	double maxDistanceVal, int cornerVal)                  {
+// 	x = xVal;
+// 	y = yVal;
+// 	maxVotes = maxVotesVal;
+// 	maxDistance = maxDistanceVal;
+// 	corner = cornerVal;
+// }
 
 int BoundaryPt::getX() { return x; }
 
@@ -121,11 +122,12 @@ private:
 	int kChordLength;
 	int numPts;
 	double* chordAry;
+	BoundaryPt* boundaryPtArr;
 	int P1;
 	int P2;
 
 public:
-	ArcChordDistance();
+	ArcChordDistance(int, int);
 	~ArcChordDistance();
 	void loadData();
 	double computeDistance();
@@ -134,15 +136,19 @@ public:
 	int isCorner(); 	
 };
 
-ArcChordDistance::ArcChordDistance() {
-	kChordLength = 0;
-	numPts = 0;
+ArcChordDistance::ArcChordDistance(int amntOfPts, int userInputKChrdLen) {
+	kChordLength = userInputKChrdLen;
+	numPts = amntOfPts;
+	chordAry = new double[userInputKChrdLen];
+	boundaryPtArr = new BoundaryPt[amntOfPts];
+	for(int i = 0; i < numPts; ++i)
+		chordAry[i] = 0.0;
 	P1 = 0;
 	P2 = 0;
 }
 
 ArcChordDistance::~ArcChordDistance() {
-	//delete [] chordAry;
+	delete [] chordAry;
 }
 
 void ArcChordDistance::loadData() {
@@ -167,6 +173,36 @@ int ArcChordDistance::isCorner() {
 
 
 int main(int argc, char* argv[]) {
+	// if(argc != 4) {
+	// 	cout << "Program needs 5 files:\n"
+	// 	     << "One inputFile and 4 output " 
+	// 	     << "files, Terminating!!" << endl;
+	// 	    return 0;
+	// }
+	string inputFile = argv[1];
+	// string outputFile1 = argv[2];
+	// string outputFile2 = argv[3];
+	// string outputFile3 = argv[4];
+	int userInputKChrdLen = 0;
+	cout << "Please Enter a positive number for " <<
+	"kChordLength: " << endl;
+	//cin >> userInputKChrdLen;
+	userInputKChrdLen = 4;
+	if(userInputKChrdLen < 0)
+		return 0;
+
+	ifstream readFile;
+	readFile.open(inputFile);
+	int rows = 0;
+	int cols = 0;
+	int minValue = 0;
+	int maxValue = 0;
+	int label = 0;
+	int amntOfPts = 0;
+	readFile >> rows >> cols >> minValue >> maxValue >>
+	label >> amntOfPts;
+	Image image(rows, cols, minValue, maxValue);
+	ArcChordDistance arcChordDist(amntOfPts, userInputKChrdLen);
 	return 0;
 }
 
