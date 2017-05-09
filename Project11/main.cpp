@@ -140,7 +140,9 @@ public:
 	double computeDistance(int, int, int);
 	int findMaxDist();
 	int computeLocalMaxima();
-	int isCorner(); 	
+	int isCorner();
+	void printChordArrToDebugFile(ofstream&);
+	void printBoundArrToDebugFile(ofstream&); 	
 	//temp functions
 	void printArr(string);
 };
@@ -197,6 +199,21 @@ int ArcChordDistance::isCorner() {
 	return 0;
 }
 
+void ArcChordDistance::printChordArrToDebugFile(ofstream& printToFile) {
+	printToFile << endl << endl;
+	for(int i = 0; i < kChordLength; ++i) {
+		printToFile << chordAry[i] << endl;
+	}
+	printToFile << endl << endl;
+}
+
+void ArcChordDistance::printBoundArrToDebugFile(ofstream& printToFile) {
+	printToFile << endl << endl;
+
+	printToFile << endl << endl;
+
+}
+
 void ArcChordDistance::printArr(string outputFile) {
 	ofstream printToFile;
 	printToFile.open(outputFile);
@@ -221,7 +238,7 @@ int main(int argc, char* argv[]) {
 	// }
 	string inputFile = argv[1];
 	string outputFile1 = argv[2];
-	// string outputFile2 = argv[3];
+	string outputFile2 = argv[3];
 	// string outputFile3 = argv[4];
 	int userInputKChrdLen = 0;
 	cout << "Please Enter a positive number for " <<
@@ -233,6 +250,8 @@ int main(int argc, char* argv[]) {
 
 	ifstream readFile;
 	readFile.open(inputFile);
+	ofstream debugFile;
+	debugFile.open(outputFile2);
 	int rows = 0;
 	int cols = 0;
 	int minValue = 0;
@@ -245,6 +264,7 @@ int main(int argc, char* argv[]) {
 	ArcChordDistance arcChordDist(amntOfPts, userInputKChrdLen);
 	arcChordDist.loadData(readFile);
 	arcChordDist.printArr(outputFile1);
+	arcChordDist.printChordArrToDebugFile(debugFile);
 	return 0;
 }
 
