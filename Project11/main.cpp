@@ -86,6 +86,7 @@ public:
 	//BoundaryPt(int, int, int, double, int);
 	int getX();
 	int getY();
+	void setXY(int, int);
 	int getMaxVotes();
 	double getMaxDistance();
 	int getCorner();
@@ -104,6 +105,11 @@ public:
 int BoundaryPt::getX() { return x; }
 
 int BoundaryPt::getY() { return y; }
+
+void BoundaryPt::setXY(int xVal, int yVal) {
+	x = xVal;
+	y = yVal;
+ }
 
 int BoundaryPt::getMaxVotes() { return maxVotes ;}
 
@@ -125,15 +131,18 @@ private:
 	BoundaryPt* boundaryPtArr;
 	int P1;
 	int P2;
+	int currPt;
 
 public:
 	ArcChordDistance(int, int);
 	~ArcChordDistance();
-	void loadData();
-	double computeDistance();
+	void loadData(ifstream&);
+	double computeDistance(int, int, int);
 	int findMaxDist();
 	int computeLocalMaxima();
 	int isCorner(); 	
+	//temp functions
+	void printArr(string);
 };
 
 ArcChordDistance::ArcChordDistance(int amntOfPts, int userInputKChrdLen) {
@@ -151,11 +160,28 @@ ArcChordDistance::~ArcChordDistance() {
 	delete [] chordAry;
 }
 
-void ArcChordDistance::loadData() {
-
+void ArcChordDistance::loadData(ifstream& readFile) {
+	int rowValue = 0;
+	int colValue = 0;
+	int index = 0;
+	double dist = 0.0;
+	while(index < numPts) {
+		readFile >> rowValue >> colValue;
+		boundaryPtArr[index++].setXY(rowValue, colValue); 
+	}
+	index = 0;
+	P1 = 0;
+	P2 = kChordLength - 1; 
+	currPt = P1 + 1;
+	while(index < kChordLength) {
+		dist = computeDistance(P1, P2, currPt);
+		chordAry[index++] = dist;
+		currPt++;
+	}
 }
 
-double ArcChordDistance::computeDistance() {
+double ArcChordDistance::computeDistance(int pt1, int pt2, int currentPt) {
+
 	return 0.0;
 }
 
@@ -171,6 +197,20 @@ int ArcChordDistance::isCorner() {
 	return 0;
 }
 
+void ArcChordDistance::printArr(string outputFile) {
+	ofstream printToFile;
+	printToFile.open(outputFile);
+	printToFile << "BoundaryPtArr beginning\n" << "=============\n";
+	for(int i = 0; i < numPts; ++i) {
+		printToFile << boundaryPtArr[i].getX() << " " << boundaryPtArr[i].getY() << endl;
+	}
+	printToFile << "BoundaryPtArr ending\n" << "=============\n\n\n";
+	printToFile << "chordAry beginning\n" << "=============\n";
+	for(int i = 0; i < kChordLength; ++i) {
+		printToFile << chordAry[i] << endl;
+	}
+	printToFile << "chordAry ending" << "=============\n\n\n";
+}
 
 int main(int argc, char* argv[]) {
 	// if(argc != 4) {
@@ -180,7 +220,7 @@ int main(int argc, char* argv[]) {
 	// 	    return 0;
 	// }
 	string inputFile = argv[1];
-	// string outputFile1 = argv[2];
+	string outputFile1 = argv[2];
 	// string outputFile2 = argv[3];
 	// string outputFile3 = argv[4];
 	int userInputKChrdLen = 0;
@@ -203,6 +243,8 @@ int main(int argc, char* argv[]) {
 	label >> amntOfPts;
 	Image image(rows, cols, minValue, maxValue);
 	ArcChordDistance arcChordDist(amntOfPts, userInputKChrdLen);
+	arcChordDist.loadData(readFile);
+	arcChordDist.printArr(outputFile1);
 	return 0;
 }
 
