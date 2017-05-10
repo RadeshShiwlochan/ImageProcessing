@@ -66,6 +66,13 @@ chordAry beginning
 0
 0
 0
+0
+0
+0
+0
+0
+0
+0
 chordAry ending=============
 
 

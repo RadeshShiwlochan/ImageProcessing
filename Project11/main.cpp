@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 using namespace std;
 
@@ -186,8 +187,17 @@ void ArcChordDistance::loadData(ifstream& readFile) {
 }
 
 double ArcChordDistance::computeDistance(int pt1, int pt2, int currentPt) {
-
-	return 0.0;
+	double d = 0.0;
+	BoundaryPt point1 = boundaryPtArr[pt1];
+	BoundaryPt point2 = boundaryPtArr[pt2];
+	BoundaryPt currPoint = boundaryPtArr[currentPt];
+	int A = point2.getY() - point1.getY();
+	int B = point1.getX() - point2.getX();
+	int C = (point2.getX() * point1.getY()) - (point1.getX() * point2.getY());
+	int currPtX = currPoint.getX();
+	int currPtY = currPoint.getY();
+	d = abs((A * currPtX) + (B * currPtY) + C) / (sqrt(pow(A, 2) + pow(B, 2)));
+	return d;
 }
 
 int ArcChordDistance::findMaxDist() {
