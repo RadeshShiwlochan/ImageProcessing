@@ -213,7 +213,32 @@ int ArcChordDistance::findMaxDist() {
 }
 
 int ArcChordDistance::computeLocalMaxima() {
-	return 0;
+
+	int endPt1 = numPts - 1;
+	int endPt2 = numPts - 2;
+	int endPt3 = numPts - 3;
+	for(int i = 0; i < numPts; ++i) {
+		if(i == 0 || i == 1 || i == 2 ) {
+			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 1].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 2].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 3].getMaxVotes()    ) 
+				return i;
+		} else if(i == endPt1 || i == endPt2 || i == endPt3) {
+			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 1].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 2].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 3].getMaxVotes()    )
+				return i;
+		} else {
+			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 1].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 2].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 3].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 1].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 2].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 3].getMaxVotes()    )
+				return i;
+		}//else
+	}//for
+	return -1;
 }
 
 int ArcChordDistance::isCorner() { 
@@ -237,10 +262,10 @@ void ArcChordDistance::printBoundArrToDebugFile(ofstream& printToFile) {
 
 void ArcChordDistance::printP1toP2(ofstream& print, int pt1, int pt2) {
 	for(int i = pt1; i <= pt2; ++i)
-		print << boundaryPtArr[i].getX() << "\n" 
-	          << boundaryPtArr[i].getY() << "\n" 
-	          << boundaryPtArr[i].getMaxVotes() << "\n" 
-	          << boundaryPtArr[i].getMaxDistance() << endl;
+		print << "X : " << boundaryPtArr[i].getX() << " " 
+	          << "Y : "<< boundaryPtArr[i].getY() << " " 
+	          <<"maxVotes: "<< boundaryPtArr[i].getMaxVotes() << " " 
+	          <<"maxDistance: "<< boundaryPtArr[i].getMaxDistance() << endl;
 }
 
 void ArcChordDistance::executeArcChordDistance(ofstream& printToFile, string outputFile) {
@@ -265,7 +290,7 @@ void ArcChordDistance::executeArcChordDistance(ofstream& printToFile, string out
 		maxIndex = findMaxDist();
 		whichIndex = P1 + maxIndex;
 		maxVotesAtindx = boundaryPtArr[whichIndex].getMaxVotes();
-		boundaryPtArr[whichIndex].setVotes(maxVotesAtindx++);
+		boundaryPtArr[whichIndex].setVotes(maxVotesAtindx+1);
 		boundaryPtArr[whichIndex].setMaxDist(dist);
 		printP1toP2(outputToFile, P1, P2);
 		P1 = (P1 + 1) % numPts;
