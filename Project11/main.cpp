@@ -25,7 +25,7 @@ public:
 	int getIndexVal(int,int);
 	void setIndexVal(int, int, int);
 	void loadPtImage(ArcChordDistance&);
-	void prettyPrint(ofstream&);	
+	void prettyPrint(string);	
 };
 
 Image::Image(int rows, int cols, int minValue, int maxValue) {
@@ -64,8 +64,10 @@ void Image::loadPtImage(ArcChordDistance& arc) {
 	
 }
 
-void Image::prettyPrint(ofstream& printer) {
+void Image::prettyPrint(string outputFile) {
 
+	ofstream printer;
+	printer.open(outputFile);
 	for(int row = 0; row < numRows; ++row) {
 		for(int col = 0; col < numCols; ++col) {
 			if(imageAry[row][col] > 0 ) 
@@ -76,6 +78,7 @@ void Image::prettyPrint(ofstream& printer) {
 		printer << endl;
 	}
 	printer << endl << endl;
+	printer.close();
 }
 
 class BoundaryPt {
@@ -99,15 +102,6 @@ public:
 	void setMaxDist(double);
 	void printBoundaryPt();
 };
-
-// BoundaryPt::BoundaryPt(int xVal, int yVal, int maxVotesVal, 
-// 	double maxDistanceVal, int cornerVal)                  {
-// 	x = xVal;
-// 	y = yVal;
-// 	maxVotes = maxVotesVal;
-// 	maxDistance = maxDistanceVal;
-// 	corner = cornerVal;
-// }
 
 int BoundaryPt::getX() { return x; }
 
@@ -156,11 +150,11 @@ public:
 	int findMaxDist();
 	int computeLocalMaxima();
 	int isCorner();
-	void printChordArrToDebugFile(ofstream&);
-	void printBoundArrToDebugFile(ofstream&); 
-	void printP1toP2(ofstream&, int, int);	
-	void executeArcChordDistance(ofstream&, string);
-	void printToImageFile(Image&, string);
+	void printChordArrToDebugFile(ofstream&, string);
+	void printBoundArrToDebugFile(ofstream&, string); 
+	void printP1toP2(ofstream&, int, int, string);	
+	void executeArcChordDistance(string);
+	void setImageArray(Image&);
 	//temp functions
 	void printArr(string);
 };
@@ -250,32 +244,39 @@ int ArcChordDistance::isCorner() {
 	return 0;
 }
 
-void ArcChordDistance::printChordArrToDebugFile(ofstream& printToFile) {
-	printToFile << endl << endl;
+void ArcChordDistance::printChordArrToDebugFile(ofstream& printToFile, string str) {
+	printToFile << str << endl << endl;
 	for(int i = 0; i < kChordLength; ++i) {
 		printToFile << chordAry[i] << endl;
 	}
-	printToFile << endl << endl;
+	printToFile << "=========================================================" << endl; 
+	printToFile << endl;
 }
 
-void ArcChordDistance::printBoundArrToDebugFile(ofstream& printToFile) {
-	printToFile << endl << endl;
+void ArcChordDistance::printBoundArrToDebugFile(ofstream& printToFile, string str) {
 
-	printToFile << endl << endl;
+	printToFile << str << endl << endl;
+
+	printToFile << "=========================================================" << endl; 
+	printToFile << endl;
 
 }
 
-void ArcChordDistance::printP1toP2(ofstream& print, int pt1, int pt2) {
+void ArcChordDistance::printP1toP2(ofstream& print, int pt1, int pt2, string str) {
+	print << str << endl << endl;
 	for(int i = pt1; i <= pt2; ++i)
 		print << "X : " << boundaryPtArr[i].getX() << " " 
 	          << "Y : "<< boundaryPtArr[i].getY() << " " 
 	          <<"maxVotes: "<< boundaryPtArr[i].getMaxVotes() << " " 
 	          <<"maxDistance: "<< boundaryPtArr[i].getMaxDistance() << endl;
+	print << "=========================================================" << endl << endl;           
 }
 
-void ArcChordDistance::executeArcChordDistance(ofstream& printToFile, string outputFile) {
-	ofstream outputToFile;
-	outputToFile.open(outputFile);
+void ArcChordDistance::executeArcChordDistance(string outputFile) {
+
+	ofstream printToFile;
+	printToFile.open(outputFile);
+	string line1 = "";
 	P1 = 0;
 	P2 = kChordLength - 1; 
 	int index = 0;
@@ -283,7 +284,7 @@ void ArcChordDistance::executeArcChordDistance(ofstream& printToFile, string out
 	int whichIndex = 0;
 	double dist = 0.0;
 	int maxVotesAtindx = 0;
-	while( P2 != kChordLength/2) {
+	while( P2 != kChordLength / 2) {
 		index = 0;
 		currPt = P1 + 1;
 		while(index < kChordLength) {
@@ -291,62 +292,42 @@ void ArcChordDistance::executeArcChordDistance(ofstream& printToFile, string out
 			chordAry[index++] = dist;
 			currPt++;
 		}
-		printChordArrToDebugFile(printToFile);
+		line1 = "Printing chordAry";
+		printChordArrToDebugFile(printToFile, line1);
 		maxIndex = findMaxDist();
 		whichIndex = P1 + maxIndex;
 		maxVotesAtindx = boundaryPtArr[whichIndex].getMaxVotes();
 		boundaryPtArr[whichIndex].setVotes(maxVotesAtindx+1);
 		boundaryPtArr[whichIndex].setMaxDist(dist);
-		printP1toP2(outputToFile, P1, P2);
+		line1 = "Printing P1 to P2";
+		printP1toP2(printToFile, P1, P2, line1);
 		P1 = (P1 + 1) % numPts;
 		P2 = (P2 + 1) % numPts;
 	}//while
-	printBoundArrToDebugFile(printToFile);
+	line1 = "Printing boundaryArr";
+	printBoundArrToDebugFile(printToFile, line1);
 }
 
-void ArcChordDistance::printToImageFile(Image& image, string outputFile) {
-	ofstream printer;
-	printer.open(outputFile);
+void ArcChordDistance::setImageArray(Image& image) {
+	
 	for(int i = 0; i < numPts; ++i) {
 		image.setIndexVal(boundaryPtArr[i].getX(), boundaryPtArr[i].getY(), 1);
 	}
-	// for(int i = 0; image.getNumRows(); i++) {
-	// 	for(int j = 0; image.getNumCols(); j++)
-	// 		printer << image.getIndexVal(i,j) << " ";
-	// 	printer << endl;
-	// }
-
-}
-
-void ArcChordDistance::printArr(string outputFile) {
-	ofstream printToFile;
-	printToFile.open(outputFile);
-	printToFile << "BoundaryPtArr beginning\n" << "=============\n";
-	for(int i = 0; i < numPts; ++i) {
-		printToFile << boundaryPtArr[i].getX() << " " << boundaryPtArr[i].getY() << endl;
-	}
-	printToFile << "BoundaryPtArr ending\n" << "=============\n\n\n";
-	printToFile << "chordAry beginning\n" << "=============\n";
-	for(int i = 0; i < kChordLength; ++i) {
-		printToFile << chordAry[i] << endl;
-	}
-	printToFile << "chordAry ending" << "=============\n\n\n";
 }
 
 int main(int argc, char* argv[]) {
-	// if(argc != 4) {
-	// 	cout << "Program needs 5 files:\n"
-	// 	     << "One inputFile and 4 output " 
-	// 	     << "files, Terminating!!" << endl;
-	// 	    return 0;
-	// }
+
+	if(argc != 5) {
+		cout << "Program needs 5 files:\n"
+		     << "One inputFile and 4 output " 
+		     << "files, Terminating!!" << endl;
+		    return 0;
+	}
 	string inputFile = argv[1];
-	string outputFile1 = argv[2];
-	string outputFile2 = argv[3];
-	string outputFile3 = argv[4];
-	string outputFile4 = argv[5];
-	ofstream printy;
-	printy.open(outputFile4);
+	string outputFile1 = argv[2]; //print the output of boundaryArr to file
+	string outputFile2 = argv[3]; //prettyPrint the imageArr
+	string outputFile3 = argv[4]; //debugFile
+	
 	int userInputKChrdLen = 0;
 	cout << "Please Enter a positive number for " <<
 	"kChordLength: " << endl;
@@ -357,8 +338,8 @@ int main(int argc, char* argv[]) {
 
 	ifstream readFile;
 	readFile.open(inputFile);
-	ofstream debugFile;
-	debugFile.open(outputFile2);
+	ofstream printy;
+	printy.open(outputFile2);
 	int rows = 0;
 	int cols = 0;
 	int minValue = 0;
@@ -370,10 +351,9 @@ int main(int argc, char* argv[]) {
 	Image image(rows, cols, minValue, maxValue);
 	ArcChordDistance arcChordDist(amntOfPts, userInputKChrdLen);
 	arcChordDist.loadData(readFile);
-	arcChordDist.printArr(outputFile1);
-	arcChordDist.executeArcChordDistance(debugFile, outputFile3);
-	arcChordDist.printToImageFile(image, outputFile4);
-	image.prettyPrint(printy);
+	arcChordDist.executeArcChordDistance(outputFile3);
+	arcChordDist.setImageArray(image);
+	image.prettyPrint(outputFile2);
 	return 0;
 }
 
