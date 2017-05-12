@@ -4,7 +4,10 @@
 
 using namespace std;
 
+class ArcChordDistance;
+
 class Image {
+	friend class ArcChordDistance;
 private:
 	int numRows;
 	int numCols;
@@ -21,7 +24,7 @@ public:
 	int getMaxVal();
 	int getIndexVal(int,int);
 	void setIndexVal(int, int, int);
-	void loadPtImage();
+	void loadPtImage(ArcChordDistance&);
 	void prettyPrint(ofstream&);	
 };
 
@@ -57,8 +60,8 @@ void Image::setIndexVal(int row, int col, int val) {
 	imageAry[row][col] = val;
 }
 
-void Image::loadPtImage() {
-
+void Image::loadPtImage(ArcChordDistance& arc) {
+	
 }
 
 void Image::prettyPrint(ofstream& printer) {
@@ -76,6 +79,7 @@ void Image::prettyPrint(ofstream& printer) {
 }
 
 class BoundaryPt {
+
 private:
 	int x;
 	int y;
@@ -156,6 +160,7 @@ public:
 	void printBoundArrToDebugFile(ofstream&); 
 	void printP1toP2(ofstream&, int, int);	
 	void executeArcChordDistance(ofstream&, string);
+	void printToImageFile(Image&, string);
 	//temp functions
 	void printArr(string);
 };
@@ -299,6 +304,20 @@ void ArcChordDistance::executeArcChordDistance(ofstream& printToFile, string out
 	printBoundArrToDebugFile(printToFile);
 }
 
+void ArcChordDistance::printToImageFile(Image& image, string outputFile) {
+	ofstream printer;
+	printer.open(outputFile);
+	for(int i = 0; i < numPts; ++i) {
+		image.setIndexVal(boundaryPtArr[i].getX(), boundaryPtArr[i].getY(), 1);
+	}
+	// for(int i = 0; image.getNumRows(); i++) {
+	// 	for(int j = 0; image.getNumCols(); j++)
+	// 		printer << image.getIndexVal(i,j) << " ";
+	// 	printer << endl;
+	// }
+
+}
+
 void ArcChordDistance::printArr(string outputFile) {
 	ofstream printToFile;
 	printToFile.open(outputFile);
@@ -325,6 +344,9 @@ int main(int argc, char* argv[]) {
 	string outputFile1 = argv[2];
 	string outputFile2 = argv[3];
 	string outputFile3 = argv[4];
+	string outputFile4 = argv[5];
+	ofstream printy;
+	printy.open(outputFile4);
 	int userInputKChrdLen = 0;
 	cout << "Please Enter a positive number for " <<
 	"kChordLength: " << endl;
@@ -350,6 +372,8 @@ int main(int argc, char* argv[]) {
 	arcChordDist.loadData(readFile);
 	arcChordDist.printArr(outputFile1);
 	arcChordDist.executeArcChordDistance(debugFile, outputFile3);
+	arcChordDist.printToImageFile(image, outputFile4);
+	image.prettyPrint(printy);
 	return 0;
 }
 
