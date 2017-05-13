@@ -170,6 +170,7 @@ ArcChordDistance::ArcChordDistance(int amntOfPts, int userInputKChrdLen) {
 
 ArcChordDistance::~ArcChordDistance() {
 	delete [] chordAry;
+	delete [] boundaryPtArr;
 }
 
 void ArcChordDistance::loadData(ifstream& readFile) {
@@ -215,16 +216,18 @@ bool ArcChordDistance::computeLocalMaxima(int i) {
 	int endPt2 = numPts - 2;
 	int endPt3 = numPts - 3;
 
-		if(i == 0 ) {
-			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 1].getMaxVotes()      &&
+		if(i == 0) {
+			if(boundaryPtArr[i].getMaxVotes() != 0 &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 1].getMaxVotes()      &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 2].getMaxVotes()      &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 3].getMaxVotes()      &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[numPts - 1].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[numPts - 2].getMaxVotes() &&
-			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[numPts - 3].getMaxVotes()    ) 
-				return true;
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[numPts - 3].getMaxVotes()    ) { cout << "This is true";
+				return true; }
 		} else if(i == 1)  {
-			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 1].getMaxVotes()      &&
+			if(boundaryPtArr[i].getMaxVotes() != 0 &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 1].getMaxVotes()      &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 2].getMaxVotes()      &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 3].getMaxVotes()      &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[0].getMaxVotes() &&
@@ -233,7 +236,8 @@ bool ArcChordDistance::computeLocalMaxima(int i) {
 				return true;
 
 		} else if(i == 2) {
-			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 1].getMaxVotes()      &&
+			if(boundaryPtArr[i].getMaxVotes() != 0 &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 1].getMaxVotes()      &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 2].getMaxVotes()      &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 3].getMaxVotes()      &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[0].getMaxVotes() &&
@@ -242,7 +246,8 @@ bool ArcChordDistance::computeLocalMaxima(int i) {
 				return true;
 		}
 		else if(i == endPt1) {
-			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 1].getMaxVotes() &&
+			if(boundaryPtArr[i].getMaxVotes() != 0 &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 1].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 2].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 3].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[0].getMaxVotes() &&
@@ -250,7 +255,8 @@ bool ArcChordDistance::computeLocalMaxima(int i) {
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[2].getMaxVotes()    )
 				return true;
 		} else if(i == endPt2) { 
-			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 1].getMaxVotes() &&
+			if(boundaryPtArr[i].getMaxVotes() != 0 &&
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 1].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 2].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 3].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[numPts - 1].getMaxVotes() &&
@@ -259,7 +265,8 @@ bool ArcChordDistance::computeLocalMaxima(int i) {
 				return true;
 
 		} else if (i == endPt3) {
-			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 1].getMaxVotes() &&
+			if(boundaryPtArr[i].getMaxVotes() != 0 && 
+			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 1].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 2].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 3].getMaxVotes() &&
 			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[numPts - 2].getMaxVotes() &&
@@ -268,20 +275,20 @@ bool ArcChordDistance::computeLocalMaxima(int i) {
 				return true;
 
 		} else {
-			if(boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 1].getMaxVotes() &&
-			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 2].getMaxVotes() &&
-			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i + 3].getMaxVotes() &&
-			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 1].getMaxVotes() &&
-			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 2].getMaxVotes() &&
-			   boundaryPtArr[i].getMaxVotes() >= boundaryPtArr[i - 3].getMaxVotes()    )
+			if(boundaryPtArr[i].getMaxVotes() != 0 &&
+			   boundaryPtArr[i].getMaxVotes() > boundaryPtArr[i + 1].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() > boundaryPtArr[i + 2].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() > boundaryPtArr[i + 3].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() > boundaryPtArr[i - 1].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() > boundaryPtArr[i - 2].getMaxVotes() &&
+			   boundaryPtArr[i].getMaxVotes() > boundaryPtArr[i - 3].getMaxVotes()    )
 				return true;
 		}//else
 	return false;
 }
 
 int ArcChordDistance::isCorner(int index) { 
-	if(computeLocalMaxima(index) && (computeLocalMaxima(index - 1) || 
-		                                 computeLocalMaxima(index + 1))          )
+	if(computeLocalMaxima(index)          )
 		return 9;
 	return 1;
 }
@@ -370,7 +377,7 @@ void ArcChordDistance::printBoundaryArr(string outputFile, Image& image) {
 	for(int i = 0; i < numPts; ++i) {
 		printToFile << boundaryPtArr[i].getX() << " " 
 			<< boundaryPtArr[i].getY() << " " 
-				<< isCorner(i) << endl; 
+				 << boundaryPtArr[i].getMaxVotes() << "-----> " << isCorner(i) << " "<<endl; 
 	}
 }
 
@@ -390,11 +397,9 @@ int main(int argc, char* argv[]) {
 	int userInputKChrdLen = 0;
 	cout << "Please Enter a positive number for " <<
 	"kChordLength: " << endl;
-	//cin >> userInputKChrdLen;
-	userInputKChrdLen = 11;
+	cin >> userInputKChrdLen;
 	if(userInputKChrdLen < 0)
 		return 0;
-
 	ifstream readFile;
 	readFile.open(inputFile);
 	ofstream printy;
