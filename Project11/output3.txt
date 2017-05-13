@@ -11,6 +11,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -26,6 +27,7 @@ X : 8 Y : 13 maxVotes: 0 maxDistance: 0
 X : 9 Y : 12 maxVotes: 0 maxDistance: 0
 X : 10 Y : 11 maxVotes: 0 maxDistance: 0
 X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -41,6 +43,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -56,6 +59,7 @@ X : 9 Y : 12 maxVotes: 0 maxDistance: 0
 X : 10 Y : 11 maxVotes: 0 maxDistance: 0
 X : 11 Y : 10 maxVotes: 0 maxDistance: 0
 X : 12 Y : 9 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -71,6 +75,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -86,6 +91,7 @@ X : 10 Y : 11 maxVotes: 0 maxDistance: 0
 X : 11 Y : 10 maxVotes: 0 maxDistance: 0
 X : 12 Y : 9 maxVotes: 0 maxDistance: 0
 X : 13 Y : 8 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -101,6 +107,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -116,6 +123,7 @@ X : 11 Y : 10 maxVotes: 0 maxDistance: 0
 X : 12 Y : 9 maxVotes: 0 maxDistance: 0
 X : 13 Y : 8 maxVotes: 0 maxDistance: 0
 X : 14 Y : 7 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -131,6 +139,7 @@ Printing chordAry
 0
 0
 1.41421
+
 =========================================================
 
 Printing P1 to P2
@@ -146,6 +155,7 @@ X : 12 Y : 9 maxVotes: 0 maxDistance: 0
 X : 13 Y : 8 maxVotes: 0 maxDistance: 0
 X : 14 Y : 7 maxVotes: 0 maxDistance: 0
 X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
+
 =========================================================
 
 Printing chordAry
@@ -161,6 +171,7 @@ Printing chordAry
 1.40556
 0
 1.40556
+
 =========================================================
 
 Printing P1 to P2
@@ -176,6 +187,7 @@ X : 13 Y : 8 maxVotes: 0 maxDistance: 0
 X : 14 Y : 7 maxVotes: 1 maxDistance: 1.40556
 X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
 X : 16 Y : 7 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -191,6 +203,7 @@ Printing chordAry
 1.37199
 0
 1.37199
+
 =========================================================
 
 Printing P1 to P2
@@ -206,6 +219,7 @@ X : 14 Y : 7 maxVotes: 2 maxDistance: 1.37199
 X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
 X : 16 Y : 7 maxVotes: 0 maxDistance: 0
 X : 17 Y : 8 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -221,6 +235,7 @@ Printing chordAry
 1.29987
 0
 1.29987
+
 =========================================================
 
 Printing P1 to P2
@@ -236,6 +251,7 @@ X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
 X : 16 Y : 7 maxVotes: 0 maxDistance: 0
 X : 17 Y : 8 maxVotes: 0 maxDistance: 0
 X : 18 Y : 9 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -251,6 +267,7 @@ Printing chordAry
 1.1767
 0
 1.1767
+
 =========================================================
 
 Printing P1 to P2
@@ -266,6 +283,7 @@ X : 16 Y : 7 maxVotes: 0 maxDistance: 0
 X : 17 Y : 8 maxVotes: 0 maxDistance: 0
 X : 18 Y : 9 maxVotes: 0 maxDistance: 0
 X : 19 Y : 10 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -281,6 +299,7 @@ Printing chordAry
 1
 0
 1
+
 =========================================================
 
 Printing P1 to P2
@@ -296,6 +315,7 @@ X : 17 Y : 8 maxVotes: 0 maxDistance: 0
 X : 18 Y : 9 maxVotes: 0 maxDistance: 0
 X : 19 Y : 10 maxVotes: 0 maxDistance: 0
 X : 20 Y : 11 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -311,6 +331,7 @@ Printing chordAry
 0.784465
 0
 0.784465
+
 =========================================================
 
 Printing P1 to P2
@@ -326,6 +347,7 @@ X : 18 Y : 9 maxVotes: 0 maxDistance: 0
 X : 19 Y : 10 maxVotes: 0 maxDistance: 0
 X : 20 Y : 11 maxVotes: 0 maxDistance: 0
 X : 21 Y : 12 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -341,6 +363,7 @@ Printing chordAry
 0.557086
 0
 0.557086
+
 =========================================================
 
 Printing P1 to P2
@@ -356,6 +379,7 @@ X : 19 Y : 10 maxVotes: 0 maxDistance: 0
 X : 20 Y : 11 maxVotes: 0 maxDistance: 0
 X : 21 Y : 12 maxVotes: 0 maxDistance: 0
 X : 22 Y : 13 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -371,6 +395,7 @@ Printing chordAry
 0.342997
 0
 0.342997
+
 =========================================================
 
 Printing P1 to P2
@@ -386,6 +411,7 @@ X : 20 Y : 11 maxVotes: 0 maxDistance: 0
 X : 21 Y : 12 maxVotes: 0 maxDistance: 0
 X : 22 Y : 13 maxVotes: 0 maxDistance: 0
 X : 23 Y : 14 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -401,6 +427,7 @@ Printing chordAry
 0.156174
 0
 0.156174
+
 =========================================================
 
 Printing P1 to P2
@@ -416,6 +443,7 @@ X : 21 Y : 12 maxVotes: 0 maxDistance: 0
 X : 22 Y : 13 maxVotes: 0 maxDistance: 0
 X : 23 Y : 14 maxVotes: 0 maxDistance: 0
 X : 24 Y : 15 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -431,6 +459,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -446,6 +475,7 @@ X : 22 Y : 13 maxVotes: 0 maxDistance: 0
 X : 23 Y : 14 maxVotes: 0 maxDistance: 0
 X : 24 Y : 15 maxVotes: 0 maxDistance: 0
 X : 25 Y : 16 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -461,6 +491,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -476,6 +507,7 @@ X : 23 Y : 14 maxVotes: 0 maxDistance: 0
 X : 24 Y : 15 maxVotes: 0 maxDistance: 0
 X : 25 Y : 16 maxVotes: 0 maxDistance: 0
 X : 26 Y : 17 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -491,6 +523,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -506,6 +539,7 @@ X : 24 Y : 15 maxVotes: 0 maxDistance: 0
 X : 25 Y : 16 maxVotes: 0 maxDistance: 0
 X : 26 Y : 17 maxVotes: 0 maxDistance: 0
 X : 27 Y : 18 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -521,6 +555,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -536,6 +571,7 @@ X : 25 Y : 16 maxVotes: 0 maxDistance: 0
 X : 26 Y : 17 maxVotes: 0 maxDistance: 0
 X : 27 Y : 18 maxVotes: 0 maxDistance: 0
 X : 28 Y : 19 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -551,6 +587,7 @@ Printing chordAry
 0
 0
 1.41421
+
 =========================================================
 
 Printing P1 to P2
@@ -566,6 +603,7 @@ X : 26 Y : 17 maxVotes: 0 maxDistance: 0
 X : 27 Y : 18 maxVotes: 0 maxDistance: 0
 X : 28 Y : 19 maxVotes: 0 maxDistance: 0
 X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
+
 =========================================================
 
 Printing chordAry
@@ -581,6 +619,7 @@ Printing chordAry
 1.40556
 0
 1.40556
+
 =========================================================
 
 Printing P1 to P2
@@ -596,6 +635,7 @@ X : 27 Y : 18 maxVotes: 0 maxDistance: 0
 X : 28 Y : 19 maxVotes: 1 maxDistance: 1.40556
 X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
 X : 28 Y : 21 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -611,6 +651,7 @@ Printing chordAry
 1.37199
 0
 1.37199
+
 =========================================================
 
 Printing P1 to P2
@@ -626,6 +667,7 @@ X : 28 Y : 19 maxVotes: 2 maxDistance: 1.37199
 X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
 X : 28 Y : 21 maxVotes: 0 maxDistance: 0
 X : 27 Y : 22 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -641,6 +683,7 @@ Printing chordAry
 1.29987
 0
 1.29987
+
 =========================================================
 
 Printing P1 to P2
@@ -656,6 +699,7 @@ X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
 X : 28 Y : 21 maxVotes: 0 maxDistance: 0
 X : 27 Y : 22 maxVotes: 0 maxDistance: 0
 X : 26 Y : 23 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -671,6 +715,7 @@ Printing chordAry
 1.1767
 0
 1.1767
+
 =========================================================
 
 Printing P1 to P2
@@ -686,6 +731,7 @@ X : 28 Y : 21 maxVotes: 0 maxDistance: 0
 X : 27 Y : 22 maxVotes: 0 maxDistance: 0
 X : 26 Y : 23 maxVotes: 0 maxDistance: 0
 X : 25 Y : 24 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -701,6 +747,7 @@ Printing chordAry
 1
 0
 1
+
 =========================================================
 
 Printing P1 to P2
@@ -716,6 +763,7 @@ X : 27 Y : 22 maxVotes: 0 maxDistance: 0
 X : 26 Y : 23 maxVotes: 0 maxDistance: 0
 X : 25 Y : 24 maxVotes: 0 maxDistance: 0
 X : 24 Y : 25 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -731,6 +779,7 @@ Printing chordAry
 0.784465
 0
 0.784465
+
 =========================================================
 
 Printing P1 to P2
@@ -746,6 +795,7 @@ X : 26 Y : 23 maxVotes: 0 maxDistance: 0
 X : 25 Y : 24 maxVotes: 0 maxDistance: 0
 X : 24 Y : 25 maxVotes: 0 maxDistance: 0
 X : 23 Y : 26 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -761,6 +811,7 @@ Printing chordAry
 0.557086
 0
 0.557086
+
 =========================================================
 
 Printing P1 to P2
@@ -776,6 +827,7 @@ X : 25 Y : 24 maxVotes: 0 maxDistance: 0
 X : 24 Y : 25 maxVotes: 0 maxDistance: 0
 X : 23 Y : 26 maxVotes: 0 maxDistance: 0
 X : 22 Y : 27 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -791,6 +843,7 @@ Printing chordAry
 0.342997
 0
 0.342997
+
 =========================================================
 
 Printing P1 to P2
@@ -806,6 +859,7 @@ X : 24 Y : 25 maxVotes: 0 maxDistance: 0
 X : 23 Y : 26 maxVotes: 0 maxDistance: 0
 X : 22 Y : 27 maxVotes: 0 maxDistance: 0
 X : 21 Y : 28 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -821,6 +875,7 @@ Printing chordAry
 0.156174
 0
 0.156174
+
 =========================================================
 
 Printing P1 to P2
@@ -836,6 +891,7 @@ X : 23 Y : 26 maxVotes: 0 maxDistance: 0
 X : 22 Y : 27 maxVotes: 0 maxDistance: 0
 X : 21 Y : 28 maxVotes: 0 maxDistance: 0
 X : 20 Y : 29 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -851,6 +907,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -866,6 +923,7 @@ X : 22 Y : 27 maxVotes: 0 maxDistance: 0
 X : 21 Y : 28 maxVotes: 0 maxDistance: 0
 X : 20 Y : 29 maxVotes: 0 maxDistance: 0
 X : 19 Y : 30 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -881,6 +939,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -896,6 +955,7 @@ X : 21 Y : 28 maxVotes: 0 maxDistance: 0
 X : 20 Y : 29 maxVotes: 0 maxDistance: 0
 X : 19 Y : 30 maxVotes: 0 maxDistance: 0
 X : 18 Y : 31 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -911,6 +971,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -926,6 +987,7 @@ X : 20 Y : 29 maxVotes: 0 maxDistance: 0
 X : 19 Y : 30 maxVotes: 0 maxDistance: 0
 X : 18 Y : 31 maxVotes: 0 maxDistance: 0
 X : 17 Y : 32 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -941,6 +1003,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -956,6 +1019,7 @@ X : 19 Y : 30 maxVotes: 0 maxDistance: 0
 X : 18 Y : 31 maxVotes: 0 maxDistance: 0
 X : 17 Y : 32 maxVotes: 0 maxDistance: 0
 X : 16 Y : 33 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -971,6 +1035,7 @@ Printing chordAry
 0
 0
 1.41421
+
 =========================================================
 
 Printing P1 to P2
@@ -986,6 +1051,7 @@ X : 18 Y : 31 maxVotes: 0 maxDistance: 0
 X : 17 Y : 32 maxVotes: 0 maxDistance: 0
 X : 16 Y : 33 maxVotes: 0 maxDistance: 0
 X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
+
 =========================================================
 
 Printing chordAry
@@ -1001,6 +1067,7 @@ Printing chordAry
 1.40556
 0
 1.40556
+
 =========================================================
 
 Printing P1 to P2
@@ -1016,6 +1083,7 @@ X : 17 Y : 32 maxVotes: 0 maxDistance: 0
 X : 16 Y : 33 maxVotes: 1 maxDistance: 1.40556
 X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
 X : 14 Y : 33 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1031,6 +1099,7 @@ Printing chordAry
 1.37199
 0
 1.37199
+
 =========================================================
 
 Printing P1 to P2
@@ -1046,6 +1115,7 @@ X : 16 Y : 33 maxVotes: 2 maxDistance: 1.37199
 X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
 X : 14 Y : 33 maxVotes: 0 maxDistance: 0
 X : 13 Y : 32 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1061,6 +1131,7 @@ Printing chordAry
 1.29987
 0
 1.29987
+
 =========================================================
 
 Printing P1 to P2
@@ -1076,6 +1147,7 @@ X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
 X : 14 Y : 33 maxVotes: 0 maxDistance: 0
 X : 13 Y : 32 maxVotes: 0 maxDistance: 0
 X : 12 Y : 31 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1091,6 +1163,7 @@ Printing chordAry
 1.1767
 0
 1.1767
+
 =========================================================
 
 Printing P1 to P2
@@ -1106,6 +1179,7 @@ X : 14 Y : 33 maxVotes: 0 maxDistance: 0
 X : 13 Y : 32 maxVotes: 0 maxDistance: 0
 X : 12 Y : 31 maxVotes: 0 maxDistance: 0
 X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1121,6 +1195,7 @@ Printing chordAry
 1
 0
 1
+
 =========================================================
 
 Printing P1 to P2
@@ -1136,6 +1211,7 @@ X : 13 Y : 32 maxVotes: 0 maxDistance: 0
 X : 12 Y : 31 maxVotes: 0 maxDistance: 0
 X : 11 Y : 30 maxVotes: 0 maxDistance: 0
 X : 10 Y : 29 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1151,6 +1227,7 @@ Printing chordAry
 0.784465
 0
 0.784465
+
 =========================================================
 
 Printing P1 to P2
@@ -1166,6 +1243,7 @@ X : 12 Y : 31 maxVotes: 0 maxDistance: 0
 X : 11 Y : 30 maxVotes: 0 maxDistance: 0
 X : 10 Y : 29 maxVotes: 0 maxDistance: 0
 X : 9 Y : 28 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1181,6 +1259,7 @@ Printing chordAry
 0.557086
 0
 0.557086
+
 =========================================================
 
 Printing P1 to P2
@@ -1196,6 +1275,7 @@ X : 11 Y : 30 maxVotes: 0 maxDistance: 0
 X : 10 Y : 29 maxVotes: 0 maxDistance: 0
 X : 9 Y : 28 maxVotes: 0 maxDistance: 0
 X : 8 Y : 27 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1211,6 +1291,7 @@ Printing chordAry
 0.342997
 0
 0.342997
+
 =========================================================
 
 Printing P1 to P2
@@ -1226,6 +1307,7 @@ X : 10 Y : 29 maxVotes: 0 maxDistance: 0
 X : 9 Y : 28 maxVotes: 0 maxDistance: 0
 X : 8 Y : 27 maxVotes: 0 maxDistance: 0
 X : 7 Y : 26 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1241,6 +1323,7 @@ Printing chordAry
 0.156174
 0
 0.156174
+
 =========================================================
 
 Printing P1 to P2
@@ -1256,6 +1339,7 @@ X : 9 Y : 28 maxVotes: 0 maxDistance: 0
 X : 8 Y : 27 maxVotes: 0 maxDistance: 0
 X : 7 Y : 26 maxVotes: 0 maxDistance: 0
 X : 6 Y : 25 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1271,6 +1355,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -1286,6 +1371,7 @@ X : 8 Y : 27 maxVotes: 0 maxDistance: 0
 X : 7 Y : 26 maxVotes: 0 maxDistance: 0
 X : 6 Y : 25 maxVotes: 0 maxDistance: 0
 X : 5 Y : 24 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1301,6 +1387,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -1316,6 +1403,7 @@ X : 7 Y : 26 maxVotes: 0 maxDistance: 0
 X : 6 Y : 25 maxVotes: 0 maxDistance: 0
 X : 5 Y : 24 maxVotes: 0 maxDistance: 0
 X : 4 Y : 23 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1331,6 +1419,7 @@ Printing chordAry
 0
 0
 0
+
 =========================================================
 
 Printing P1 to P2
@@ -1346,6 +1435,7 @@ X : 6 Y : 25 maxVotes: 0 maxDistance: 0
 X : 5 Y : 24 maxVotes: 0 maxDistance: 0
 X : 4 Y : 23 maxVotes: 0 maxDistance: 0
 X : 3 Y : 22 maxVotes: 0 maxDistance: 0
+
 =========================================================
 
 Printing chordAry
@@ -1361,6 +1451,7 @@ Printing chordAry
 0
 0
 13.435
+
 =========================================================
 
 Printing P1 to P2
@@ -1376,6 +1467,7 @@ X : 5 Y : 24 maxVotes: 0 maxDistance: 0
 X : 4 Y : 23 maxVotes: 0 maxDistance: 0
 X : 3 Y : 22 maxVotes: 0 maxDistance: 0
 X : 2 Y : 21 maxVotes: 1 maxDistance: 13.435
+
 =========================================================
 
 Printing chordAry
@@ -1391,9 +1483,11 @@ Printing chordAry
 0
 13.435
 13.435
+
 =========================================================
 
 Printing P1 to P2
+
 
 =========================================================
 
@@ -1410,9 +1504,11 @@ Printing chordAry
 10.3075
 10.3075
 10.3075
+
 =========================================================
 
 Printing P1 to P2
+
 
 =========================================================
 
@@ -1429,9 +1525,11 @@ Printing chordAry
 6.68844
 6.68844
 6.68844
+
 =========================================================
 
 Printing P1 to P2
+
 
 =========================================================
 
@@ -1448,9 +1546,11 @@ Printing chordAry
 2.59973
 2.59973
 2.59973
+
 =========================================================
 
 Printing P1 to P2
+
 
 =========================================================
 
@@ -1467,13 +1567,72 @@ Printing chordAry
 1.76505
 1.76505
 1.76505
+
 =========================================================
 
 Printing P1 to P2
 
+
 =========================================================
 
 Printing boundaryArr
+
+1 20
+2 19
+3 18
+4 17
+5 16
+6 15
+7 14
+8 13
+9 12
+10 11
+11 10
+12 9
+13 8
+14 7
+15 6
+16 7
+17 8
+18 9
+19 10
+20 11
+21 12
+22 13
+23 14
+24 15
+25 16
+26 17
+27 18
+28 19
+29 20
+28 21
+27 22
+26 23
+25 24
+24 25
+23 26
+22 27
+21 28
+20 29
+19 30
+18 31
+17 32
+16 33
+15 34
+14 33
+13 32
+12 31
+11 30
+10 29
+9 28
+8 27
+7 26
+6 25
+5 24
+4 23
+3 22
+2 21
 
 =========================================================
 

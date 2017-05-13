@@ -494,7 +494,7 @@ X : 5 Y : 24 maxVotes: 0 maxDistance: 0
 X : 4 Y : 23 maxVotes: 0 maxDistance: 0
 X : 3 Y : 22 maxVotes: 0 maxDistance: 0
 X : 12 Y : 31 maxVotes: 0 maxDistance: 0
-X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+X : 11 Y : 30 maxVotes: 0 maxDistance: 0 // crocodiles
 X : 10 Y : 29 maxVotes: 0 maxDistance: 0
 X : 9 Y : 28 maxVotes: 0 maxDistance: 0
 X : 8 Y : 27 maxVotes: 0 maxDistance: 0
@@ -504,3 +504,4 @@ X : 5 Y : 24 maxVotes: 0 maxDistance: 0
 X : 4 Y : 23 maxVotes: 0 maxDistance: 0
 X : 3 Y : 22 maxVotes: 0 maxDistance: 0
 X : 2 Y : 21 maxVotes: 1 maxDistance: 13.435
+//crocodiles
