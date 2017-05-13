@@ -379,7 +379,7 @@ void ArcChordDistance::printBoundaryArr(string outputFile, Image& image) {
 	for(int i = 0; i < numPts; ++i) {
 		printToFile << boundaryPtArr[i].getX() << " " 
 			<< boundaryPtArr[i].getY() << " " 
-				 << boundaryPtArr[i].getMaxVotes() << "-----> " << isCorner(i) << " "<<endl; 
+				 << isCorner(i) << " "<<endl; 
 	}
 }
 
@@ -392,9 +392,9 @@ int main(int argc, char* argv[]) {
 		    return 0;
 	}
 	string inputFile = argv[1];
-	string outputFile1 = argv[2]; //print the output of boundaryArr to file
-	string outputFile2 = argv[3]; //prettyPrint the imageArr
-	string outputFile3 = argv[4]; //debugFile
+	string outputFile1 = argv[2]; 
+	string outputFile2 = argv[3]; 
+	string outputFile3 = argv[4]; 
 	
 	int userInputKChrdLen = 0;
 	cout << "Please Enter a positive number for " <<
