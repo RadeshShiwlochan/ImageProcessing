@@ -1,224 +1,32 @@
 Printing chordAry
 
+0.447214
+0.894427
+1.34164
+1.78885
+2.23607
+1.78885
+1.34164
+0.894427
+0.447214
 0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
+0.447214
 
 =========================================================
 
 Printing P1 to P2
 
-X : 1 Y : 20 maxVotes: 1 maxDistance: 0
-X : 2 Y : 19 maxVotes: 0 maxDistance: 0
-X : 3 Y : 18 maxVotes: 0 maxDistance: 0
-X : 4 Y : 17 maxVotes: 0 maxDistance: 0
-X : 5 Y : 16 maxVotes: 0 maxDistance: 0
-X : 6 Y : 15 maxVotes: 0 maxDistance: 0
-X : 7 Y : 14 maxVotes: 0 maxDistance: 0
-X : 8 Y : 13 maxVotes: 0 maxDistance: 0
-X : 9 Y : 12 maxVotes: 0 maxDistance: 0
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
+X : 6 Y : 20 maxVotes: 0 maxDistance: 0
+X : 7 Y : 19 maxVotes: 0 maxDistance: 0
+X : 8 Y : 18 maxVotes: 0 maxDistance: 0
+X : 9 Y : 17 maxVotes: 0 maxDistance: 0
+X : 10 Y : 16 maxVotes: 1 maxDistance: 0.447214
+X : 11 Y : 15 maxVotes: 0 maxDistance: 0
+X : 11 Y : 14 maxVotes: 0 maxDistance: 0
+X : 11 Y : 13 maxVotes: 0 maxDistance: 0
+X : 11 Y : 12 maxVotes: 0 maxDistance: 0
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
 X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 2 Y : 19 maxVotes: 1 maxDistance: 0
-X : 3 Y : 18 maxVotes: 0 maxDistance: 0
-X : 4 Y : 17 maxVotes: 0 maxDistance: 0
-X : 5 Y : 16 maxVotes: 0 maxDistance: 0
-X : 6 Y : 15 maxVotes: 0 maxDistance: 0
-X : 7 Y : 14 maxVotes: 0 maxDistance: 0
-X : 8 Y : 13 maxVotes: 0 maxDistance: 0
-X : 9 Y : 12 maxVotes: 0 maxDistance: 0
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 3 Y : 18 maxVotes: 1 maxDistance: 0
-X : 4 Y : 17 maxVotes: 0 maxDistance: 0
-X : 5 Y : 16 maxVotes: 0 maxDistance: 0
-X : 6 Y : 15 maxVotes: 0 maxDistance: 0
-X : 7 Y : 14 maxVotes: 0 maxDistance: 0
-X : 8 Y : 13 maxVotes: 0 maxDistance: 0
-X : 9 Y : 12 maxVotes: 0 maxDistance: 0
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 4 Y : 17 maxVotes: 1 maxDistance: 0
-X : 5 Y : 16 maxVotes: 0 maxDistance: 0
-X : 6 Y : 15 maxVotes: 0 maxDistance: 0
-X : 7 Y : 14 maxVotes: 0 maxDistance: 0
-X : 8 Y : 13 maxVotes: 0 maxDistance: 0
-X : 9 Y : 12 maxVotes: 0 maxDistance: 0
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-1.41421
-
-=========================================================
-
-Printing P1 to P2
-
-X : 5 Y : 16 maxVotes: 0 maxDistance: 0
-X : 6 Y : 15 maxVotes: 0 maxDistance: 0
-X : 7 Y : 14 maxVotes: 0 maxDistance: 0
-X : 8 Y : 13 maxVotes: 0 maxDistance: 0
-X : 9 Y : 12 maxVotes: 0 maxDistance: 0
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 0 maxDistance: 0
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-
-=========================================================
-
-Printing chordAry
-
-0.156174
-0.312348
-0.468521
-0.624695
-0.780869
-0.937043
-1.09322
-1.24939
-1.40556
-0
-1.40556
-
-=========================================================
-
-Printing P1 to P2
-
-X : 6 Y : 15 maxVotes: 0 maxDistance: 0
-X : 7 Y : 14 maxVotes: 0 maxDistance: 0
-X : 8 Y : 13 maxVotes: 0 maxDistance: 0
-X : 9 Y : 12 maxVotes: 0 maxDistance: 0
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 1 maxDistance: 1.40556
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0.342997
-0.685994
-1.02899
-1.37199
-1.71499
-2.05798
-2.40098
-2.74398
-1.37199
-0
-1.37199
-
-=========================================================
-
-Printing P1 to P2
-
-X : 7 Y : 14 maxVotes: 0 maxDistance: 0
-X : 8 Y : 13 maxVotes: 0 maxDistance: 0
-X : 9 Y : 12 maxVotes: 0 maxDistance: 0
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 2 maxDistance: 1.37199
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
@@ -228,10 +36,1354 @@ Printing chordAry
 1.11417
 1.67126
 2.22834
-2.78543
-3.34252
-3.8996
-2.59973
+1.85695
+1.48556
+1.11417
+0.742781
+0.371391
+0
+0.371391
+
+=========================================================
+
+Printing P1 to P2
+
+X : 7 Y : 19 maxVotes: 0 maxDistance: 0
+X : 8 Y : 18 maxVotes: 0 maxDistance: 0
+X : 9 Y : 17 maxVotes: 0 maxDistance: 0
+X : 10 Y : 16 maxVotes: 2 maxDistance: 0.371391
+X : 11 Y : 15 maxVotes: 0 maxDistance: 0
+X : 11 Y : 14 maxVotes: 0 maxDistance: 0
+X : 11 Y : 13 maxVotes: 0 maxDistance: 0
+X : 11 Y : 12 maxVotes: 0 maxDistance: 0
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.670478
+1.34096
+2.01144
+1.72409
+1.43674
+1.14939
+0.862044
+0.574696
+0.287348
+0
+0.287348
+
+=========================================================
+
+Printing P1 to P2
+
+X : 8 Y : 18 maxVotes: 0 maxDistance: 0
+X : 9 Y : 17 maxVotes: 0 maxDistance: 0
+X : 10 Y : 16 maxVotes: 3 maxDistance: 0.287348
+X : 11 Y : 15 maxVotes: 0 maxDistance: 0
+X : 11 Y : 14 maxVotes: 0 maxDistance: 0
+X : 11 Y : 13 maxVotes: 0 maxDistance: 0
+X : 11 Y : 12 maxVotes: 0 maxDistance: 0
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.784465
+1.56893
+1.37281
+1.1767
+0.980581
+0.784465
+0.588348
+0.392232
+0.196116
+0
+0.196116
+
+=========================================================
+
+Printing P1 to P2
+
+X : 9 Y : 17 maxVotes: 0 maxDistance: 0
+X : 10 Y : 16 maxVotes: 4 maxDistance: 0.196116
+X : 11 Y : 15 maxVotes: 0 maxDistance: 0
+X : 11 Y : 14 maxVotes: 0 maxDistance: 0
+X : 11 Y : 13 maxVotes: 0 maxDistance: 0
+X : 11 Y : 12 maxVotes: 0 maxDistance: 0
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.895533
+0.79603
+0.696526
+0.597022
+0.497519
+0.398015
+0.298511
+0.199007
+0.0995037
+0
+0.995037
+
+=========================================================
+
+Printing P1 to P2
+
+X : 10 Y : 16 maxVotes: 4 maxDistance: 0.196116
+X : 11 Y : 15 maxVotes: 0 maxDistance: 0
+X : 11 Y : 14 maxVotes: 0 maxDistance: 0
+X : 11 Y : 13 maxVotes: 0 maxDistance: 0
+X : 11 Y : 12 maxVotes: 0 maxDistance: 0
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 0 maxDistance: 0
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+
+=========================================================
+
+Printing chordAry
+
+0.110432
+0.220863
+0.331295
+0.441726
+0.552158
+0.662589
+0.773021
+0.883452
+0.993884
+0
+0.993884
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 15 maxVotes: 0 maxDistance: 0
+X : 11 Y : 14 maxVotes: 0 maxDistance: 0
+X : 11 Y : 13 maxVotes: 0 maxDistance: 0
+X : 11 Y : 12 maxVotes: 0 maxDistance: 0
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 1 maxDistance: 0.993884
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.242536
+0.485071
+0.727607
+0.970143
+1.21268
+1.45521
+1.69775
+1.94029
+0.970143
+0
+0.970143
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 14 maxVotes: 0 maxDistance: 0
+X : 11 Y : 13 maxVotes: 0 maxDistance: 0
+X : 11 Y : 12 maxVotes: 0 maxDistance: 0
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 2 maxDistance: 0.970143
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.393919
+0.787839
+1.18176
+1.57568
+1.9696
+2.36352
+2.75744
+1.83829
+0.919145
+0
+0.919145
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 13 maxVotes: 0 maxDistance: 0
+X : 11 Y : 12 maxVotes: 0 maxDistance: 0
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 3 maxDistance: 0.919145
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.5547
+1.1094
+1.6641
+2.2188
+2.7735
+3.3282
+2.49615
+1.6641
+0.83205
+0
+0.83205
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 12 maxVotes: 0 maxDistance: 0
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 4 maxDistance: 0.83205
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.707107
+1.41421
+2.12132
+2.82843
+3.53553
+2.82843
+2.12132
+1.41421
+0.707107
+0
+0.707107
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 11 maxVotes: 0 maxDistance: 0
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 5 maxDistance: 0.707107
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.83205
+1.6641
+2.49615
+3.3282
+2.7735
+2.2188
+1.6641
+1.1094
+0.5547
+0
+0.5547
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 10 maxVotes: 0 maxDistance: 0
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 6 maxDistance: 0.5547
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.919145
+1.83829
+2.75744
+2.36352
+1.9696
+1.57568
+1.18176
+0.787839
+0.393919
+0
+0.393919
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 9 maxVotes: 0 maxDistance: 0
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 7 maxDistance: 0.393919
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.970143
+1.94029
+1.69775
+1.45521
+1.21268
+0.970143
+0.727607
+0.485071
+0.242536
+0
+0.242536
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 8 maxVotes: 0 maxDistance: 0
+X : 11 Y : 7 maxVotes: 8 maxDistance: 0.242536
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.993884
+0.883452
+0.773021
+0.662589
+0.552158
+0.441726
+0.331295
+0.220863
+0.110432
+0
+0.110432
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 7 maxVotes: 9 maxDistance: 0.110432
+X : 11 Y : 6 maxVotes: 1 maxDistance: 0.995037
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 6 maxVotes: 2 maxDistance: 0
+X : 12 Y : 6 maxVotes: 0 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 12 Y : 6 maxVotes: 1 maxDistance: 0
+X : 13 Y : 6 maxVotes: 0 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 13 Y : 6 maxVotes: 1 maxDistance: 0
+X : 14 Y : 6 maxVotes: 0 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 14 Y : 6 maxVotes: 1 maxDistance: 0
+X : 15 Y : 6 maxVotes: 0 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 15 Y : 6 maxVotes: 1 maxDistance: 0
+X : 16 Y : 6 maxVotes: 0 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 16 Y : 6 maxVotes: 1 maxDistance: 0
+X : 17 Y : 6 maxVotes: 0 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 17 Y : 6 maxVotes: 1 maxDistance: 0
+X : 18 Y : 6 maxVotes: 0 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 18 Y : 6 maxVotes: 1 maxDistance: 0
+X : 19 Y : 6 maxVotes: 0 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 19 Y : 6 maxVotes: 1 maxDistance: 0
+X : 20 Y : 6 maxVotes: 0 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 20 Y : 6 maxVotes: 1 maxDistance: 0
+X : 21 Y : 6 maxVotes: 0 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 21 Y : 6 maxVotes: 1 maxDistance: 0
+X : 22 Y : 6 maxVotes: 0 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 22 Y : 6 maxVotes: 1 maxDistance: 0
+X : 23 Y : 6 maxVotes: 0 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 23 Y : 6 maxVotes: 1 maxDistance: 0
+X : 24 Y : 6 maxVotes: 0 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 24 Y : 6 maxVotes: 1 maxDistance: 0
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+
+=========================================================
+
+Printing P1 to P2
+
+X : 25 Y : 6 maxVotes: 0 maxDistance: 0
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 0 maxDistance: 0
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+
+=========================================================
+
+Printing chordAry
+
+0.110432
+0.220863
+0.331295
+0.441726
+0.552158
+0.662589
+0.773021
+0.883452
+0.993884
+0
+0.993884
+
+=========================================================
+
+Printing P1 to P2
+
+X : 26 Y : 6 maxVotes: 0 maxDistance: 0
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 1 maxDistance: 0.993884
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.242536
+0.485071
+0.727607
+0.970143
+1.21268
+1.45521
+1.69775
+1.94029
+0.970143
+0
+0.970143
+
+=========================================================
+
+Printing P1 to P2
+
+X : 27 Y : 6 maxVotes: 0 maxDistance: 0
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 2 maxDistance: 0.970143
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.393919
+0.787839
+1.18176
+1.57568
+1.9696
+2.36352
+2.75744
+1.83829
+0.919145
+0
+0.919145
+
+=========================================================
+
+Printing P1 to P2
+
+X : 28 Y : 6 maxVotes: 0 maxDistance: 0
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 3 maxDistance: 0.919145
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.5547
+1.1094
+1.6641
+2.2188
+2.7735
+3.3282
+2.49615
+1.6641
+0.83205
+0
+0.83205
+
+=========================================================
+
+Printing P1 to P2
+
+X : 29 Y : 6 maxVotes: 0 maxDistance: 0
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 4 maxDistance: 0.83205
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.707107
+1.41421
+2.12132
+2.82843
+3.53553
+2.82843
+2.12132
+1.41421
+0.707107
+0
+0.707107
+
+=========================================================
+
+Printing P1 to P2
+
+X : 30 Y : 6 maxVotes: 0 maxDistance: 0
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 5 maxDistance: 0.707107
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.83205
+1.6641
+2.49615
+3.3282
+2.7735
+2.2188
+1.6641
+1.1094
+0.5547
+0
+0.5547
+
+=========================================================
+
+Printing P1 to P2
+
+X : 31 Y : 6 maxVotes: 0 maxDistance: 0
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 6 maxDistance: 0.5547
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.919145
+1.83829
+2.75744
+2.36352
+1.9696
+1.57568
+1.18176
+0.787839
+0.393919
+0
+0.393919
+
+=========================================================
+
+Printing P1 to P2
+
+X : 32 Y : 6 maxVotes: 0 maxDistance: 0
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 7 maxDistance: 0.393919
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.970143
+1.94029
+1.69775
+1.45521
+1.21268
+0.970143
+0.727607
+0.485071
+0.242536
+0
+0.242536
+
+=========================================================
+
+Printing P1 to P2
+
+X : 33 Y : 6 maxVotes: 0 maxDistance: 0
+X : 34 Y : 6 maxVotes: 8 maxDistance: 0.242536
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.993884
+0.883452
+0.773021
+0.662589
+0.552158
+0.441726
+0.331295
+0.220863
+0.110432
+0
+1.10432
+
+=========================================================
+
+Printing P1 to P2
+
+X : 34 Y : 6 maxVotes: 8 maxDistance: 0.242536
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 0 maxDistance: 0
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+
+=========================================================
+
+Printing chordAry
+
+0.0995037
+0.199007
+0.298511
+0.398015
+0.497519
+0.597022
+0.696526
+0.79603
+0.895533
+0
+0.895533
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 6 maxVotes: 1 maxDistance: 1
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 1 maxDistance: 0.895533
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.196116
+0.392232
+0.588348
+0.784465
+0.980581
+1.1767
+1.37281
+1.56893
+0.784465
+0
+0.784465
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 7 maxVotes: 0 maxDistance: 0
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 2 maxDistance: 0.784465
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.287348
+0.574696
+0.862044
+1.14939
+1.43674
+1.72409
+2.01144
+1.34096
+0.670478
+0
+0.670478
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 8 maxVotes: 0 maxDistance: 0
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 3 maxDistance: 0.670478
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.371391
+0.742781
+1.11417
+1.48556
+1.85695
+2.22834
+1.67126
+1.11417
+0.557086
+0
+0.557086
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 4 maxDistance: 0.557086
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.447214
+0.894427
+1.34164
+1.78885
+2.23607
+1.78885
+1.34164
+0.894427
+0.447214
+0
+1.34164
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 5 maxDistance: 1.34164
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 0 maxDistance: 0
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.371391
+0.742781
+1.11417
+1.48556
+0.928477
+0.371391
+0.185695
+0.742781
 1.29987
 0
 1.29987
@@ -240,28 +1392,60 @@ Printing chordAry
 
 Printing P1 to P2
 
-X : 8 Y : 13 maxVotes: 0 maxDistance: 0
-X : 9 Y : 12 maxVotes: 0 maxDistance: 0
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 3 maxDistance: 1.29987
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
+X : 35 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 6 maxDistance: 1.29987
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 0 maxDistance: 0
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
-0.784465
-1.56893
-2.35339
-3.13786
-3.92232
-4.70679
+0.287348
+0.574696
+0.862044
+0.191565
+0.478913
+1.14939
+1.81987
+2.49035
+1.24517
+0
+1.24517
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 12 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 6 maxDistance: 1.29987
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 1 maxDistance: 1.24517
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.196116
+0.392232
+0.392232
+1.1767
+1.96116
+2.74563
 3.53009
 2.35339
 1.1767
@@ -272,17 +1456,49 @@ Printing chordAry
 
 Printing P1 to P2
 
-X : 9 Y : 12 maxVotes: 0 maxDistance: 0
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 4 maxDistance: 1.1767
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
+X : 35 Y : 13 maxVotes: 0 maxDistance: 0
+X : 35 Y : 14 maxVotes: 6 maxDistance: 1.29987
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 2 maxDistance: 1.1767
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.0995037
+0.79603
+1.69156
+2.5871
+3.48263
+4.37816
+3.28362
+2.18908
+1.09454
+0
+1.09454
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 14 maxVotes: 6 maxDistance: 1.29987
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 3 maxDistance: 1.09454
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
@@ -298,23 +1514,55 @@ Printing chordAry
 2
 1
 0
-1
+0
 
 =========================================================
 
 Printing P1 to P2
 
-X : 10 Y : 11 maxVotes: 0 maxDistance: 0
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 5 maxDistance: 1
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
+X : 35 Y : 15 maxVotes: 1 maxDistance: 1.10432
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 4 maxDistance: 0
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 0 maxDistance: 0
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+1.09454
+2.18908
+3.28362
+4.37816
+3.48263
+2.5871
+1.69156
+0.79603
+0.0995037
+0
+0.0995037
+
+=========================================================
+
+Printing P1 to P2
+
+X : 34 Y : 16 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 5 maxDistance: 0.0995037
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 0 maxDistance: 0
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
@@ -323,190 +1571,254 @@ Printing chordAry
 1.1767
 2.35339
 3.53009
-4.70679
-3.92232
-3.13786
-2.35339
-1.56893
-0.784465
+2.74563
+1.96116
+1.1767
+0.392232
+0.392232
+0.196116
 0
-0.784465
+0.196116
 
 =========================================================
 
 Printing P1 to P2
 
-X : 11 Y : 10 maxVotes: 0 maxDistance: 0
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 6 maxDistance: 0.784465
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
+X : 33 Y : 17 maxVotes: 0 maxDistance: 0
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 6 maxDistance: 0.196116
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 0 maxDistance: 0
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+1.24517
+2.49035
+1.81987
+1.14939
+0.478913
+0.191565
+0.862044
+0.574696
+0.287348
+0
+0.287348
+
+=========================================================
+
+Printing P1 to P2
+
+X : 32 Y : 18 maxVotes: 0 maxDistance: 0
+X : 31 Y : 19 maxVotes: 7 maxDistance: 0.287348
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 0 maxDistance: 0
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
 1.29987
-2.59973
-3.8996
-3.34252
-2.78543
-2.22834
-1.67126
+0.742781
+0.185695
+0.371391
+0.928477
+1.48556
 1.11417
+0.742781
+0.371391
+0
+0.371391
+
+=========================================================
+
+Printing P1 to P2
+
+X : 31 Y : 19 maxVotes: 7 maxDistance: 0.287348
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 1 maxDistance: 0.371391
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.447214
+0.894427
+1.34164
+1.78885
+2.23607
+1.78885
+1.34164
+0.894427
+0.447214
+0
+0.447214
+
+=========================================================
+
+Printing P1 to P2
+
+X : 30 Y : 20 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 2 maxDistance: 0.447214
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
 0.557086
+1.11417
+1.67126
+2.22834
+1.85695
+1.48556
+1.11417
+0.742781
+0.371391
 0
-0.557086
+0.371391
 
 =========================================================
 
 Printing P1 to P2
 
-X : 12 Y : 9 maxVotes: 0 maxDistance: 0
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 7 maxDistance: 0.557086
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
+X : 31 Y : 21 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 3 maxDistance: 0.371391
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
-1.37199
-2.74398
-2.40098
-2.05798
-1.71499
-1.37199
-1.02899
-0.685994
-0.342997
+0.670478
+1.34096
+2.01144
+1.72409
+1.43674
+1.14939
+0.862044
+0.574696
+0.287348
 0
-0.342997
+0.287348
 
 =========================================================
 
 Printing P1 to P2
 
-X : 13 Y : 8 maxVotes: 0 maxDistance: 0
-X : 14 Y : 7 maxVotes: 8 maxDistance: 0.342997
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
+X : 32 Y : 22 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 4 maxDistance: 0.287348
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
-1.40556
-1.24939
-1.09322
-0.937043
-0.780869
-0.624695
-0.468521
-0.312348
-0.156174
+0.784465
+1.56893
+1.37281
+1.1767
+0.980581
+0.784465
+0.588348
+0.392232
+0.196116
 0
-0.156174
+0.196116
 
 =========================================================
 
 Printing P1 to P2
 
-X : 14 Y : 7 maxVotes: 9 maxDistance: 0.156174
-X : 15 Y : 6 maxVotes: 1 maxDistance: 1.41421
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
+X : 33 Y : 23 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 5 maxDistance: 0.196116
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
+0.895533
+0.79603
+0.696526
+0.597022
+0.497519
+0.398015
+0.298511
+0.199007
+0.0995037
 0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
+0.0995037
 
 =========================================================
 
 Printing P1 to P2
 
-X : 15 Y : 6 maxVotes: 2 maxDistance: 0
-X : 16 Y : 7 maxVotes: 0 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 16 Y : 7 maxVotes: 1 maxDistance: 0
-X : 17 Y : 8 maxVotes: 0 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
+X : 34 Y : 24 maxVotes: 6 maxDistance: 0.0995037
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
@@ -522,677 +1834,1093 @@ Printing chordAry
 0
 0
 0
-0
+1
 
 =========================================================
 
 Printing P1 to P2
 
-X : 17 Y : 8 maxVotes: 1 maxDistance: 0
-X : 18 Y : 9 maxVotes: 0 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
+X : 35 Y : 25 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 0 maxDistance: 0
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
 
 =========================================================
 
 Printing chordAry
 
+0.110432
+0.220863
+0.331295
+0.441726
+0.552158
+0.662589
+0.773021
+0.883452
+0.993884
 0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
+0.993884
 
 =========================================================
 
 Printing P1 to P2
 
-X : 18 Y : 9 maxVotes: 1 maxDistance: 0
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 0 maxDistance: 0
+X : 35 Y : 26 maxVotes: 0 maxDistance: 0
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 1 maxDistance: 0.993884
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
+0.242536
+0.485071
+0.727607
+0.970143
+1.21268
+1.45521
+1.69775
+1.94029
+0.970143
 0
+0.970143
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 27 maxVotes: 0 maxDistance: 0
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 2 maxDistance: 0.970143
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.393919
+0.787839
+1.18176
+1.57568
+1.9696
+2.36352
+2.75744
+1.83829
+0.919145
 0
+0.919145
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 28 maxVotes: 0 maxDistance: 0
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 3 maxDistance: 0.919145
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.5547
+1.1094
+1.6641
+2.2188
+2.7735
+3.3282
+2.49615
+1.6641
+0.83205
 0
-0
-0
-0
-0
-0
-0
-0
+0.83205
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 29 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 4 maxDistance: 0.83205
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.707107
 1.41421
-
-=========================================================
-
-Printing P1 to P2
-
-X : 19 Y : 10 maxVotes: 0 maxDistance: 0
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 0 maxDistance: 0
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-
-=========================================================
-
-Printing chordAry
-
-0.156174
-0.312348
-0.468521
-0.624695
-0.780869
-0.937043
-1.09322
-1.24939
-1.40556
-0
-1.40556
-
-=========================================================
-
-Printing P1 to P2
-
-X : 20 Y : 11 maxVotes: 0 maxDistance: 0
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 1 maxDistance: 1.40556
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0.342997
-0.685994
-1.02899
-1.37199
-1.71499
-2.05798
-2.40098
-2.74398
-1.37199
-0
-1.37199
-
-=========================================================
-
-Printing P1 to P2
-
-X : 21 Y : 12 maxVotes: 0 maxDistance: 0
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 2 maxDistance: 1.37199
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0.557086
-1.11417
-1.67126
-2.22834
-2.78543
-3.34252
-3.8996
-2.59973
-1.29987
-0
-1.29987
-
-=========================================================
-
-Printing P1 to P2
-
-X : 22 Y : 13 maxVotes: 0 maxDistance: 0
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 3 maxDistance: 1.29987
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0.784465
-1.56893
-2.35339
-3.13786
-3.92232
-4.70679
-3.53009
-2.35339
-1.1767
-0
-1.1767
-
-=========================================================
-
-Printing P1 to P2
-
-X : 23 Y : 14 maxVotes: 0 maxDistance: 0
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 4 maxDistance: 1.1767
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-1
-2
-3
-4
-5
-4
-3
-2
-1
-0
-1
-
-=========================================================
-
-Printing P1 to P2
-
-X : 24 Y : 15 maxVotes: 0 maxDistance: 0
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 5 maxDistance: 1
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-1.1767
-2.35339
-3.53009
-4.70679
-3.92232
-3.13786
-2.35339
-1.56893
-0.784465
-0
-0.784465
-
-=========================================================
-
-Printing P1 to P2
-
-X : 25 Y : 16 maxVotes: 0 maxDistance: 0
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 6 maxDistance: 0.784465
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-1.29987
-2.59973
-3.8996
-3.34252
-2.78543
-2.22834
-1.67126
-1.11417
-0.557086
-0
-0.557086
-
-=========================================================
-
-Printing P1 to P2
-
-X : 26 Y : 17 maxVotes: 0 maxDistance: 0
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 7 maxDistance: 0.557086
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-1.37199
-2.74398
-2.40098
-2.05798
-1.71499
-1.37199
-1.02899
-0.685994
-0.342997
-0
-0.342997
-
-=========================================================
-
-Printing P1 to P2
-
-X : 27 Y : 18 maxVotes: 0 maxDistance: 0
-X : 28 Y : 19 maxVotes: 8 maxDistance: 0.342997
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-1.40556
-1.24939
-1.09322
-0.937043
-0.780869
-0.624695
-0.468521
-0.312348
-0.156174
-0
-0.156174
-
-=========================================================
-
-Printing P1 to P2
-
-X : 28 Y : 19 maxVotes: 9 maxDistance: 0.156174
-X : 29 Y : 20 maxVotes: 1 maxDistance: 1.41421
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 29 Y : 20 maxVotes: 2 maxDistance: 0
-X : 28 Y : 21 maxVotes: 0 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 28 Y : 21 maxVotes: 1 maxDistance: 0
-X : 27 Y : 22 maxVotes: 0 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 27 Y : 22 maxVotes: 1 maxDistance: 0
-X : 26 Y : 23 maxVotes: 0 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 26 Y : 23 maxVotes: 1 maxDistance: 0
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
+2.12132
+2.82843
+3.53553
+2.82843
+2.12132
 1.41421
-
-=========================================================
-
-Printing P1 to P2
-
-X : 25 Y : 24 maxVotes: 0 maxDistance: 0
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 0 maxDistance: 0
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-
-=========================================================
-
-Printing chordAry
-
-0.156174
-0.312348
-0.468521
-0.624695
-0.780869
-0.937043
-1.09322
-1.24939
-1.40556
+0.707107
 0
-1.40556
+0.707107
 
 =========================================================
 
 Printing P1 to P2
 
-X : 24 Y : 25 maxVotes: 0 maxDistance: 0
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 1 maxDistance: 1.40556
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 5 maxDistance: 0.707107
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
-0.342997
-0.685994
-1.02899
-1.37199
-1.71499
-2.05798
-2.40098
-2.74398
-1.37199
+0.83205
+1.6641
+2.49615
+3.3282
+2.7735
+2.2188
+1.6641
+1.1094
+0.5547
 0
-1.37199
+0.5547
 
 =========================================================
 
 Printing P1 to P2
 
-X : 23 Y : 26 maxVotes: 0 maxDistance: 0
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 2 maxDistance: 1.37199
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 6 maxDistance: 0.5547
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
-0.557086
-1.11417
-1.67126
-2.22834
-2.78543
-3.34252
-3.8996
-2.59973
-1.29987
+0.919145
+1.83829
+2.75744
+2.36352
+1.9696
+1.57568
+1.18176
+0.787839
+0.393919
 0
-1.29987
+0.393919
 
 =========================================================
 
 Printing P1 to P2
 
-X : 22 Y : 27 maxVotes: 0 maxDistance: 0
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 3 maxDistance: 1.29987
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
+X : 35 Y : 32 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 7 maxDistance: 0.393919
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
-0.784465
-1.56893
-2.35339
-3.13786
-3.92232
-4.70679
-3.53009
-2.35339
-1.1767
+0.970143
+1.94029
+1.69775
+1.45521
+1.21268
+0.970143
+0.727607
+0.485071
+0.242536
 0
-1.1767
+0.242536
 
 =========================================================
 
 Printing P1 to P2
 
-X : 21 Y : 28 maxVotes: 0 maxDistance: 0
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 4 maxDistance: 1.1767
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
-X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+X : 35 Y : 33 maxVotes: 0 maxDistance: 0
+X : 35 Y : 34 maxVotes: 8 maxDistance: 0.242536
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
+0.993884
+0.883452
+0.773021
+0.662589
+0.552158
+0.441726
+0.331295
+0.220863
+0.110432
+0
+0.110432
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 34 maxVotes: 9 maxDistance: 0.110432
+X : 35 Y : 35 maxVotes: 1 maxDistance: 1
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 35 Y : 35 maxVotes: 2 maxDistance: 0
+X : 34 Y : 35 maxVotes: 0 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 34 Y : 35 maxVotes: 1 maxDistance: 0
+X : 33 Y : 35 maxVotes: 0 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 33 Y : 35 maxVotes: 1 maxDistance: 0
+X : 32 Y : 35 maxVotes: 0 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 32 Y : 35 maxVotes: 1 maxDistance: 0
+X : 31 Y : 35 maxVotes: 0 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 31 Y : 35 maxVotes: 1 maxDistance: 0
+X : 30 Y : 35 maxVotes: 0 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 30 Y : 35 maxVotes: 1 maxDistance: 0
+X : 29 Y : 35 maxVotes: 0 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 29 Y : 35 maxVotes: 1 maxDistance: 0
+X : 28 Y : 35 maxVotes: 0 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 28 Y : 35 maxVotes: 1 maxDistance: 0
+X : 27 Y : 35 maxVotes: 0 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 27 Y : 35 maxVotes: 1 maxDistance: 0
+X : 26 Y : 35 maxVotes: 0 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 26 Y : 35 maxVotes: 1 maxDistance: 0
+X : 25 Y : 35 maxVotes: 0 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 25 Y : 35 maxVotes: 1 maxDistance: 0
+X : 24 Y : 35 maxVotes: 0 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 24 Y : 35 maxVotes: 1 maxDistance: 0
+X : 23 Y : 35 maxVotes: 0 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 23 Y : 35 maxVotes: 1 maxDistance: 0
+X : 22 Y : 35 maxVotes: 0 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+=========================================================
+
+Printing P1 to P2
+
+X : 22 Y : 35 maxVotes: 1 maxDistance: 0
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
 1
-2
-3
-4
-5
-4
-3
-2
-1
+
+=========================================================
+
+Printing P1 to P2
+
+X : 21 Y : 35 maxVotes: 0 maxDistance: 0
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 0 maxDistance: 0
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+
+=========================================================
+
+Printing chordAry
+
+0.110432
+0.220863
+0.331295
+0.441726
+0.552158
+0.662589
+0.773021
+0.883452
+0.993884
+0
+0.993884
+
+=========================================================
+
+Printing P1 to P2
+
+X : 20 Y : 35 maxVotes: 0 maxDistance: 0
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 1 maxDistance: 0.993884
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.242536
+0.485071
+0.727607
+0.970143
+1.21268
+1.45521
+1.69775
+1.94029
+0.970143
+0
+0.970143
+
+=========================================================
+
+Printing P1 to P2
+
+X : 19 Y : 35 maxVotes: 0 maxDistance: 0
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 2 maxDistance: 0.970143
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.393919
+0.787839
+1.18176
+1.57568
+1.9696
+2.36352
+2.75744
+1.83829
+0.919145
+0
+0.919145
+
+=========================================================
+
+Printing P1 to P2
+
+X : 18 Y : 35 maxVotes: 0 maxDistance: 0
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 3 maxDistance: 0.919145
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.5547
+1.1094
+1.6641
+2.2188
+2.7735
+3.3282
+2.49615
+1.6641
+0.83205
+0
+0.83205
+
+=========================================================
+
+Printing P1 to P2
+
+X : 17 Y : 35 maxVotes: 0 maxDistance: 0
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 4 maxDistance: 0.83205
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.707107
+1.41421
+2.12132
+2.82843
+3.53553
+2.82843
+2.12132
+1.41421
+0.707107
+0
+0.707107
+
+=========================================================
+
+Printing P1 to P2
+
+X : 16 Y : 35 maxVotes: 0 maxDistance: 0
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 5 maxDistance: 0.707107
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.83205
+1.6641
+2.49615
+3.3282
+2.7735
+2.2188
+1.6641
+1.1094
+0.5547
+0
+0.5547
+
+=========================================================
+
+Printing P1 to P2
+
+X : 15 Y : 35 maxVotes: 0 maxDistance: 0
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 6 maxDistance: 0.5547
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+X : 11 Y : 29 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.919145
+1.83829
+2.75744
+2.36352
+1.9696
+1.57568
+1.18176
+0.787839
+0.393919
+0
+0.393919
+
+=========================================================
+
+Printing P1 to P2
+
+X : 14 Y : 35 maxVotes: 0 maxDistance: 0
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 7 maxDistance: 0.393919
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+X : 11 Y : 29 maxVotes: 0 maxDistance: 0
+X : 11 Y : 28 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.970143
+1.94029
+1.69775
+1.45521
+1.21268
+0.970143
+0.727607
+0.485071
+0.242536
+0
+0.242536
+
+=========================================================
+
+Printing P1 to P2
+
+X : 13 Y : 35 maxVotes: 0 maxDistance: 0
+X : 12 Y : 35 maxVotes: 8 maxDistance: 0.242536
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+X : 11 Y : 29 maxVotes: 0 maxDistance: 0
+X : 11 Y : 28 maxVotes: 0 maxDistance: 0
+X : 11 Y : 27 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.993884
+0.883452
+0.773021
+0.662589
+0.552158
+0.441726
+0.331295
+0.220863
+0.110432
+0
+0.110432
+
+=========================================================
+
+Printing P1 to P2
+
+X : 12 Y : 35 maxVotes: 9 maxDistance: 0.110432
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+X : 11 Y : 29 maxVotes: 0 maxDistance: 0
+X : 11 Y : 28 maxVotes: 0 maxDistance: 0
+X : 11 Y : 27 maxVotes: 0 maxDistance: 0
+X : 11 Y : 26 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
 0
 1
 
@@ -1200,29 +2928,61 @@ Printing chordAry
 
 Printing P1 to P2
 
-X : 20 Y : 29 maxVotes: 0 maxDistance: 0
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 5 maxDistance: 1
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 35 maxVotes: 1 maxDistance: 1
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
 X : 11 Y : 30 maxVotes: 0 maxDistance: 0
-X : 10 Y : 29 maxVotes: 0 maxDistance: 0
+X : 11 Y : 29 maxVotes: 0 maxDistance: 0
+X : 11 Y : 28 maxVotes: 0 maxDistance: 0
+X : 11 Y : 27 maxVotes: 0 maxDistance: 0
+X : 11 Y : 26 maxVotes: 0 maxDistance: 0
+X : 11 Y : 25 maxVotes: 1 maxDistance: 1
 
 =========================================================
 
 Printing chordAry
 
+0.0995037
+0.199007
+0.298511
+0.398015
+0.497519
+0.597022
+0.696526
+0.79603
+0.895533
+0
+0.895533
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 34 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+X : 11 Y : 29 maxVotes: 0 maxDistance: 0
+X : 11 Y : 28 maxVotes: 0 maxDistance: 0
+X : 11 Y : 27 maxVotes: 0 maxDistance: 0
+X : 11 Y : 26 maxVotes: 1 maxDistance: 0.895533
+X : 11 Y : 25 maxVotes: 1 maxDistance: 1
+X : 10 Y : 24 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.196116
+0.392232
+0.588348
+0.784465
+0.980581
 1.1767
-2.35339
-3.53009
-4.70679
-3.92232
-3.13786
-2.35339
+1.37281
 1.56893
 0.784465
 0
@@ -1232,257 +2992,139 @@ Printing chordAry
 
 Printing P1 to P2
 
-X : 19 Y : 30 maxVotes: 0 maxDistance: 0
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 6 maxDistance: 0.784465
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 33 maxVotes: 0 maxDistance: 0
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
 X : 11 Y : 30 maxVotes: 0 maxDistance: 0
-X : 10 Y : 29 maxVotes: 0 maxDistance: 0
-X : 9 Y : 28 maxVotes: 0 maxDistance: 0
+X : 11 Y : 29 maxVotes: 0 maxDistance: 0
+X : 11 Y : 28 maxVotes: 0 maxDistance: 0
+X : 11 Y : 27 maxVotes: 0 maxDistance: 0
+X : 11 Y : 26 maxVotes: 2 maxDistance: 0.784465
+X : 11 Y : 25 maxVotes: 1 maxDistance: 1
+X : 10 Y : 24 maxVotes: 0 maxDistance: 0
+X : 9 Y : 23 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
+0.287348
+0.574696
+0.862044
+1.14939
+1.43674
+1.72409
+2.01144
+1.34096
+0.670478
+0
+0.670478
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 32 maxVotes: 0 maxDistance: 0
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+X : 11 Y : 29 maxVotes: 0 maxDistance: 0
+X : 11 Y : 28 maxVotes: 0 maxDistance: 0
+X : 11 Y : 27 maxVotes: 0 maxDistance: 0
+X : 11 Y : 26 maxVotes: 3 maxDistance: 0.670478
+X : 11 Y : 25 maxVotes: 1 maxDistance: 1
+X : 10 Y : 24 maxVotes: 0 maxDistance: 0
+X : 9 Y : 23 maxVotes: 0 maxDistance: 0
+X : 8 Y : 22 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.371391
+0.742781
+1.11417
+1.48556
+1.85695
+2.22834
+1.67126
+1.11417
+0.557086
+0
 1.29987
-2.59973
-3.8996
-3.34252
-2.78543
-2.22834
-1.67126
+
+=========================================================
+
+Printing P1 to P2
+
+X : 11 Y : 31 maxVotes: 0 maxDistance: 0
+X : 11 Y : 30 maxVotes: 0 maxDistance: 0
+X : 11 Y : 29 maxVotes: 0 maxDistance: 0
+X : 11 Y : 28 maxVotes: 0 maxDistance: 0
+X : 11 Y : 27 maxVotes: 0 maxDistance: 0
+X : 11 Y : 26 maxVotes: 4 maxDistance: 1.29987
+X : 11 Y : 25 maxVotes: 1 maxDistance: 1
+X : 10 Y : 24 maxVotes: 0 maxDistance: 0
+X : 9 Y : 23 maxVotes: 0 maxDistance: 0
+X : 8 Y : 22 maxVotes: 0 maxDistance: 0
+X : 7 Y : 21 maxVotes: 0 maxDistance: 0
+
+=========================================================
+
+Printing chordAry
+
+0.447214
+0.894427
+1.34164
+1.78885
+2.23607
+1.78885
+1.34164
+0.894427
+0.447214
+3.57771
+3.57771
+
+=========================================================
+
+Printing P1 to P2
+
+
+=========================================================
+
+Printing chordAry
+
+0.371391
+0.742781
 1.11417
+1.48556
+0.928477
+0.371391
+0.185695
+0.742781
 0.557086
-0
+0.557086
 0.557086
 
 =========================================================
 
 Printing P1 to P2
 
-X : 18 Y : 31 maxVotes: 0 maxDistance: 0
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 7 maxDistance: 0.557086
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
-X : 11 Y : 30 maxVotes: 0 maxDistance: 0
-X : 10 Y : 29 maxVotes: 0 maxDistance: 0
-X : 9 Y : 28 maxVotes: 0 maxDistance: 0
-X : 8 Y : 27 maxVotes: 0 maxDistance: 0
 
 =========================================================
 
 Printing chordAry
 
-1.37199
-2.74398
-2.40098
-2.05798
-1.71499
-1.37199
-1.02899
-0.685994
-0.342997
-0
-0.342997
-
-=========================================================
-
-Printing P1 to P2
-
-X : 17 Y : 32 maxVotes: 0 maxDistance: 0
-X : 16 Y : 33 maxVotes: 8 maxDistance: 0.342997
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
-X : 11 Y : 30 maxVotes: 0 maxDistance: 0
-X : 10 Y : 29 maxVotes: 0 maxDistance: 0
-X : 9 Y : 28 maxVotes: 0 maxDistance: 0
-X : 8 Y : 27 maxVotes: 0 maxDistance: 0
-X : 7 Y : 26 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-1.40556
-1.24939
-1.09322
-0.937043
-0.780869
-0.624695
-0.468521
-0.312348
-0.156174
-0
-0.156174
-
-=========================================================
-
-Printing P1 to P2
-
-X : 16 Y : 33 maxVotes: 9 maxDistance: 0.156174
-X : 15 Y : 34 maxVotes: 1 maxDistance: 1.41421
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
-X : 11 Y : 30 maxVotes: 0 maxDistance: 0
-X : 10 Y : 29 maxVotes: 0 maxDistance: 0
-X : 9 Y : 28 maxVotes: 0 maxDistance: 0
-X : 8 Y : 27 maxVotes: 0 maxDistance: 0
-X : 7 Y : 26 maxVotes: 0 maxDistance: 0
-X : 6 Y : 25 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 15 Y : 34 maxVotes: 2 maxDistance: 0
-X : 14 Y : 33 maxVotes: 0 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
-X : 11 Y : 30 maxVotes: 0 maxDistance: 0
-X : 10 Y : 29 maxVotes: 0 maxDistance: 0
-X : 9 Y : 28 maxVotes: 0 maxDistance: 0
-X : 8 Y : 27 maxVotes: 0 maxDistance: 0
-X : 7 Y : 26 maxVotes: 0 maxDistance: 0
-X : 6 Y : 25 maxVotes: 0 maxDistance: 0
-X : 5 Y : 24 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 14 Y : 33 maxVotes: 1 maxDistance: 0
-X : 13 Y : 32 maxVotes: 0 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
-X : 11 Y : 30 maxVotes: 0 maxDistance: 0
-X : 10 Y : 29 maxVotes: 0 maxDistance: 0
-X : 9 Y : 28 maxVotes: 0 maxDistance: 0
-X : 8 Y : 27 maxVotes: 0 maxDistance: 0
-X : 7 Y : 26 maxVotes: 0 maxDistance: 0
-X : 6 Y : 25 maxVotes: 0 maxDistance: 0
-X : 5 Y : 24 maxVotes: 0 maxDistance: 0
-X : 4 Y : 23 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-
-=========================================================
-
-Printing P1 to P2
-
-X : 13 Y : 32 maxVotes: 1 maxDistance: 0
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
-X : 11 Y : 30 maxVotes: 0 maxDistance: 0
-X : 10 Y : 29 maxVotes: 0 maxDistance: 0
-X : 9 Y : 28 maxVotes: 0 maxDistance: 0
-X : 8 Y : 27 maxVotes: 0 maxDistance: 0
-X : 7 Y : 26 maxVotes: 0 maxDistance: 0
-X : 6 Y : 25 maxVotes: 0 maxDistance: 0
-X : 5 Y : 24 maxVotes: 0 maxDistance: 0
-X : 4 Y : 23 maxVotes: 0 maxDistance: 0
-X : 3 Y : 22 maxVotes: 0 maxDistance: 0
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-13.435
-
-=========================================================
-
-Printing P1 to P2
-
-X : 12 Y : 31 maxVotes: 0 maxDistance: 0
-X : 11 Y : 30 maxVotes: 0 maxDistance: 0
-X : 10 Y : 29 maxVotes: 0 maxDistance: 0
-X : 9 Y : 28 maxVotes: 0 maxDistance: 0
-X : 8 Y : 27 maxVotes: 0 maxDistance: 0
-X : 7 Y : 26 maxVotes: 0 maxDistance: 0
-X : 6 Y : 25 maxVotes: 0 maxDistance: 0
-X : 5 Y : 24 maxVotes: 0 maxDistance: 0
-X : 4 Y : 23 maxVotes: 0 maxDistance: 0
-X : 3 Y : 22 maxVotes: 0 maxDistance: 0
-X : 2 Y : 21 maxVotes: 1 maxDistance: 13.435
-
-=========================================================
-
-Printing chordAry
-
-0
-0
-0
-0
-0
-0
-0
-0
-0
-13.435
-13.435
+0.287348
+0.574696
+0.862044
+0.191565
+0.478913
+1.14939
+1.81987
+2.49035
+2.49035
+2.49035
+2.49035
 
 =========================================================
 
@@ -1493,17 +3135,17 @@ Printing P1 to P2
 
 Printing chordAry
 
-0.156174
-0.312348
-0.468521
-0.624695
-0.780869
-0.937043
-1.09322
-1.24939
-10.3075
-10.3075
-10.3075
+0.196116
+0.392232
+0.392232
+1.1767
+1.96116
+2.74563
+5.49125
+5.49125
+5.49125
+5.49125
+5.49125
 
 =========================================================
 
@@ -1514,59 +3156,17 @@ Printing P1 to P2
 
 Printing chordAry
 
-0.342997
-0.685994
-1.02899
-1.37199
-1.71499
-2.05798
-2.40098
-6.68844
-6.68844
-6.68844
-6.68844
-
-=========================================================
-
-Printing P1 to P2
-
-
-=========================================================
-
-Printing chordAry
-
-0.557086
-1.11417
-1.67126
-2.22834
-2.78543
-3.34252
-2.59973
-2.59973
-2.59973
-2.59973
-2.59973
-
-=========================================================
-
-Printing P1 to P2
-
-
-=========================================================
-
-Printing chordAry
-
-0.784465
-1.56893
-2.35339
-3.13786
-3.92232
-1.76505
-1.76505
-1.76505
-1.76505
-1.76505
-1.76505
+0.0995037
+0.79603
+1.69156
+2.5871
+3.48263
+8.35831
+8.35831
+8.35831
+8.35831
+8.35831
+8.35831
 
 =========================================================
 
@@ -1577,62 +3177,112 @@ Printing P1 to P2
 
 Printing boundaryArr
 
-1 20
-2 19
-3 18
-4 17
-5 16
-6 15
-7 14
-8 13
-9 12
-10 11
-11 10
-12 9
-13 8
-14 7
-15 6
-16 7
-17 8
-18 9
-19 10
-20 11
-21 12
-22 13
-23 14
-24 15
-25 16
-26 17
-27 18
-28 19
-29 20
-28 21
-27 22
-26 23
-25 24
-24 25
-23 26
-22 27
-21 28
-20 29
-19 30
-18 31
-17 32
-16 33
-15 34
-14 33
-13 32
-12 31
-11 30
-10 29
-9 28
-8 27
-7 26
-6 25
-5 24
-4 23
-3 22
-2 21
+X: 6 , Y: 20, maxVotes: 0  max Distance 0
+X: 7 , Y: 19, maxVotes: 0  max Distance 0
+X: 8 , Y: 18, maxVotes: 0  max Distance 0
+X: 9 , Y: 17, maxVotes: 0  max Distance 0
+X: 10 , Y: 16, maxVotes: 4  max Distance 0.196116
+X: 11 , Y: 15, maxVotes: 0  max Distance 0
+X: 11 , Y: 14, maxVotes: 0  max Distance 0
+X: 11 , Y: 13, maxVotes: 0  max Distance 0
+X: 11 , Y: 12, maxVotes: 0  max Distance 0
+X: 11 , Y: 11, maxVotes: 0  max Distance 0
+X: 11 , Y: 10, maxVotes: 0  max Distance 0
+X: 11 , Y: 9, maxVotes: 0  max Distance 0
+X: 11 , Y: 8, maxVotes: 0  max Distance 0
+X: 11 , Y: 7, maxVotes: 9  max Distance 0.110432
+X: 11 , Y: 6, maxVotes: 2  max Distance 0
+X: 12 , Y: 6, maxVotes: 1  max Distance 0
+X: 13 , Y: 6, maxVotes: 1  max Distance 0
+X: 14 , Y: 6, maxVotes: 1  max Distance 0
+X: 15 , Y: 6, maxVotes: 1  max Distance 0
+X: 16 , Y: 6, maxVotes: 1  max Distance 0
+X: 17 , Y: 6, maxVotes: 1  max Distance 0
+X: 18 , Y: 6, maxVotes: 1  max Distance 0
+X: 19 , Y: 6, maxVotes: 1  max Distance 0
+X: 20 , Y: 6, maxVotes: 1  max Distance 0
+X: 21 , Y: 6, maxVotes: 1  max Distance 0
+X: 22 , Y: 6, maxVotes: 1  max Distance 0
+X: 23 , Y: 6, maxVotes: 1  max Distance 0
+X: 24 , Y: 6, maxVotes: 1  max Distance 0
+X: 25 , Y: 6, maxVotes: 0  max Distance 0
+X: 26 , Y: 6, maxVotes: 0  max Distance 0
+X: 27 , Y: 6, maxVotes: 0  max Distance 0
+X: 28 , Y: 6, maxVotes: 0  max Distance 0
+X: 29 , Y: 6, maxVotes: 0  max Distance 0
+X: 30 , Y: 6, maxVotes: 0  max Distance 0
+X: 31 , Y: 6, maxVotes: 0  max Distance 0
+X: 32 , Y: 6, maxVotes: 0  max Distance 0
+X: 33 , Y: 6, maxVotes: 0  max Distance 0
+X: 34 , Y: 6, maxVotes: 8  max Distance 0.242536
+X: 35 , Y: 6, maxVotes: 1  max Distance 1
+X: 35 , Y: 7, maxVotes: 0  max Distance 0
+X: 35 , Y: 8, maxVotes: 0  max Distance 0
+X: 35 , Y: 9, maxVotes: 0  max Distance 0
+X: 35 , Y: 10, maxVotes: 0  max Distance 0
+X: 35 , Y: 11, maxVotes: 0  max Distance 0
+X: 35 , Y: 12, maxVotes: 0  max Distance 0
+X: 35 , Y: 13, maxVotes: 0  max Distance 0
+X: 35 , Y: 14, maxVotes: 6  max Distance 1.29987
+X: 35 , Y: 15, maxVotes: 1  max Distance 1.10432
+X: 34 , Y: 16, maxVotes: 0  max Distance 0
+X: 33 , Y: 17, maxVotes: 0  max Distance 0
+X: 32 , Y: 18, maxVotes: 0  max Distance 0
+X: 31 , Y: 19, maxVotes: 7  max Distance 0.287348
+X: 30 , Y: 20, maxVotes: 0  max Distance 0
+X: 31 , Y: 21, maxVotes: 0  max Distance 0
+X: 32 , Y: 22, maxVotes: 0  max Distance 0
+X: 33 , Y: 23, maxVotes: 0  max Distance 0
+X: 34 , Y: 24, maxVotes: 6  max Distance 0.0995037
+X: 35 , Y: 25, maxVotes: 0  max Distance 0
+X: 35 , Y: 26, maxVotes: 0  max Distance 0
+X: 35 , Y: 27, maxVotes: 0  max Distance 0
+X: 35 , Y: 28, maxVotes: 0  max Distance 0
+X: 35 , Y: 29, maxVotes: 0  max Distance 0
+X: 35 , Y: 30, maxVotes: 0  max Distance 0
+X: 35 , Y: 31, maxVotes: 0  max Distance 0
+X: 35 , Y: 32, maxVotes: 0  max Distance 0
+X: 35 , Y: 33, maxVotes: 0  max Distance 0
+X: 35 , Y: 34, maxVotes: 9  max Distance 0.110432
+X: 35 , Y: 35, maxVotes: 2  max Distance 0
+X: 34 , Y: 35, maxVotes: 1  max Distance 0
+X: 33 , Y: 35, maxVotes: 1  max Distance 0
+X: 32 , Y: 35, maxVotes: 1  max Distance 0
+X: 31 , Y: 35, maxVotes: 1  max Distance 0
+X: 30 , Y: 35, maxVotes: 1  max Distance 0
+X: 29 , Y: 35, maxVotes: 1  max Distance 0
+X: 28 , Y: 35, maxVotes: 1  max Distance 0
+X: 27 , Y: 35, maxVotes: 1  max Distance 0
+X: 26 , Y: 35, maxVotes: 1  max Distance 0
+X: 25 , Y: 35, maxVotes: 1  max Distance 0
+X: 24 , Y: 35, maxVotes: 1  max Distance 0
+X: 23 , Y: 35, maxVotes: 1  max Distance 0
+X: 22 , Y: 35, maxVotes: 1  max Distance 0
+X: 21 , Y: 35, maxVotes: 0  max Distance 0
+X: 20 , Y: 35, maxVotes: 0  max Distance 0
+X: 19 , Y: 35, maxVotes: 0  max Distance 0
+X: 18 , Y: 35, maxVotes: 0  max Distance 0
+X: 17 , Y: 35, maxVotes: 0  max Distance 0
+X: 16 , Y: 35, maxVotes: 0  max Distance 0
+X: 15 , Y: 35, maxVotes: 0  max Distance 0
+X: 14 , Y: 35, maxVotes: 0  max Distance 0
+X: 13 , Y: 35, maxVotes: 0  max Distance 0
+X: 12 , Y: 35, maxVotes: 9  max Distance 0.110432
+X: 11 , Y: 35, maxVotes: 1  max Distance 1
+X: 11 , Y: 34, maxVotes: 0  max Distance 0
+X: 11 , Y: 33, maxVotes: 0  max Distance 0
+X: 11 , Y: 32, maxVotes: 0  max Distance 0
+X: 11 , Y: 31, maxVotes: 0  max Distance 0
+X: 11 , Y: 30, maxVotes: 0  max Distance 0
+X: 11 , Y: 29, maxVotes: 0  max Distance 0
+X: 11 , Y: 28, maxVotes: 0  max Distance 0
+X: 11 , Y: 27, maxVotes: 0  max Distance 0
+X: 11 , Y: 26, maxVotes: 5  max Distance 0.557086
+X: 11 , Y: 25, maxVotes: 1  max Distance 1
+X: 10 , Y: 24, maxVotes: 0  max Distance 0
+X: 9 , Y: 23, maxVotes: 0  max Distance 0
+X: 8 , Y: 22, maxVotes: 0  max Distance 0
+X: 7 , Y: 21, maxVotes: 4  max Distance 8.35831
 
 =========================================================
 
