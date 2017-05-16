@@ -10,7 +10,7 @@ private:
 	int minValIMG;
 	int maxValIMG;
   	int nRowsSE;
-	int nColsSE;
+	int nColsSE; //rename these
 	int minValSE; 
 	int maxValSE;
 	int rowOrigin;
@@ -28,6 +28,7 @@ public:
 	void loadImage(string);  
 	void loadstruct(string);  
     void zeroFrameImage(); 
+    void setMorphArrZero();
 	void dilation(int , int); 
 	void erosion (int ,int); 
 	void closing(int,int);
@@ -40,16 +41,30 @@ public:
 
 Morphology::Morphology(string inputImage, string inputSE) {
 
+	//read in the image
 	ifstream readImg;
 	ifstream readFile;
 	readImg.open(inputImage);
 	readImg >> numRowsIMG >> numColsIMG >> minValIMG >> maxValIMG;
-	readImg.close();
 	
+	//read in the structuring element
 	readFile.open(inputSE);
-
 	readFile >> nRowsSE >> nColsSE >> minValSE >> maxValSE >> rowOrigin >>
 	colOrigin >> rowFrameSize >> colFrameSize;
+	computeFrameSize();
+
+	imgAry = new int*[rowFrameSize];
+	morphAry = new int*[rowFrameSize];
+	for(int i = 0; i < rowFrameSize; ++i) {
+		imgAry[i] = new int[colFrameSize]();
+		morphAry[i] = new int[colFrameSize]();
+	}
+
+	structElemArr = new int*[nRowsSE];
+	for(int i = 0; i < nRowsSE; ++i)
+		structElemArr[i] = new int[nColsSE]();
+
+	readFile.close();
 	readImg.close();
           
 }
@@ -81,13 +96,9 @@ void Morphology::loadImage(string inputImage) {
 
 	ifstream readImg;
 	int pixel = -1;
-	computeFrameSize();
 	readImg.open(inputImage);
-	imgAry = new int*[rowFrameSize];
-	for(int i = 0; i < rowFrameSize; ++i)
-		imgAry[i] = new int[colFrameSize]();
-	//skip the header
 	
+	//skip the header
 	for(int i = 0; i < 3; ++i)
 		readImg >> pixel;
 
@@ -95,10 +106,10 @@ void Morphology::loadImage(string inputImage) {
 		for(int j = nColsSE; j < numColsIMG + 3; ++j) {
 			readImg >> pixel;
 			imgAry[i][j] = pixel;
-			cout << pixel << " ";
-		}
-		cout << endl;
+		}//for
 	}//for
+	//set morphArr to all zeroes;
+	setMorphArrZero();
 	readImg.close();
 }
 
@@ -108,13 +119,10 @@ void Morphology::loadstruct(string inputStrElem) {
 	ifstream readStrElem;
 	int pixel = -1;
 	readStrElem.open(inputStrElem);
-	readStrElem >> nRowsSE >> nColsSE >> minValSE >> maxValSE >> rowOrigin >> colOrigin ;
-	structElemArr = new int*[nRowsSE];
-	for(int i = 0; i < nRowsSE; ++i)
-		structElemArr[i] = new int[nColsSE]();
+
 	//skip the header
-	// for(int i = 0; i < 6; ++i)
-	// 	readStrElem >> pixel;
+	for(int i = 0; i < 6; ++i)
+		readStrElem >> pixel;
 
 	for(int i = 0; i < nRowsSE; ++i) {
 		for(int j = 0; j < nColsSE; ++j) {
@@ -141,7 +149,15 @@ void Morphology::zeroFrameImage() {
 		 morphAry[0][j]             = 0;
 		 morphAry[numRowsIMG + nRowsSE - 1][j]   = 0;
 	}
+}
 
+void Morphology::setMorphArrZero() {
+
+	for(int i = 0; i < rowFrameSize; ++i) {
+		for(int j = 0; j < colFrameSize; ++j) {
+			morphAry[i][j] = 0;
+		}//for
+	}//for
 }
 
 // at pixel(i,j), i begins at nRow / 2, and j begins at nColsSE / 2
@@ -187,29 +203,29 @@ void Morphology::outPutResult() {
 
 void Morphology::executeMorphology() {
 	prettyPrint(imgAry, rowFrameSize, colFrameSize, "image Array");
-	//prettyPrint(morphAry, rowFrameSize, colFrameSize, "morphAry");
-	//prettyPrint(structElemArr, nRowsSE, nColsSE, "structing element");
+	prettyPrint(morphAry, rowFrameSize, colFrameSize, "morphAry");
+	prettyPrint(structElemArr, nRowsSE, nColsSE, "structing element");
 }
 
 
 int main(int argc, char* argv[]) {
-	// if(argc != 4) {
-	// 	cout << "Program needs 5 files:\n"
-	// 	     << "One inputFile and 4 output " 
-	// 	     << "files, Terminating!!" << endl;
-	// 	    return 0;
-	// }
+	if(argc != 7) {
+		cout << "Program needs 5 files:\n"
+		     << "One inputFile and 4 output " 
+		     << "files, Terminating!!" << endl;
+		    return 0;
+	}
 	string inputimage = argv[1];
 	string inputStrctElmnt = argv[2];
-	//string outputFile1 = argv[3];
-	//string outputFile2 = argv[4];
-	//string outputFile3 = argv[5];
-	//string outputFile4 = argv[6]; 
-	Morphology morhology(inputimage, argv[2]);
+	string outputFile1 = argv[3];
+	string outputFile2 = argv[4];
+	string outputFile3 = argv[5];
+	string outputFile4 = argv[6]; 
+	Morphology morhology(inputimage, inputStrctElmnt);
+	morhology.zeroFrameImage();
 	morhology.loadImage(inputimage);
-	// //morhology.loadstruct(inputStrctElmnt);
-	//morhology.zeroFrameImage();
-	//morhology.executeMorphology();
+	morhology.loadstruct(inputStrctElmnt);
+	morhology.executeMorphology();
 }
 
 
