@@ -30,9 +30,10 @@ public:
     void zeroFrameImage(); 
     void setMorphArrZero();
 	void dilation(); 
-	void erosion (int ,int); 
-	void closing(int,int);
-	void opening(int,int);   
+	void erosion (); 
+	void closing();
+	void opening();   
+	bool checkIfEq(int, int);
 	void prettyPrint(int**, int, int, string);
 	void outPutResult();
 	void executeMorphology(); 
@@ -180,22 +181,44 @@ void Morphology::dilation() {
 }
 
 // at pixel(i,j)
-void Morphology::erosion(int pixel1, int pixel2) {
+void Morphology::erosion() {
+	for(int i = nRowsSE; i < numRowsIMG + 3; ++i) {
+		for(int j = nColsSE; j < numColsIMG + 3; ++j) {
+			if(imgAry[i][j] > 0) {
+				if(checkIfEq(i,j))
+					morphAry[i][j] = 1;
+				else
+					morphAry[i][j] = 0;
+			}//if statment	
+		}
+	}
 
 }
 
+bool Morphology::checkIfEq(int i, int j) {
+	for(int seRow = 0; seRow < nRowsSE; ++seRow) {
+		for(int seCol = 0; seCol < nColsSE; ++seCol) {
+			if(structElemArr[seRow][seCol] == 1 &&
+					imgAry[i - rowOrigin + seRow][j - colOrigin + seCol] == 0) 
+				return false;	
+			//cout << imgAry[i - rowOrigin + seRow][j - colOrigin + seCol] << " ";
+		}//for loop for struct col
+	}//for loop for struct row
+	return true;
+}
+
 // at pixel(i,j)
-void Morphology::closing(int pixel1, int pixel2) {
+void Morphology::closing() {
 
 	dilation();
-	erosion(pixel1, pixel2);
+	erosion();
 
 }
 
 // at pixel(i,j)
-void Morphology::opening(int pixel1, int pixel2) {
+void Morphology::opening() {
 
-	erosion(pixel1, pixel2);
+	erosion();
 	dilation();
 }
 
@@ -207,8 +230,8 @@ void Morphology::prettyPrint(int** arr, int rows, int cols, string description) 
 		for(int col = 0; col < cols; ++col) {
 			//if(arr[row][col] > 0 ) 
 				cout << arr[row][col] << " ";
-			// else 
-			// 	cout << "  ";
+			 //else 
+			 	//cout << "  ";
 		}
 		cout << endl;
 	}
@@ -224,8 +247,11 @@ void Morphology::executeMorphology() {
 	prettyPrint(imgAry, rowFrameSize, colFrameSize, "image Array");
 	
 	prettyPrint(structElemArr, nRowsSE, nColsSE, "structing element");
-	dilation();
+	//dilation();
+	//setMorphArrZero();
+	erosion();
 	prettyPrint(morphAry, rowFrameSize, colFrameSize, "morphAry");
+
 }
 
 
