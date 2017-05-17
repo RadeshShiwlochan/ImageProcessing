@@ -29,7 +29,7 @@ public:
 	void loadstruct(string);  
     void zeroFrameImage(); 
     void setMorphArrZero();
-	void dilation(int , int); 
+	void dilation(); 
 	void erosion (int ,int); 
 	void closing(int,int);
 	void opening(int,int);   
@@ -161,7 +161,21 @@ void Morphology::setMorphArrZero() {
 }
 
 // at pixel(i,j), i begins at nRow / 2, and j begins at nColsSE / 2
-void Morphology::dilation(int pixel1, int pixel2) {
+void Morphology::dilation() {
+	for(int i = nRowsSE; i < numRowsIMG + 3; ++i) {
+		for(int j = nColsSE; j < numColsIMG + 3; ++j) {
+			if(imgAry[i][j] > 0) {
+				for(int seRow = 0; seRow < nRowsSE; ++seRow) {
+					for(int seCol = 0; seCol < nColsSE; ++seCol) {
+						if(structElemArr[seRow][seCol] == 1) {
+							morphAry[i - rowOrigin + seRow][j - colOrigin + seCol] =
+											structElemArr[seRow][seCol];
+						}//if statement
+					}//for loop for struct col
+				}//for loop for struct row
+			}//if statment	
+		}
+	}
 
 }
 
@@ -173,11 +187,16 @@ void Morphology::erosion(int pixel1, int pixel2) {
 // at pixel(i,j)
 void Morphology::closing(int pixel1, int pixel2) {
 
+	dilation();
+	erosion(pixel1, pixel2);
+
 }
 
 // at pixel(i,j)
 void Morphology::opening(int pixel1, int pixel2) {
 
+	erosion(pixel1, pixel2);
+	dilation();
 }
 
 void Morphology::prettyPrint(int** arr, int rows, int cols, string description) {
@@ -186,10 +205,10 @@ void Morphology::prettyPrint(int** arr, int rows, int cols, string description) 
 
 	for(int row = 0; row < rows; ++row) {
 		for(int col = 0; col < cols; ++col) {
-			if(arr[row][col] > 0 ) 
+			//if(arr[row][col] > 0 ) 
 				cout << arr[row][col] << " ";
-			else 
-				cout << "  ";
+			// else 
+			// 	cout << "  ";
 		}
 		cout << endl;
 	}
@@ -203,8 +222,10 @@ void Morphology::outPutResult() {
 
 void Morphology::executeMorphology() {
 	prettyPrint(imgAry, rowFrameSize, colFrameSize, "image Array");
-	prettyPrint(morphAry, rowFrameSize, colFrameSize, "morphAry");
+	
 	prettyPrint(structElemArr, nRowsSE, nColsSE, "structing element");
+	dilation();
+	prettyPrint(morphAry, rowFrameSize, colFrameSize, "morphAry");
 }
 
 
