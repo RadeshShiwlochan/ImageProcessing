@@ -35,8 +35,8 @@ public:
 	void opening();   
 	bool checkIfEq(int, int);
 	void prettyPrint(int**, int, int, string);
-	void outPutResult();
-	void executeMorphology(); 
+	void outPutResult(string);
+	void executeMorphology(string arr[]); 
 
 };
 
@@ -228,10 +228,10 @@ void Morphology::prettyPrint(int** arr, int rows, int cols, string description) 
 
 	for(int row = 0; row < rows; ++row) {
 		for(int col = 0; col < cols; ++col) {
-			//if(arr[row][col] > 0 ) 
+			if(arr[row][col] > 0 ) 
 				cout << arr[row][col] << " ";
-			 //else 
-			 	//cout << "  ";
+			 else 
+			 	cout << "  ";
 		}
 		cout << endl;
 	}
@@ -239,18 +239,36 @@ void Morphology::prettyPrint(int** arr, int rows, int cols, string description) 
 
 }
 
-void Morphology::outPutResult() {
-
+void Morphology::outPutResult(string outputFile) {
+	ofstream printToFile;
+	printToFile.open(outputFile);
+	for(int i = 0; i < rowFrameSize; ++i) {
+		for(int j = 0; j < colFrameSize; ++j) {
+			printToFile << morphAry[i][j] << " ";
+		}
+		printToFile << endl;
+	}
+	printToFile.close();
 }
 
-void Morphology::executeMorphology() {
+void Morphology::executeMorphology(string files []) {
 	prettyPrint(imgAry, rowFrameSize, colFrameSize, "image Array");
 	
 	prettyPrint(structElemArr, nRowsSE, nColsSE, "structing element");
-	//dilation();
-	//setMorphArrZero();
+	dilation();
+	outPutResult(files[0]);
+	setMorphArrZero();
 	erosion();
+	outPutResult(files[1]);
 	prettyPrint(morphAry, rowFrameSize, colFrameSize, "morphAry");
+	setMorphArrZero();
+	closing();
+	outPutResult(files[2]);
+	prettyPrint(morphAry, rowFrameSize, colFrameSize, "Closing");
+	setMorphArrZero();
+	opening();
+	outPutResult(files[3]);
+	prettyPrint(morphAry, rowFrameSize, colFrameSize, "Opening");
 
 }
 
@@ -264,15 +282,20 @@ int main(int argc, char* argv[]) {
 	}
 	string inputimage = argv[1];
 	string inputStrctElmnt = argv[2];
+	string files[4];
 	string outputFile1 = argv[3];
 	string outputFile2 = argv[4];
 	string outputFile3 = argv[5];
-	string outputFile4 = argv[6]; 
+	string outputFile4 = argv[6];
+	files[0] = outputFile1;
+	files[1] = outputFile2;
+	files[2] = outputFile3;
+	files[3] = outputFile4; 
 	Morphology morhology(inputimage, inputStrctElmnt);
 	morhology.zeroFrameImage();
 	morhology.loadImage(inputimage);
 	morhology.loadstruct(inputStrctElmnt);
-	morhology.executeMorphology();
+	morhology.executeMorphology(files);
 }
 
 
