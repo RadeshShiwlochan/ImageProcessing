@@ -10,7 +10,7 @@ private:
 	int minValIMG;
 	int maxValIMG;
   	int nRowsSE;
-	int nColsSE; //rename these
+	int nColsSE; 
 	int minValSE; 
 	int maxValSE;
 	int rowOrigin;
@@ -35,7 +35,7 @@ public:
 	void opening();   
 	bool checkIfEq(int, int);
 	void prettyPrint(int**, int, int, string);
-	void outPutResult(string);
+	void outPutResult(string, string);
 	void executeMorphology(string arr[]); 
 
 };
@@ -83,16 +83,12 @@ Morphology::~Morphology() {
 	// 	delete [] structElemArr[i];
 	// delete [] structElemArr;
 }
-/** 
-	rowFrameSize set to nRows (half to the top and half to the bottom) 
-	colFrameSize set to nColsSE (half to the left and half to the right) 
-*/
+
 void Morphology::computeFrameSize() {
 	rowFrameSize = (nRowsSE * 2) + numRowsIMG;
 	colFrameSize = (nColsSE * 2) + numColsIMG;
 }
 
-// load imgAry from input1
 void Morphology::loadImage(string inputImage) {
 
 	ifstream readImg;
@@ -114,7 +110,6 @@ void Morphology::loadImage(string inputImage) {
 	readImg.close();
 }
 
-// load structAry from input2
 void Morphology::loadstruct(string inputStrElem) {
 
 	ifstream readStrElem;
@@ -161,7 +156,6 @@ void Morphology::setMorphArrZero() {
 	}//for
 }
 
-// at pixel(i,j), i begins at nRow / 2, and j begins at nColsSE / 2
 void Morphology::dilation() {
 	for(int i = nRowsSE; i < numRowsIMG + 3; ++i) {
 		for(int j = nColsSE; j < numColsIMG + 3; ++j) {
@@ -172,15 +166,14 @@ void Morphology::dilation() {
 							morphAry[i - rowOrigin + seRow][j - colOrigin + seCol] =
 											structElemArr[seRow][seCol];
 						}//if statement
-					}//for loop for struct col
-				}//for loop for struct row
-			}//if statment	
+					}//for 
+				}//for 
+			}//if 	
 		}
 	}
 
 }
 
-// at pixel(i,j)
 void Morphology::erosion() {
 	for(int i = nRowsSE; i < numRowsIMG + 3; ++i) {
 		for(int j = nColsSE; j < numColsIMG + 3; ++j) {
@@ -201,31 +194,27 @@ bool Morphology::checkIfEq(int i, int j) {
 			if(structElemArr[seRow][seCol] == 1 &&
 					imgAry[i - rowOrigin + seRow][j - colOrigin + seCol] == 0) 
 				return false;	
-			//cout << imgAry[i - rowOrigin + seRow][j - colOrigin + seCol] << " ";
-		}//for loop for struct col
-	}//for loop for struct row
+		}//for 
+	}//for 
 	return true;
 }
 
-// at pixel(i,j)
 void Morphology::closing() {
 
 	dilation();
 	erosion();
-
 }
 
-// at pixel(i,j)
 void Morphology::opening() {
 
 	erosion();
 	dilation();
 }
 
-void Morphology::prettyPrint(int** arr, int rows, int cols, string description) {
+void Morphology::prettyPrint(int** arr, int rows, int cols, 
+											string description) {
 
 	cout << endl << endl << description << endl << endl;
-
 	for(int row = 0; row < rows; ++row) {
 		for(int col = 0; col < cols; ++col) {
 			if(arr[row][col] > 0 ) 
@@ -239,10 +228,11 @@ void Morphology::prettyPrint(int** arr, int rows, int cols, string description) 
 
 }
 
-void Morphology::outPutResult(string outputFile) {
+void Morphology::outPutResult(string outputFile, string description) {
 	ofstream printToFile;
 	printToFile.open(outputFile);
-	for(int i = 0; i < rowFrameSize; ++i) {
+	printToFile << description << endl << endl;
+	for(int i = 0; i < rowFrameSize ; ++i) {
 		for(int j = 0; j < colFrameSize; ++j) {
 			printToFile << morphAry[i][j] << " ";
 		}
@@ -256,19 +246,23 @@ void Morphology::executeMorphology(string files []) {
 	
 	prettyPrint(structElemArr, nRowsSE, nColsSE, "structing element");
 	dilation();
-	outPutResult(files[0]);
+	outPutResult(files[0], "Dilation Results");
+	prettyPrint(morphAry, rowFrameSize, colFrameSize, "Dilation Results");
 	setMorphArrZero();
+
 	erosion();
-	outPutResult(files[1]);
-	prettyPrint(morphAry, rowFrameSize, colFrameSize, "morphAry");
+	outPutResult(files[1], "Erosion Results");
+	prettyPrint(morphAry, rowFrameSize, colFrameSize, "Erosion Results");
 	setMorphArrZero();
+
 	closing();
-	outPutResult(files[2]);
-	prettyPrint(morphAry, rowFrameSize, colFrameSize, "Closing");
+	outPutResult(files[2],"Closing Results");
+	prettyPrint(morphAry, rowFrameSize, colFrameSize, "Closing Results");
 	setMorphArrZero();
+
 	opening();
-	outPutResult(files[3]);
-	prettyPrint(morphAry, rowFrameSize, colFrameSize, "Opening");
+	outPutResult(files[3], "Opening Result");
+	prettyPrint(morphAry, rowFrameSize, colFrameSize, "Opening Results");
 
 }
 
@@ -283,14 +277,10 @@ int main(int argc, char* argv[]) {
 	string inputimage = argv[1];
 	string inputStrctElmnt = argv[2];
 	string files[4];
-	string outputFile1 = argv[3];
-	string outputFile2 = argv[4];
-	string outputFile3 = argv[5];
-	string outputFile4 = argv[6];
-	files[0] = outputFile1;
-	files[1] = outputFile2;
-	files[2] = outputFile3;
-	files[3] = outputFile4; 
+	files[0] = argv[3];
+	files[1] = argv[4];
+	files[2] = argv[5];
+	files[3] = argv[6]; 
 	Morphology morhology(inputimage, inputStrctElmnt);
 	morhology.zeroFrameImage();
 	morhology.loadImage(inputimage);
